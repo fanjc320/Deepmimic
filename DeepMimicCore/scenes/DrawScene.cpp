@@ -470,12 +470,14 @@ void cDrawScene::InitRenderResources()
 
 	{
 		mShaderDepth = std::unique_ptr<cShader>(new cShader());
-		succ &= mShaderDepth->BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/Depth_PS.glsl");
+		//succ &= mShaderDepth->BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/Depth_PS.glsl");
+		succ &= mShaderDepth->BuildShader("../data/shaders/Mesh_VS.glsl", "../data/shaders/Depth_PS.glsl");
 	}
 
 	{
 		mShaderMesh = std::unique_ptr<cShader>(new cShader());
-		succ &= mShaderMesh->BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/Lighting_Lambert_PS.glsl");
+		//succ &= mShaderMesh->BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/Lighting_Lambert_PS.glsl");
+		succ &= mShaderMesh->BuildShader("../data/shaders/Mesh_VS.glsl", "../data/shaders/Lighting_Lambert_PS.glsl");
 
 		mShaderMesh->Bind();
 		mShaderMesh->GetUniformHandle(mMeshLightDirHandle, "gLightDir");
@@ -514,7 +516,8 @@ void cDrawScene::InitRenderResources()
 bool cDrawScene::LoadTextures()
 {
 	bool succ = true;
-	mGridTex = std::unique_ptr<cTextureDesc>(new cTextureDesc("data/textures/grid0.png", true));
+	//mGridTex = std::unique_ptr<cTextureDesc>(new cTextureDesc("data/textures/grid0.png", true));
+	mGridTex = std::unique_ptr<cTextureDesc>(new cTextureDesc("../data/textures/grid0.png", true));
 	succ &= mGridTex->IsValid();
 	return succ;
 }

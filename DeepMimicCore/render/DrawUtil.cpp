@@ -942,15 +942,18 @@ void cDrawUtil::SetPointSize(double pt_size)
 void cDrawUtil::BuildShaders()
 {
 	{
-		gDefaultProg.BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/VertColor_PS.glsl");
+		//gDefaultProg.BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/VertColor_PS.glsl");
+		gDefaultProg.BuildShader("../data/shaders/Mesh_VS.glsl", "../data/shaders/VertColor_PS.glsl");
 	}
 
 	{
-		gCopyProg.BuildShader("data/shaders/FullScreenQuad_VS.glsl", "data/shaders/DownSample_PS.glsl");
+		//gCopyProg.BuildShader("data/shaders/FullScreenQuad_VS.glsl", "data/shaders/DownSample_PS.glsl");
+		gCopyProg.BuildShader("../data/shaders/FullScreenQuad_VS.glsl", "../data/shaders/DownSample_PS.glsl");
 	}
 
 	{
-		gCopyMeshProg.BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/DownSample_PS.glsl");
+		//gCopyMeshProg.BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/DownSample_PS.glsl");
+		gCopyMeshProg.BuildShader("../data/shaders/Mesh_VS.glsl", "../data/shaders/DownSample_PS.glsl");
 	}
 }
 

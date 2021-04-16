@@ -116,6 +116,10 @@ GLuint cShader::CreateShader(GLuint& vsh_handle, GLuint& psh_handle)
 	glGetProgramiv(shader_program, GL_LINK_STATUS, &valid_status);
 	if (!valid_status)
 	{
+		GLchar infoLog[512];
+		GLint size; //gives 0 when checked in debugger
+		glGetProgramInfoLog(shader_program, 512, &size, infoLog);
+
 		std::cout << "shader linking failed\n";
 	}
 	else

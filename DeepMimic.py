@@ -82,7 +82,7 @@ def update_world(world, time_elapsed):
 def draw():
     global reshaping
 
-    update_intermediate_buffer()
+    #update_intermediate_buffer()
     world.env.draw()
     
     glutSwapBuffers()
@@ -172,6 +172,7 @@ def animate(callback_val):
         prev_time = curr_time;
 
         timestep = -update_timestep if (playback_speed < 0) else update_timestep
+
         for i in range(num_steps):
             update_world(world, timestep)
         
