@@ -50,16 +50,17 @@ void cDrawSceneSimChar::Clear()
 
 void cDrawSceneSimChar::Update(double time_elapsed)
 {
-	cDrawScene::Update(time_elapsed);
+	//cDrawScene::Update(time_elapsed);//À∆∫ıŒﬁ”√
 
-	UpdateScene(time_elapsed);
+	UpdateScene(time_elapsed);//◊¢ ÕµÙ‘Úª≠√Êæ≤÷π
+	/*
 	if (mEnableTrace)
 	{
 		UpdateTracer(time_elapsed);
-	}
+	}*/
 	
-	UpdateGroundDrawMesh();
-	UpdateCamera();
+	//UpdateGroundDrawMesh();
+	//UpdateCamera();
 }
 
 const std::shared_ptr<cSceneSimChar>& cDrawSceneSimChar::GetScene() const
@@ -159,8 +160,8 @@ void cDrawSceneSimChar::SetupScene(std::shared_ptr<cSceneSimChar>& out_scene)
 
 void cDrawSceneSimChar::UpdateScene(double time_elapsed)
 {
-	ApplyUIForce(time_elapsed);
-	mScene->Update(time_elapsed);
+	//ApplyUIForce(time_elapsed);
+	mScene->Update(time_elapsed);//mScene->cSceneSimChar
 }
 
 void cDrawSceneSimChar::ResetScene()

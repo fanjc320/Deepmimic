@@ -46,7 +46,7 @@ void cScene::Reset()
 
 void cScene::Update(double timestep)
 {
-	UpdateTimers(timestep);
+	//UpdateTimers(timestep);
 }
 
 void cScene::Draw()
@@ -133,5 +133,5 @@ void cScene::ResetTimers()
 
 void cScene::UpdateTimers(double timestep)
 {
-	mTimer.Update(timestep);
+	//mTimer.Update(timestep);
 }

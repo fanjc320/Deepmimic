@@ -141,7 +141,7 @@ void Update(double time_elapsed)
 
 void Draw(void)
 {
-	UpdateFrameBuffer();
+	//UpdateFrameBuffer();
 	gCore->Draw();
 	
 	glutSwapBuffers();

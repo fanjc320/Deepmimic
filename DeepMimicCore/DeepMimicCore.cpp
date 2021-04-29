@@ -55,7 +55,7 @@ void cDeepMimicCore::Init()
 
 void cDeepMimicCore::Update(double timestep)
 {
-	mScene->Update(timestep);
+	mScene->Update(timestep);//×¢ÊÍ»­Ãæ¾²Ö¹ mScen:cDrawSceneImitate
 }
 
 void cDeepMimicCore::Reset()
@@ -83,8 +83,8 @@ void cDeepMimicCore::Draw()
 {
 	if (EnableDraw())
 	{
-		mDefaultFrameBuffer->BindBuffer();
-		mScene->Draw();
+		mDefaultFrameBuffer->BindBuffer();//È¥µôºóÆÁÄ»ÔÚ°×ºÍ»ÒÖ®¼äÉÁË¸
+		mScene->Draw();//×¢ÊÍ¾ÍºÚÆÁ,cDrawSceneImitate
 		mDefaultFrameBuffer->UnbindBuffer();
 	}
 }

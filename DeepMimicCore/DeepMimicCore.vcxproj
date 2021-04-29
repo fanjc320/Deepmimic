@@ -226,6 +226,8 @@
       <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>E:\TestProjs\3party\bullet3-2.88\src;$(ProjectDir);E:\TestProjs\3party\glew-2.1.0\include;E:\TestProjs\3party\freeglut-3.0.0\include;E:\TestProjs\3party\eigen-3.3.7;$(PYTHON_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BrowseInformation>false</BrowseInformation>
+      <AdditionalOptions>/Zm200 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -236,6 +238,9 @@
       <AdditionalDependencies>opengl32.lib;glu32.lib;glew32.lib;BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="anim\Character.cpp" />
@@ -321,6 +326,7 @@
     <ClCompile Include="sim\CtrlBuilder.cpp" />
     <ClCompile Include="sim\World.cpp" />
     <ClCompile Include="DeepMimicCore.cpp" />
+    <ClCompile Include="Test_Opengl.cpp" />
     <ClCompile Include="util\Annealer.cpp" />
     <ClCompile Include="util\ArgParser.cpp" />
     <ClCompile Include="util\FileUtil.cpp" />
