@@ -344,10 +344,10 @@ void InitDraw(int argc, char** argv)
 void SetupDraw()
 {
 	glutDisplayFunc(Draw);
-	glutReshapeFunc(Reshape);
-	glutKeyboardFunc(Keyboard);
+	//glutReshapeFunc(Reshape);
+	/*glutKeyboardFunc(Keyboard);
 	glutMouseFunc(MouseClick);
-	glutMotionFunc(MouseMove);
+	glutMotionFunc(MouseMove);*/
 	glutTimerFunc(gDisplayAnimTime, Animate, 0);
 
 	InitFrameBuffers();
