@@ -345,17 +345,17 @@ tVector cDrawScene::GetLightDirection() const
 
 void cDrawScene::DrawScene()
 {
-	DoShadowPass();
+	//DoShadowPass();
 	mShaderMesh->Bind();
 	SetupMeshShader();
 
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
 
-	DrawGroundMainScene();
+	//DrawGroundMainScene();
 	DrawCharacterMainScene();
-	DrawObjsMainScene();
-	DrawMiscMainScene();
+	//DrawObjsMainScene();
+	//DrawMiscMainScene();
 
 	mShaderMesh->Unbind();
 

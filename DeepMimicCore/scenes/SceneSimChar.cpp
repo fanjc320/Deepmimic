@@ -135,29 +135,29 @@ void cSceneSimChar::Clear()
 
 void cSceneSimChar::Update(double time_elapsed)
 {
-	cScene::Update(time_elapsed);
+	//cScene::Update(time_elapsed);
 
 	if (time_elapsed < 0)
 	{
 		return;
 	}
 
-	if (mPerturbParams.mEnableRandPerturbs)
+	/*if (mPerturbParams.mEnableRandPerturbs)
 	{
 		UpdateRandPerturb(time_elapsed);
-	}
+	}*/
 
 	PreUpdate(time_elapsed);
 
 	// order matters!
 	UpdateCharacters(time_elapsed);
-	UpdateWorld(time_elapsed);
-	UpdateGround(time_elapsed);
-	UpdateObjs(time_elapsed);
+	UpdateWorld(time_elapsed);//×¢ÊÍµô½ÇÉ«¾²Ö¹
+	//UpdateGround(time_elapsed);
+	//UpdateObjs(time_elapsed);
 	UpdateJoints(time_elapsed);
 
-	PostUpdateCharacters(time_elapsed);
-	PostUpdate(time_elapsed);
+	PostUpdateCharacters(time_elapsed);//×¢ÊÍµô£¬½ÇÉ«ÎÞ¹æÂÉÅ¤¶¯
+	//PostUpdate(time_elapsed);
 }
 
 int cSceneSimChar::GetNumChars() const
@@ -584,7 +584,7 @@ void cSceneSimChar::ResolveCharGroundIntersect(const std::shared_ptr<cSimCharact
 
 void cSceneSimChar::UpdateWorld(double time_step)
 {
-	mWorld->Update(time_step);
+	mWorld->Update(time_step);//cWorld
 }
 
 void cSceneSimChar::UpdateCharacters(double time_step)
@@ -593,7 +593,7 @@ void cSceneSimChar::UpdateCharacters(double time_step)
 	for (int i = 0; i < num_chars; ++i)
 	{
 		const auto& curr_char = GetCharacter(i);
-		curr_char->Update(time_step);
+		curr_char->Update(time_step);//curr_char cSimCharacter
 	}
 }
 
@@ -603,7 +603,7 @@ void cSceneSimChar::PostUpdateCharacters(double time_step)
 	for (int i = 0; i < num_chars; ++i)
 	{
 		const auto& curr_char = GetCharacter(i);
-		curr_char->PostUpdate(time_step);
+		curr_char->PostUpdate(time_step);////curr_char cSimCharacter
 	}
 }
 
