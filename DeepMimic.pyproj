@@ -68,6 +68,7 @@
   <ItemGroup>
     <InterpreterReference Include="CondaEnv|CondaEnv|tf_v1" />
     <InterpreterReference Include="Global|PythonCore|3.5" />
+    <InterpreterReference Include="Global|PythonCore|3.9" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
