@@ -2,7 +2,7 @@
 #include "DrawCharacter.h"
 #include "sim/SimBox.h"
 #include "render/DrawObj.h"
-#include "render/DrawPerturb.h"
+//#include "render/DrawPerturb.h"
 #include "render/GraphUtil.h"
 
 void cDrawSimCharacter::Draw(const cSimCharacter& character, const tVector& fill_tint, const tVector& line_col, bool enable_draw_shape)
@@ -14,7 +14,7 @@ void cDrawSimCharacter::Draw(const cSimCharacter& character, const tVector& fill
 	}
 	else
 	{
-		DrawSimBody(character, fill_tint, line_col);
+		//DrawSimBody(character, fill_tint, line_col);
 	}
 }
 
@@ -33,6 +33,7 @@ void cDrawSimCharacter::DrawCoM(const cSimCharacter& character, double marker_si
 
 void cDrawSimCharacter::DrawTorque(const cSimCharacter& character, const tVector& offset)
 {
+	/*
 	int num_joints = character.GetNumJoints();
 	for (int j = 0; j < num_joints; ++j)
 	{
@@ -44,6 +45,7 @@ void cDrawSimCharacter::DrawTorque(const cSimCharacter& character, const tVector
 			cDrawPerturb::DrawTorque(pos + offset, torque);
 		}
 	}
+	*/
 }
 
 void cDrawSimCharacter::DrawBodyVel(const cSimCharacter& character, double lin_vel_scale, double ang_vel_scale, const tVector& offset)

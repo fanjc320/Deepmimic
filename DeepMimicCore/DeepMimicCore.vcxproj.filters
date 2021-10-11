@@ -194,14 +194,8 @@
     <ClCompile Include="render\DrawKinTree.cpp">
       <Filter>Source Files\render</Filter>
     </ClCompile>
-    <ClCompile Include="render\DrawPerturb.cpp">
-      <Filter>Source Files\render</Filter>
-    </ClCompile>
     <ClCompile Include="scenes\DrawSceneSimChar.cpp">
       <Filter>Source Files\scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="render\DrawWorld.cpp">
-      <Filter>Source Files\render</Filter>
     </ClCompile>
     <ClCompile Include="sim\CharController.cpp">
       <Filter>Source Files\sim</Filter>
@@ -505,14 +499,8 @@
     <ClInclude Include="render\DrawKinTree.h">
       <Filter>Source Files\render</Filter>
     </ClInclude>
-    <ClInclude Include="render\DrawPerturb.h">
-      <Filter>Source Files\render</Filter>
-    </ClInclude>
     <ClInclude Include="scenes\DrawSceneSimChar.h">
       <Filter>Source Files\scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="render\DrawWorld.h">
-      <Filter>Source Files\render</Filter>
     </ClInclude>
     <ClInclude Include="sim\CharController.h">
       <Filter>Source Files\sim</Filter>

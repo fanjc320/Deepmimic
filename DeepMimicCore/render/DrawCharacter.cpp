@@ -11,15 +11,15 @@ void cDrawCharacter::Draw(const cCharacter& character, double link_width, const 
 	}
 	else
 	{
-		const Eigen::MatrixXd& joint_mat = character.GetJointMat();
+		/*const Eigen::MatrixXd& joint_mat = character.GetJointMat();
 		const Eigen::VectorXd& pose = character.GetPose();
-		cDrawKinTree::Draw(joint_mat, pose, link_width, fill_col, line_col);
+		cDrawKinTree::Draw(joint_mat, pose, link_width, fill_col, line_col);*/
 	}
 }
 
 void cDrawCharacter::DrawPose(const cCharacter& character, const Eigen::VectorXd& pose, const tVector& fill_tint, const tVector& line_col)
 {
-	if (character.HasDrawShapes())
+	/*if (character.HasDrawShapes())
 	{
 		DrawPoseCharShapes(character, pose, tVector::Ones(), line_col);
 	}
@@ -27,7 +27,7 @@ void cDrawCharacter::DrawPose(const cCharacter& character, const Eigen::VectorXd
 	{
 		const Eigen::MatrixXd& joint_mat = character.GetJointMat();
 		cDrawKinTree::Draw(joint_mat, pose, 0, fill_tint, line_col);
-	}
+	}*/
 }
 
 void cDrawCharacter::DrawShape(const cKinTree::tDrawShapeDef& def, const tMatrix& parent_world_trans,
@@ -58,7 +58,7 @@ void cDrawCharacter::DrawShape(const cKinTree::tDrawShapeDef& def, const tMatrix
 
 void cDrawCharacter::DrawHeading(const cCharacter& character, double arrow_size, const tVector& arrow_col, const tVector& offset)
 {
-	tMatrix origin_trans = character.BuildOriginTrans();
+	/*tMatrix origin_trans = character.BuildOriginTrans();
 	tMatrix heading_trans = cMathUtil::InvRigidMat(origin_trans);
 	tVector root_pos = character.GetRootPos();
 	cDrawUtil::SetColor(arrow_col);
@@ -69,13 +69,13 @@ void cDrawCharacter::DrawHeading(const cCharacter& character, double arrow_size,
 	cDrawUtil::PushMatrixView();
 	cDrawUtil::MultMatrixView(heading_trans);
 	cDrawUtil::DrawArrow2D(start, end, arrow_size);
-	cDrawUtil::PopMatrixView();
+	cDrawUtil::PopMatrixView();*/
 }
 
 void cDrawCharacter::DrawShapeMesh(const cKinTree::tDrawShapeDef& def, const tMatrix& parent_world_trans,
 	cDrawMesh& mesh, const tVector& fill_tint)
 {
-	double theta = 0;
+	/*double theta = 0;
 	tVector euler = cKinTree::GetDrawShapeAttachTheta(def);
 	int parent_joint = cKinTree::GetDrawShapeParentJoint(def);
 	tVector attach_pt = cKinTree::GetDrawShapeAttachPt(def);
@@ -90,7 +90,7 @@ void cDrawCharacter::DrawShapeMesh(const cKinTree::tDrawShapeDef& def, const tMa
 	cDrawUtil::Scale(scale);
 	cDrawUtil::SetColor(col);
 	mesh.Draw();
-	cDrawUtil::PopMatrixView();
+	cDrawUtil::PopMatrixView();*/
 }
 
 
@@ -110,8 +110,8 @@ void cDrawCharacter::DrawCharShapes(const cCharacter& character, const tVector& 
 		int mesh_id = cKinTree::GetDrawShapeMeshID(curr_def);
 		if (mesh_id != gInvalidIdx)
 		{
-			const auto& mesh = character.GetMesh(mesh_id);
-			cDrawCharacter::DrawShapeMesh(curr_def, parent_world_trans, *mesh, fill_tint);
+			/*const auto& mesh = character.GetMesh(mesh_id);
+			cDrawCharacter::DrawShapeMesh(curr_def, parent_world_trans, *mesh, fill_tint);*/
 		}
 		else
 		{
@@ -122,7 +122,7 @@ void cDrawCharacter::DrawCharShapes(const cCharacter& character, const tVector& 
 
 void cDrawCharacter::DrawPoseCharShapes(const cCharacter& character, const Eigen::VectorXd& pose, const tVector& fill_tint, const tVector& line_col)
 {
-	assert(character.HasDrawShapes());
+	/*assert(character.HasDrawShapes());
 	const auto& shape_defs = character.GetDrawShapeDefs();
 	size_t num_shapes = shape_defs.rows();
 	const auto& joint_mat = character.GetJointMat();
@@ -144,7 +144,7 @@ void cDrawCharacter::DrawPoseCharShapes(const cCharacter& character, const Eigen
 		{
 			cDrawCharacter::DrawShape(curr_def, parent_world_trans, fill_tint, line_col);
 		}
-	}
+	}*/
 }
 
 void cDrawCharacter::DrawShapeBox(const cKinTree::tDrawShapeDef& def, const tMatrix& parent_world_trans,
