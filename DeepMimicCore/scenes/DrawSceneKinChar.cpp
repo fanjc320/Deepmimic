@@ -82,14 +82,14 @@ tVector cDrawSceneKinChar::GetDefaultCamFocus() const
 
 void cDrawSceneKinChar::DrawGround() const
 {
-	tVector ground_col = GetGroundColor();
+	/*tVector ground_col = GetGroundColor();
 	cDrawUtil::SetColor(ground_col);
-	DrawGround3D();
+	DrawGround3D();*/
 }
 
 void cDrawSceneKinChar::DrawGround3D() const
 {
-	const double w = 200;
+	/*const double w = 200;
 	const tVector ground_origin = tVector(0, gGroundHeight, 0, 0);
 	const tVector tex_size = tVector(0.5, 0.5, 0, 0);
 
@@ -113,7 +113,7 @@ void cDrawSceneKinChar::DrawGround3D() const
 	tVector coord_c = tVector(max_coord[0], max_coord[1], 0, 0);
 	tVector coord_d = tVector(max_coord[0], min_coord[1], 0, 0);
 
-	cDrawUtil::DrawQuad(a, b, c, d, coord_a, coord_b, coord_c, coord_d);
+	cDrawUtil::DrawQuad(a, b, c, d, coord_a, coord_b, coord_c, coord_d);*/
 }
 
 

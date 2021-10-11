@@ -38,8 +38,8 @@ cTextureDesc::cTextureDesc( int width, int height, int channels, GLenum format,
 		mType( type ),
 		mHasMips( mipmaps )
 {
-	cTextureUtil::CreateFrameBuffer(mObject, mTexture, mDepthStencil, mWidth, mHeight, mDepth,
-									mChannels, mFormat, mType, mHasMips);
+	/*cTextureUtil::CreateFrameBuffer(mObject, mTexture, mDepthStencil, mWidth, mHeight, mDepth,
+									mChannels, mFormat, mType, mHasMips);*/
 }
 
 cTextureDesc::cTextureDesc( int width, int height, int depth, int channels, 
@@ -52,8 +52,8 @@ cTextureDesc::cTextureDesc( int width, int height, int depth, int channels,
 	  mType( type ),
 	  mHasMips( mipmaps )
 {
-	cTextureUtil::CreateFrameBuffer(mObject, mTexture, mDepthStencil, mWidth, mHeight, mDepth,
-									mChannels, mFormat, mType, mHasMips);
+	/*cTextureUtil::CreateFrameBuffer(mObject, mTexture, mDepthStencil, mWidth, mHeight, mDepth,
+									mChannels, mFormat, mType, mHasMips);*/
 }
 
 cTextureDesc::cTextureDesc( GLuint obj, GLuint tex, GLuint ds, int width, int height, 
@@ -202,8 +202,9 @@ int cTextureDesc::GetNumTexels() const
 
 int cTextureDesc::GetNumChannels() const
 {
-	int channels = cTextureUtil::GetNumChannels(mChannels);
-	return channels;
+	/*int channels = cTextureUtil::GetNumChannels(mChannels);
+	return channels;*/
+	return 0;
 }
 
 void cTextureDesc::Reshape( int w, int h )
@@ -212,9 +213,9 @@ void cTextureDesc::Reshape( int w, int h )
 	mHeight = std::max(1, h);
 	if (mObject != 0) // 0 indicates the device's frame buffer, so no need to resize it
 	{
-		cTextureUtil::DeleteFrameBuffer(mObject, mTexture, mDepthStencil);
+		/*cTextureUtil::DeleteFrameBuffer(mObject, mTexture, mDepthStencil);
 		cTextureUtil::CreateFrameBuffer(mObject, mTexture, mDepthStencil, mWidth, mHeight,
-							mDepth, mChannels, mFormat, mType, mHasMips);
+							mDepth, mChannels, mFormat, mType, mHasMips);*/
 	}
 }
 
@@ -239,7 +240,7 @@ void cTextureDesc::WritePixels(const std::vector<GLubyte>& data)
 
 cTextureDesc::~cTextureDesc()
 {
-	cTextureUtil::DeleteFrameBuffer( mObject, mTexture, mDepthStencil );
+	//cTextureUtil::DeleteFrameBuffer( mObject, mTexture, mDepthStencil );
 }
 
 void cTextureDesc::PushTextureStack() const
@@ -251,7 +252,7 @@ void cTextureDesc::PushTextureStack() const
 	entry.mViewportParams[2] = mWidth;
 	entry.mViewportParams[3] = mHeight;
 
-	std::cout << " PushTextureStack buffer id:" << entry.mTex << std::endl;
+	std::cout << "----PushTextureStack buffer id:" << entry.mTex << std::endl;
 	gTexStack.push(entry);
 }
 
@@ -260,12 +261,12 @@ void cTextureDesc::PopTextureStack() const
 	bool bound = CheckBoundBuffer();
 	if (bound)
 	{
-		std::cout << " PopTextureStack pop:" << std::endl;
+		std::cout << "----PopTextureStack pop:" << std::endl;
 		gTexStack.pop();
 		if (!gTexStack.empty())
 		{
 			tTexEntry prev_entry = gTexStack.top();
-			std::cout << " PopTextureStack buffer id:" << prev_entry.mTex << std::endl;
+			std::cout << "---- PopTextureStack buffer id:" << prev_entry.mTex << std::endl;
 			glBindFramebuffer(GL_FRAMEBUFFER, prev_entry.mTex);
 			glViewport(prev_entry.mViewportParams[0], prev_entry.mViewportParams[1],
 				prev_entry.mViewportParams[2], prev_entry.mViewportParams[3]);

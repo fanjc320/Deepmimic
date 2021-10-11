@@ -62,9 +62,6 @@
     <ClCompile Include="render\TextureDesc.cpp">
       <Filter>Source Files\render</Filter>
     </ClCompile>
-    <ClCompile Include="render\TextureUtil.cpp">
-      <Filter>Source Files\render</Filter>
-    </ClCompile>
     <ClCompile Include="render\VertexBuffer.cpp">
       <Filter>Source Files\render</Filter>
     </ClCompile>
@@ -135,9 +132,6 @@
       <Filter>Source Files\sim</Filter>
     </ClCompile>
     <ClCompile Include="sim\SimSphere.cpp">
-      <Filter>Source Files\sim</Filter>
-    </ClCompile>
-    <ClCompile Include="sim\SimPlane.cpp">
       <Filter>Source Files\sim</Filter>
     </ClCompile>
     <ClCompile Include="sim\SimObj.cpp">
@@ -337,9 +331,6 @@
     <ClInclude Include="render\TextureDesc.h">
       <Filter>Source Files\render</Filter>
     </ClInclude>
-    <ClInclude Include="render\TextureUtil.h">
-      <Filter>Source Files\render</Filter>
-    </ClInclude>
     <ClInclude Include="render\VertexBuffer.h">
       <Filter>Source Files\render</Filter>
     </ClInclude>
@@ -440,9 +431,6 @@
       <Filter>Source Files\sim</Filter>
     </ClInclude>
     <ClInclude Include="sim\SimSphere.h">
-      <Filter>Source Files\sim</Filter>
-    </ClInclude>
-    <ClInclude Include="sim\SimPlane.h">
       <Filter>Source Files\sim</Filter>
     </ClInclude>
     <ClInclude Include="sim\SimObj.h">
@@ -585,9 +573,6 @@
     </ClInclude>
     <ClInclude Include="util\Annealer.h">
       <Filter>Source Files\util</Filter>
-    </ClInclude>
-    <ClInclude Include="render\ObjLoader.h">
-      <Filter>Source Files\render</Filter>
     </ClInclude>
     <ClInclude Include="sim\ExpPDController.h">
       <Filter>Source Files\sim</Filter>

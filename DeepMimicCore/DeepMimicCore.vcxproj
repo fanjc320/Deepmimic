@@ -273,7 +273,6 @@
     <ClCompile Include="render\Shader.cpp" />
     <ClCompile Include="render\ShadowMap.cpp" />
     <ClCompile Include="render\TextureDesc.cpp" />
-    <ClCompile Include="render\TextureUtil.cpp" />
     <ClCompile Include="render\VertexBuffer.cpp" />
     <ClCompile Include="scenes\DrawRLScene.cpp" />
     <ClCompile Include="scenes\DrawSceneImitate.cpp" />
@@ -317,7 +316,6 @@
     <ClCompile Include="sim\SimJoint.cpp" />
     <ClCompile Include="sim\SimCylinder.cpp" />
     <ClCompile Include="sim\SimObj.cpp" />
-    <ClCompile Include="sim\SimPlane.cpp" />
     <ClCompile Include="sim\SimRigidBody.cpp" />
     <ClCompile Include="sim\SimSphere.cpp" />
     <ClCompile Include="sim\SpAlg.cpp" />
@@ -359,12 +357,10 @@
     <ClInclude Include="render\lodepng\lodepng_util.h" />
     <ClInclude Include="render\MatrixStack.h" />
     <ClInclude Include="render\MeshUtil.h" />
-    <ClInclude Include="render\ObjLoader.h" />
     <ClInclude Include="render\RenderState.h" />
     <ClInclude Include="render\Shader.h" />
     <ClInclude Include="render\ShadowMap.h" />
     <ClInclude Include="render\TextureDesc.h" />
-    <ClInclude Include="render\TextureUtil.h" />
     <ClInclude Include="render\VertexBuffer.h" />
     <ClInclude Include="scenes\DrawRLScene.h" />
     <ClInclude Include="scenes\DrawSceneImitate.h" />
@@ -409,7 +405,6 @@
     <ClInclude Include="sim\SimJoint.h" />
     <ClInclude Include="sim\SimCylinder.h" />
     <ClInclude Include="sim\SimObj.h" />
-    <ClInclude Include="sim\SimPlane.h" />
     <ClInclude Include="sim\SimRigidBody.h" />
     <ClInclude Include="sim\SimSphere.h" />
     <ClInclude Include="sim\SpAlg.h" />

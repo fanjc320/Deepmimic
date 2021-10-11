@@ -54,13 +54,13 @@ bool cShadowMap::Init(unsigned int width, unsigned int height)
 
 void cShadowMap::Reshape(int w, int h)
 {
-	mWidth = std::max(1, w);
-	mHeight = std::max(1, h);
-	if (mObject != 0) // 0 indicates the device's frame buffer, so no need to resize it
-	{
-		cTextureUtil::DeleteFrameBuffer(mObject, mTexture, mDepthStencil);
-		Init(w, h);
-	}
+	//mWidth = std::max(1, w);
+	//mHeight = std::max(1, h);
+	//if (mObject != 0) // 0 indicates the device's frame buffer, so no need to resize it
+	//{
+	//	cTextureUtil::DeleteFrameBuffer(mObject, mTexture, mDepthStencil);
+	//	Init(w, h);
+	//}
 }
 
 cShadowMap::~cShadowMap(void)

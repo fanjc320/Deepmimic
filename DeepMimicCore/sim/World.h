@@ -17,7 +17,7 @@ class cSimBodyLink;
 class cSimRigidBody;
 class cSimBox;
 class cSimCapsule;
-class cSimPlane;
+//class cSimPlane;
 class cSimSphere;
 class cSimCharacter;
 

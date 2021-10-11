@@ -7,7 +7,7 @@
 
 #include "sim/SimBox.h"
 #include "sim/SimCapsule.h"
-#include "sim/SimPlane.h"
+//#include "sim/SimPlane.h"
 #include "sim/SimSphere.h"
 #include "sim/SimCylinder.h"
 #include "sim/SimBodyLink.h"

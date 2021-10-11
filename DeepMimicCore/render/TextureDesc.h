@@ -5,7 +5,11 @@
 #include <GL/glew.h>
 #include <GL/freeglut.h>
 
-#include "TextureUtil.h"
+//#include "TextureUtil.h"
+#include <stdlib.h>
+#include <fstream>
+
+//#include "util/MathUtil.h"
 
 class cTextureDesc
 {

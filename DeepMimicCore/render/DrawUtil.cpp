@@ -175,34 +175,34 @@ void cDrawUtil::DrawBoxSolid(const tVector& pos, const tVector& size, const tVec
 
 void cDrawUtil::DrawBoxWire(const tVector& pos, const tVector& size)
 {
-	PushMatrixView();
+	/*PushMatrixView();
 	Translate(pos);
 	Scale(size);
 	gBoxWireMesh->Draw(GL_LINES);
-	PopMatrixView();
+	PopMatrixView();*/
 }
 
 void cDrawUtil::DrawTriangle(const tVector& pos, double side_len, eDrawMode draw_mode)
 {
-	GLenum gl_mode = (draw_mode == eDrawSolid) ? GL_TRIANGLES : GL_LINE_LOOP;
+	/*GLenum gl_mode = (draw_mode == eDrawSolid) ? GL_TRIANGLES : GL_LINE_LOOP;
 	PushMatrixView();
 	Translate(pos);
 	Scale(tVector(side_len, side_len, side_len, 1));
 	gTriangleMesh->Draw(gl_mode);
-	PopMatrixView();
+	PopMatrixView();*/
 }
 
 void cDrawUtil::DrawQuad(const tVector& a, const tVector& b, const tVector& c, const tVector& d, eDrawMode draw_mode)
 {
-	DrawQuad(a, b, c, d, tVector(0, 0, 0, 0), tVector(1, 0, 0, 0),
-		tVector(1, 1, 0, 0), tVector(0, 1, 0, 0), draw_mode);
+	/*DrawQuad(a, b, c, d, tVector(0, 0, 0, 0), tVector(1, 0, 0, 0),
+		tVector(1, 1, 0, 0), tVector(0, 1, 0, 0), draw_mode);*/
 }
 
 void cDrawUtil::DrawQuad(const tVector& a, const tVector& b, const tVector& c, const tVector& d,
 	const tVector& coord_a, const tVector& coord_b, const tVector& coord_c, const tVector& coord_d,
 	eDrawMode draw_mode)
 {
-	const int num_verts = 4;
+	/*const int num_verts = 4;
 	const int pos_len = num_verts * cMeshUtil::gPosDim;
 	const int norm_len = num_verts * cMeshUtil::gNormDim;
 	const int coord_len = num_verts * cMeshUtil::gCoordDim;
@@ -266,59 +266,59 @@ void cDrawUtil::DrawQuad(const tVector& a, const tVector& b, const tVector& c, c
 	attr_info.mNumComp = cMeshUtil::gCoordDim;
 	gQuadMesh->LoadVBuffer(attr_info.mAttribNumber, sizeof(float) * coord_len, (GLubyte*)coord_data, 0, 1, &attr_info);
 
-	gQuadMesh->Draw(gl_mode);
+	gQuadMesh->Draw(gl_mode);*/
 }
 
 void cDrawUtil::DrawDisk(const tVector& pos, double r, eDrawMode draw_mode)
 {
-	DrawDisk(pos, tVector(r, r, r, 1), draw_mode);
+	//DrawDisk(pos, tVector(r, r, r, 1), draw_mode);
 }
 
 void cDrawUtil::DrawDisk(const tVector& pos, const tVector& r, eDrawMode draw_mode)
 {
-	cDrawUtil::PushMatrixView();
+	/*cDrawUtil::PushMatrixView();
 	cDrawUtil::Translate(pos);
 	DrawDisk(r, draw_mode);
-	cDrawUtil::PopMatrixView();
+	cDrawUtil::PopMatrixView();*/
 }
 
 void cDrawUtil::DrawDisk(double r, eDrawMode draw_mode)
 {
-	cDrawUtil::DrawDisk(tVector(r, r, r, 1), draw_mode);
+	//cDrawUtil::DrawDisk(tVector(r, r, r, 1), draw_mode);
 }
 
 void cDrawUtil::DrawDisk(const tVector& r, eDrawMode draw_mode)
 {
-	cDrawUtil::PushMatrixView();
-	cDrawUtil::Scale(r);
+	//cDrawUtil::PushMatrixView();
+	//cDrawUtil::Scale(r);
 
-	if (draw_mode == eDrawWireSimple || draw_mode == eDrawWire)
-	{
-		gDiskMesh->Draw(GL_LINE_STRIP, 1);
-	}
-	else if (draw_mode == eDrawSolid)
-	{
-		gDiskMesh->Draw(GL_TRIANGLE_FAN);
-	}
-	else
-	{
-		assert(false); //unsupported draw mode
-	}
+	//if (draw_mode == eDrawWireSimple || draw_mode == eDrawWire)
+	//{
+	//	gDiskMesh->Draw(GL_LINE_STRIP, 1);
+	//}
+	//else if (draw_mode == eDrawSolid)
+	//{
+	//	gDiskMesh->Draw(GL_TRIANGLE_FAN);
+	//}
+	//else
+	//{
+	//	assert(false); //unsupported draw mode
+	//}
 
-	cDrawUtil::PopMatrixView();
+	//cDrawUtil::PopMatrixView();
 }
 
 void cDrawUtil::DrawPoint(const tVector& pt)
 {
-	cDrawUtil::PushMatrixView();
+	/*cDrawUtil::PushMatrixView();
 	cDrawUtil::Translate(pt);
 	gPointMesh->Draw(GL_POINTS);
-	cDrawUtil::PopMatrixView();
+	cDrawUtil::PopMatrixView();*/
 }
 
 void cDrawUtil::DrawLine(const tVector& a, const tVector& b)
 {
-	const int num_verts = 2;
+	/*const int num_verts = 2;
 	const int pos_len = num_verts * cMeshUtil::gPosDim;
 	const float pos_data[pos_len] =
 	{
@@ -334,12 +334,12 @@ void cDrawUtil::DrawLine(const tVector& a, const tVector& b)
 	attr_info.mNumComp = cMeshUtil::gPosDim;
 	gLineMesh->LoadVBuffer(attr_info.mAttribNumber, sizeof(float) * pos_len, (GLubyte*)pos_data, 0, 1, &attr_info);
 
-	gLineMesh->Draw(GL_LINES);
+	gLineMesh->Draw(GL_LINES);*/
 }
 
 void cDrawUtil::DrawLineStrip(const tVectorArr& pts)
 {
-	int num_pts = static_cast<int>(pts.size());
+	/*int num_pts = static_cast<int>(pts.size());
 	glBegin(GL_LINE_STRIP);
 	for (int i = 0; i < num_pts - 1; ++i)
 	{
@@ -348,12 +348,12 @@ void cDrawUtil::DrawLineStrip(const tVectorArr& pts)
 		glVertex3d(a[0], a[1], a[2]);
 		glVertex3d(b[0], b[1], b[2]);
 	}
-	glEnd();
+	glEnd();*/
 }
 
 void cDrawUtil::DrawStrip(const tVector& a, const tVector& b, double width, eDrawMode draw_mode)
 {
-	tVector delta = b - a;
+	/*tVector delta = b - a;
 	tVector orthogonal = tVector(-delta[1], delta[0], 0, 0);
 	orthogonal.normalize();
 
@@ -362,17 +362,17 @@ void cDrawUtil::DrawStrip(const tVector& a, const tVector& b, double width, eDra
 	tVector v2 = b + width * 0.5 * orthogonal;
 	tVector v3 = a + width * 0.5 * orthogonal;
 
-	DrawQuad(v0, v1, v2, v3, draw_mode);
+	DrawQuad(v0, v1, v2, v3, draw_mode);*/
 }
 
 void cDrawUtil::DrawCross(const tVector& pos, double size)
 {
-	DrawLine(tVector(pos[0] - 0.5 * size, pos[1], pos[2], 0),
+	/*DrawLine(tVector(pos[0] - 0.5 * size, pos[1], pos[2], 0),
 		tVector(pos[0] + 0.5 * size, pos[1], pos[2], 0));
 	DrawLine(tVector(pos[0], pos[1] - 0.5 * size, pos[2], 0),
 		tVector(pos[0], pos[1] + 0.5 * size, pos[2], 0));
 	DrawLine(tVector(pos[0], pos[1], pos[2] - 0.5 * size, 0),
-		tVector(pos[0], pos[1], pos[2] + 0.5 * size, 0));
+		tVector(pos[0], pos[1], pos[2] + 0.5 * size, 0));*/
 }
 
 void cDrawUtil::DrawSphere(double r, eDrawMode draw_mode)
@@ -386,7 +386,7 @@ void cDrawUtil::DrawSphere(double r, eDrawMode draw_mode)
 	}
 	else if (draw_mode == eDrawWire)
 	{
-		gSphereMesh->Draw(GL_LINES);
+		//gSphereMesh->Draw(GL_LINES);
 	}
 	else if (draw_mode == eDrawWireSimple)
 	{
@@ -430,34 +430,34 @@ void cDrawUtil::DrawHemisphere(double r, eDrawMode draw_mode)
 
 void cDrawUtil::DrawCylinder(double r, double h, eDrawMode draw_mode)
 {
-	if (draw_mode == eDrawSolid || draw_mode == eDrawWire)
-	{
-		DrawCylinderSolidWire(r, h, draw_mode);
-	}
-	else if (draw_mode == eDrawWireSimple)
-	{
-		DrawCylinderWireSimple(r, h);
-	}
-	else
-	{
-		assert(false); // unsupported draw mode
-	}
+	//if (draw_mode == eDrawSolid || draw_mode == eDrawWire)
+	//{
+	//	DrawCylinderSolidWire(r, h, draw_mode);
+	//}
+	//else if (draw_mode == eDrawWireSimple)
+	//{
+	//	DrawCylinderWireSimple(r, h);
+	//}
+	//else
+	//{
+	//	assert(false); // unsupported draw mode
+	//}
 }
 
 void cDrawUtil::DrawCone(double r, double h, eDrawMode draw_mode)
 {
-	if (draw_mode == eDrawSolid || draw_mode == eDrawWire)
-	{
-		DrawConeSolidWire(r, h, draw_mode);
-	}
-	else if (draw_mode == eDrawWireSimple)
-	{
-		DrawConeWireSimple(r, h);
-	}
-	else
-	{
-		assert(false); // unsupported draw mode
-	}
+	//if (draw_mode == eDrawSolid || draw_mode == eDrawWire)
+	//{
+	//	DrawConeSolidWire(r, h, draw_mode);
+	//}
+	//else if (draw_mode == eDrawWireSimple)
+	//{
+	//	DrawConeWireSimple(r, h);
+	//}
+	//else
+	//{
+	//	assert(false); // unsupported draw mode
+	//}
 }
 
 void cDrawUtil::DrawTube(double r, double h, eDrawMode draw_mode)
@@ -478,7 +478,7 @@ void cDrawUtil::DrawTube(double r, double h, eDrawMode draw_mode)
 
 void cDrawUtil::DrawPlane(const tVector& coeffs, double size, eDrawMode draw_mode)
 {
-	const Eigen::Vector3d ref = Eigen::Vector3d(0, 0, 1);
+	/*const Eigen::Vector3d ref = Eigen::Vector3d(0, 0, 1);
 	Eigen::Vector3d n = Eigen::Vector3d(coeffs[0], coeffs[1], coeffs[2]);
 	double c = coeffs[3];
 
@@ -500,7 +500,7 @@ void cDrawUtil::DrawPlane(const tVector& coeffs, double size, eDrawMode draw_mod
 		cDrawUtil::Rotate(theta, tVector(axis[0], axis[1], axis[2], 0));
 	}
 	DrawRect(tVector::Zero(), tVector(size, size, 0, 0), draw_mode);
-	cDrawUtil::PopMatrixView();
+	cDrawUtil::PopMatrixView();*/
 }
 
 void cDrawUtil::DrawCapsule(double r, double h, eDrawMode draw_mode)
@@ -521,7 +521,7 @@ void cDrawUtil::DrawCapsule(double r, double h, eDrawMode draw_mode)
 
 void cDrawUtil::DrawArrow2D(const tVector& start, const tVector& end, double head_size)
 {
-	GLboolean prev_enable;
+	/*GLboolean prev_enable;
 	glGetBooleanv(GL_CULL_FACE, &prev_enable);
 	glDisable(GL_CULL_FACE);
 
@@ -555,12 +555,12 @@ void cDrawUtil::DrawArrow2D(const tVector& start, const tVector& end, double hea
 	if (prev_enable)
 	{
 		glEnable(GL_CULL_FACE);
-	}
+	}*/
 }
 
 void cDrawUtil::DrawArrow3D(const tVector& start, const tVector& end, double head_size)
 {
-	tVector dir = tVector(0, 1, 0, 0);
+	/*tVector dir = tVector(0, 1, 0, 0);
 	double dir_len = 0;
 	if (start != end)
 	{
@@ -586,12 +586,12 @@ void cDrawUtil::DrawArrow3D(const tVector& start, const tVector& end, double hea
 	cDrawUtil::Translate(tVector(0, -0.5 * body_len, 0, 0));
 	cDrawUtil::DrawCylinder(body_radius, body_len, cDrawUtil::eDrawSolid);
 
-	cDrawUtil::PopMatrixView();
+	cDrawUtil::PopMatrixView();*/
 }
 
 void cDrawUtil::DrawGrid2D(const tVector& origin, const tVector& size, double spacing, double line_width)
 {
-	double w = size[0];
+	/*double w = size[0];
 	double h = size[1];
 
 	double min_x = origin(0) - w;
@@ -616,42 +616,42 @@ void cDrawUtil::DrawGrid2D(const tVector& origin, const tVector& size, double sp
 		tVector a = tVector(min_x, y, offset_z, offset_z);
 		tVector b = tVector(max_x, y, offset_z, offset_z);
 		cDrawUtil::DrawLine(a, b);
-	}
+	}*/
 }
 
 void cDrawUtil::DrawRuler2D(const tVector& origin, const tVector& size,
 	const tVector& col, double line_width, double marker_spacing,
 	double marker_h, double marker_line_width)
 {
-	double w = size[0];
-	double h = size[1];
+	//double w = size[0];
+	//double h = size[1];
 
-	double min_x = origin(0) - w * 0.5;
-	double max_x = origin(0) + w * 0.5;
-	double max_y = origin(1) + h * 0.5;
+	//double min_x = origin(0) - w * 0.5;
+	//double max_x = origin(0) + w * 0.5;
+	//double max_y = origin(1) + h * 0.5;
 
-	if (line_width > 0)
-	{
-		glTexCoord2d(0, 0);
-		cDrawUtil::SetLineWidth(line_width);
-		cDrawUtil::SetColor(col);
-		cDrawUtil::DrawRect(origin, size, cDrawUtil::eDrawSolid);
-		cDrawUtil::SetColor(tVector(0, 0, 0, 1));
-		cDrawUtil::DrawLine(tVector(min_x, max_y, 0, 0), tVector(max_x, max_y, 0, 0));
-	}
+	//if (line_width > 0)
+	//{
+	//	glTexCoord2d(0, 0);
+	//	cDrawUtil::SetLineWidth(line_width);
+	//	cDrawUtil::SetColor(col);
+	//	cDrawUtil::DrawRect(origin, size, cDrawUtil::eDrawSolid);
+	//	cDrawUtil::SetColor(tVector(0, 0, 0, 1));
+	//	cDrawUtil::DrawLine(tVector(min_x, max_y, 0, 0), tVector(max_x, max_y, 0, 0));
+	//}
 
-	// draw markers
-	if (marker_line_width > 0)
-	{
-		cDrawUtil::SetColor(tVector(0.f, 0.f, 0.f, 1.f));
-		cDrawUtil::SetLineWidth(marker_line_width);
-		for (double x = min_x - std::fmod(min_x, marker_spacing); x < max_x; x += marker_spacing)
-		{
-			tVector a = tVector(x, max_y + marker_h * 0.5f, 0, 0);
-			tVector b = tVector(x, max_y - marker_h * 0.5f, 0, 0);
-			cDrawUtil::DrawLine(a, b);
-		}
-	}
+	//// draw markers
+	//if (marker_line_width > 0)
+	//{
+	//	cDrawUtil::SetColor(tVector(0.f, 0.f, 0.f, 1.f));
+	//	cDrawUtil::SetLineWidth(marker_line_width);
+	//	for (double x = min_x - std::fmod(min_x, marker_spacing); x < max_x; x += marker_spacing)
+	//	{
+	//		tVector a = tVector(x, max_y + marker_h * 0.5f, 0, 0);
+	//		tVector b = tVector(x, max_y - marker_h * 0.5f, 0, 0);
+	//		cDrawUtil::DrawLine(a, b);
+	//	}
+	//}
 }
 
 void cDrawUtil::DrawSemiCircle(const tVector& pos, double r, int slices,
@@ -685,25 +685,25 @@ void cDrawUtil::DrawCalibMarker(const tVector& pos, double r, int slices,
 	const tVector& col0, const tVector& col1,
 	eDrawMode draw_mode)
 {
-	SetColor(col0);
+	/*SetColor(col0);
 	DrawSemiCircle(pos, r, slices, 0, M_PI * 0.5, draw_mode);
 	DrawSemiCircle(pos, r, slices, M_PI, M_PI * 1.5, draw_mode);
 
 	SetColor(col1);
 	DrawSemiCircle(pos, r, slices, M_PI * 0.5, M_PI, draw_mode);
-	DrawSemiCircle(pos, r, slices, M_PI * 1.5, M_PI * 2, draw_mode);
+	DrawSemiCircle(pos, r, slices, M_PI * 1.5, M_PI * 2, draw_mode);*/
 }
 
 void cDrawUtil::DrawTexQuad(const cTextureDesc& tex, const tVector& pos, const tVector& size)
 {
-	tex.BindTex(GL_TEXTURE0);
+	/*tex.BindTex(GL_TEXTURE0);
 	DrawQuad(tVector(pos[0] - 0.5 * size[0], pos[1] - 0.5 * size[1], pos[2], 0),
 		tVector(pos[0] + 0.5 * size[0], pos[1] - 0.5 * size[1], pos[2], 0),
 		tVector(pos[0] + 0.5 * size[0], pos[1] + 0.5 * size[1], pos[2], 0),
 		tVector(pos[0] - 0.5 * size[0], pos[1] + 0.5 * size[1], pos[2], 0),
 		tVector(0, 0, 0, 0), tVector(1, 0, 0, 0), tVector(1, 1, 0, 0), tVector(0, 1, 0, 0),
 		eDrawSolid);
-	tex.UnbindTex(GL_TEXTURE0);
+	tex.UnbindTex(GL_TEXTURE0);*/
 }
 
 void cDrawUtil::CopyTexture(const cTextureDesc& src_tex, const cTextureDesc& dst_tex)

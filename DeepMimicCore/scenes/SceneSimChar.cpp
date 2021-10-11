@@ -3,7 +3,7 @@
 #include <memory>
 #include <ctime>
 #include "sim/SimBox.h"
-#include "sim/GroundPlane.h"
+//#include "sim/GroundPlane.h"
 #include "sim/GroundBuilder.h"
 #include "sim/DeepMimicCharController.h"
 

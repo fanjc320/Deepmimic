@@ -2,16 +2,16 @@
 
 cGraphUtil::tBarPlot::tBarPlot()
 {
-	mMinVal = 0;
-	mMaxVal = 1;
-	mBaseVal = 0;
-	mVals.resize(0);
-	mColors.clear();
+	//mMinVal = 0;
+	//mMaxVal = 1;
+	//mBaseVal = 0;
+	//mVals.resize(0);
+	//mColors.clear();
 }
 
 void cGraphUtil::DrawBarPlot(const tBarPlot& bar_plot, const tVector& pos, const tVector& size)
 {
-	cDrawUtil::SetLineWidth(1);
+	/*cDrawUtil::SetLineWidth(1);
 	cDrawUtil::SetColor(tVector(1, 1, 1, 0.5));
 	cDrawUtil::DrawRect(pos, size);
 
@@ -68,5 +68,5 @@ void cGraphUtil::DrawBarPlot(const tBarPlot& bar_plot, const tVector& pos, const
 
 	cDrawUtil::SetColor(tVector(0, 0, 0, 1));
 	cDrawUtil::DrawLine(base0, base1);
-	cDrawUtil::DrawRect(pos, size, cDrawUtil::eDrawWireSimple);
+	cDrawUtil::DrawRect(pos, size, cDrawUtil::eDrawWireSimple);*/
 }

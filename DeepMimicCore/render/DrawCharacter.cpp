@@ -241,7 +241,7 @@ void cDrawCharacter::DrawShapeSphere(const cKinTree::tDrawShapeDef& def, const t
 void cDrawCharacter::DrawShapeCylinder(const cKinTree::tDrawShapeDef& def, const tMatrix& parent_world_trans,
 	const tVector& fill_tint, const tVector& line_col)
 {
-	double theta = 0;
+	/*double theta = 0;
 	tVector axis = tVector(0, 0, 1, 0);
 	cKinTree::GetDrawShapeRotation(def, axis, theta);
 	int parent_joint = cKinTree::GetDrawShapeParentJoint(def);
@@ -267,5 +267,5 @@ void cDrawCharacter::DrawShapeCylinder(const cKinTree::tDrawShapeDef& def, const
 		cDrawUtil::DrawCylinder(r, h, cDrawUtil::eDrawWireSimple);
 	}
 
-	cDrawUtil::PopMatrixView();
+	cDrawUtil::PopMatrixView();*/
 }

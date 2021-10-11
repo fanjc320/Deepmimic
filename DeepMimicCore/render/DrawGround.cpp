@@ -1,24 +1,24 @@
 #include "DrawGround.h"
 #include "DrawUtil.h"
-#include "sim/GroundPlane.h"
+//#include "sim/GroundPlane.h"
 
 void cDrawGround::BuildMesh(const cGround* ground, cDrawMesh* out_mesh)
 {
-	cGround::eClass ground_class = ground->GetGroundClass();
-	switch (ground_class)
-	{
-	case cGround::eClassPlane:
-		BuildMeshPlane(ground, out_mesh);
-		break;
-	default:
-		assert(false); // unsupported ground type
-		break;
-	}
+	//cGround::eClass ground_class = ground->GetGroundClass();
+	//switch (ground_class)
+	//{
+	//case cGround::eClassPlane:
+	//	BuildMeshPlane(ground, out_mesh);
+	//	break;
+	//default:
+	//	assert(false); // unsupported ground type
+	//	break;
+	//}
 }
 
 void cDrawGround::BuildMeshPlane(const cGround* ground, cDrawMesh* out_mesh)
 {
-	const cGroundPlane* ground_plane = reinterpret_cast<const cGroundPlane*>(ground);
+	/*const cGroundPlane* ground_plane = reinterpret_cast<const cGroundPlane*>(ground);
 	const tVector& center = ground_plane->GetPrevCenter();
 
 	const tVector tex_size = tVector(0.5, 0.5, 0, 0);
@@ -90,5 +90,5 @@ void cDrawGround::BuildMeshPlane(const cGround* ground, cDrawMesh* out_mesh)
 		idx_data[i] = i;
 	}
 
-	cMeshUtil::BuildDrawMesh(vert_data, vert_len, norm_data, norm_len, coord_data, coord_len, idx_data, idx_len, out_mesh);
+	cMeshUtil::BuildDrawMesh(vert_data, vert_len, norm_data, norm_len, coord_data, coord_len, idx_data, idx_len, out_mesh);*/
 }
