@@ -30,6 +30,9 @@
     <Filter Include="Source Files\scenes">
       <UniqueIdentifier>{35a13702-7d59-461e-903f-63444de3a53a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\test_opengl">
+      <UniqueIdentifier>{24e04303-6eef-46ce-849b-038fcdc7990d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="util\FileUtil.cpp">
@@ -303,7 +306,10 @@
       <Filter>Source Files\sim</Filter>
     </ClCompile>
     <ClCompile Include="Test_Opengl.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\test_opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="frameBuffer.cpp">
+      <Filter>Source Files\test_opengl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

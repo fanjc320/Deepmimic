@@ -1,6 +1,7 @@
 #include "TextureDesc.h"
 #include <assert.h>
 #include "lodepng/lodepng.h"
+#include <iostream>
 
 std::stack<cTextureDesc::tTexEntry> cTextureDesc::gTexStack = std::stack<cTextureDesc::tTexEntry>();
 
@@ -250,6 +251,7 @@ void cTextureDesc::PushTextureStack() const
 	entry.mViewportParams[2] = mWidth;
 	entry.mViewportParams[3] = mHeight;
 
+	std::cout << " PushTextureStack buffer id:" << entry.mTex << std::endl;
 	gTexStack.push(entry);
 }
 
@@ -258,10 +260,12 @@ void cTextureDesc::PopTextureStack() const
 	bool bound = CheckBoundBuffer();
 	if (bound)
 	{
+		std::cout << " PopTextureStack pop:" << std::endl;
 		gTexStack.pop();
 		if (!gTexStack.empty())
 		{
 			tTexEntry prev_entry = gTexStack.top();
+			std::cout << " PopTextureStack buffer id:" << prev_entry.mTex << std::endl;
 			glBindFramebuffer(GL_FRAMEBUFFER, prev_entry.mTex);
 			glViewport(prev_entry.mViewportParams[0], prev_entry.mViewportParams[1],
 				prev_entry.mViewportParams[2], prev_entry.mViewportParams[3]);

@@ -359,20 +359,20 @@ void cDrawScene::DrawScene()
 
 	mShaderMesh->Unbind();
 
-	if (mDrawInfo)
-	{
-		// info is drawn in screen space
-		cDrawUtil::PushMatrixProj();
-		cDrawUtil::LoadIdentityProj();
+	//if (mDrawInfo)
+	//{
+	//	// info is drawn in screen space
+	//	cDrawUtil::PushMatrixProj();
+	//	cDrawUtil::LoadIdentityProj();
 
-		cDrawUtil::PushMatrixView();
-		cDrawUtil::LoadIdentityView();
+	//	cDrawUtil::PushMatrixView();
+	//	cDrawUtil::LoadIdentityView();
 
-		DrawInfo();
+	//	//DrawInfo();
 
-		cDrawUtil::PopMatrixProj();
-		cDrawUtil::PopMatrixView();
-	}
+	//	cDrawUtil::PopMatrixProj();
+	//	cDrawUtil::PopMatrixView();
+	//}
 }
 
 void cDrawScene::DrawGrid() const

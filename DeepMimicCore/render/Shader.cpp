@@ -244,6 +244,7 @@ GLuint cShader::GetProg() const
 
 void cShader::PushShaderStack() const
 {
+	std::cout << "PushShaderStack shader program id:" << mProg << std::endl;
 	glUseProgram(mProg);
 
 	tShaderEntry entry;
@@ -262,7 +263,7 @@ void cShader::PopShaderStack() const
 			const tShaderEntry& prev_entry = gShaderStack.top();
 			const cShader* prev_shader = prev_entry.mShader;
 			GLuint prev_prog = prev_shader->GetProg();
-
+			std::cout << "PopShaderStack shader program id:" << prev_prog << std::endl;
 			glUseProgram(prev_prog);
 		}
 		else
