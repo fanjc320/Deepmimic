@@ -175,34 +175,34 @@ void cDrawUtil::DrawBoxSolid(const tVector& pos, const tVector& size, const tVec
 
 void cDrawUtil::DrawBoxWire(const tVector& pos, const tVector& size)
 {
-	PushMatrixView();
+	/*PushMatrixView();
 	Translate(pos);
 	Scale(size);
 	gBoxWireMesh->Draw(GL_LINES);
-	PopMatrixView();
+	PopMatrixView();*/
 }
 
 void cDrawUtil::DrawTriangle(const tVector& pos, double side_len, eDrawMode draw_mode)
 {
-	GLenum gl_mode = (draw_mode == eDrawSolid) ? GL_TRIANGLES : GL_LINE_LOOP;
+	/*GLenum gl_mode = (draw_mode == eDrawSolid) ? GL_TRIANGLES : GL_LINE_LOOP;
 	PushMatrixView();
 	Translate(pos);
 	Scale(tVector(side_len, side_len, side_len, 1));
 	gTriangleMesh->Draw(gl_mode);
-	PopMatrixView();
+	PopMatrixView();*/
 }
 
 void cDrawUtil::DrawQuad(const tVector& a, const tVector& b, const tVector& c, const tVector& d, eDrawMode draw_mode)
 {
-	DrawQuad(a, b, c, d, tVector(0, 0, 0, 0), tVector(1, 0, 0, 0),
-		tVector(1, 1, 0, 0), tVector(0, 1, 0, 0), draw_mode);
+	/*DrawQuad(a, b, c, d, tVector(0, 0, 0, 0), tVector(1, 0, 0, 0),
+		tVector(1, 1, 0, 0), tVector(0, 1, 0, 0), draw_mode);*/
 }
 
 void cDrawUtil::DrawQuad(const tVector& a, const tVector& b, const tVector& c, const tVector& d,
 	const tVector& coord_a, const tVector& coord_b, const tVector& coord_c, const tVector& coord_d,
 	eDrawMode draw_mode)
 {
-	const int num_verts = 4;
+	/*const int num_verts = 4;
 	const int pos_len = num_verts * cMeshUtil::gPosDim;
 	const int norm_len = num_verts * cMeshUtil::gNormDim;
 	const int coord_len = num_verts * cMeshUtil::gCoordDim;
@@ -266,46 +266,46 @@ void cDrawUtil::DrawQuad(const tVector& a, const tVector& b, const tVector& c, c
 	attr_info.mNumComp = cMeshUtil::gCoordDim;
 	gQuadMesh->LoadVBuffer(attr_info.mAttribNumber, sizeof(float) * coord_len, (GLubyte*)coord_data, 0, 1, &attr_info);
 
-	gQuadMesh->Draw(gl_mode);
+	gQuadMesh->Draw(gl_mode);*/
 }
 
 void cDrawUtil::DrawDisk(const tVector& pos, double r, eDrawMode draw_mode)
 {
-	DrawDisk(pos, tVector(r, r, r, 1), draw_mode);
+	//DrawDisk(pos, tVector(r, r, r, 1), draw_mode);
 }
 
 void cDrawUtil::DrawDisk(const tVector& pos, const tVector& r, eDrawMode draw_mode)
 {
-	cDrawUtil::PushMatrixView();
+	/*cDrawUtil::PushMatrixView();
 	cDrawUtil::Translate(pos);
 	DrawDisk(r, draw_mode);
-	cDrawUtil::PopMatrixView();
+	cDrawUtil::PopMatrixView();*/
 }
 
 void cDrawUtil::DrawDisk(double r, eDrawMode draw_mode)
 {
-	cDrawUtil::DrawDisk(tVector(r, r, r, 1), draw_mode);
+	//cDrawUtil::DrawDisk(tVector(r, r, r, 1), draw_mode);
 }
 
 void cDrawUtil::DrawDisk(const tVector& r, eDrawMode draw_mode)
 {
-	cDrawUtil::PushMatrixView();
-	cDrawUtil::Scale(r);
+	//cDrawUtil::PushMatrixView();
+	//cDrawUtil::Scale(r);
 
-	if (draw_mode == eDrawWireSimple || draw_mode == eDrawWire)
-	{
-		gDiskMesh->Draw(GL_LINE_STRIP, 1);
-	}
-	else if (draw_mode == eDrawSolid)
-	{
-		gDiskMesh->Draw(GL_TRIANGLE_FAN);
-	}
-	else
-	{
-		assert(false); //unsupported draw mode
-	}
+	//if (draw_mode == eDrawWireSimple || draw_mode == eDrawWire)
+	//{
+	//	gDiskMesh->Draw(GL_LINE_STRIP, 1);
+	//}
+	//else if (draw_mode == eDrawSolid)
+	//{
+	//	gDiskMesh->Draw(GL_TRIANGLE_FAN);
+	//}
+	//else
+	//{
+	//	assert(false); //unsupported draw mode
+	//}
 
-	cDrawUtil::PopMatrixView();
+	//cDrawUtil::PopMatrixView();
 }
 
 void cDrawUtil::DrawPoint(const tVector& pt)
@@ -353,7 +353,7 @@ void cDrawUtil::DrawLineStrip(const tVectorArr& pts)
 
 void cDrawUtil::DrawStrip(const tVector& a, const tVector& b, double width, eDrawMode draw_mode)
 {
-	tVector delta = b - a;
+	/*tVector delta = b - a;
 	tVector orthogonal = tVector(-delta[1], delta[0], 0, 0);
 	orthogonal.normalize();
 
@@ -362,7 +362,7 @@ void cDrawUtil::DrawStrip(const tVector& a, const tVector& b, double width, eDra
 	tVector v2 = b + width * 0.5 * orthogonal;
 	tVector v3 = a + width * 0.5 * orthogonal;
 
-	DrawQuad(v0, v1, v2, v3, draw_mode);
+	DrawQuad(v0, v1, v2, v3, draw_mode);*/
 }
 
 void cDrawUtil::DrawCross(const tVector& pos, double size)
@@ -386,7 +386,7 @@ void cDrawUtil::DrawSphere(double r, eDrawMode draw_mode)
 	}
 	else if (draw_mode == eDrawWire)
 	{
-		gSphereMesh->Draw(GL_LINES);
+		//gSphereMesh->Draw(GL_LINES);
 	}
 	else if (draw_mode == eDrawWireSimple)
 	{
@@ -446,18 +446,18 @@ void cDrawUtil::DrawCylinder(double r, double h, eDrawMode draw_mode)
 
 void cDrawUtil::DrawCone(double r, double h, eDrawMode draw_mode)
 {
-	if (draw_mode == eDrawSolid || draw_mode == eDrawWire)
-	{
-		DrawConeSolidWire(r, h, draw_mode);
-	}
-	else if (draw_mode == eDrawWireSimple)
-	{
-		DrawConeWireSimple(r, h);
-	}
-	else
-	{
-		assert(false); // unsupported draw mode
-	}
+	//if (draw_mode == eDrawSolid || draw_mode == eDrawWire)
+	//{
+	//	DrawConeSolidWire(r, h, draw_mode);
+	//}
+	//else if (draw_mode == eDrawWireSimple)
+	//{
+	//	DrawConeWireSimple(r, h);
+	//}
+	//else
+	//{
+	//	assert(false); // unsupported draw mode
+	//}
 }
 
 void cDrawUtil::DrawTube(double r, double h, eDrawMode draw_mode)
@@ -478,7 +478,7 @@ void cDrawUtil::DrawTube(double r, double h, eDrawMode draw_mode)
 
 void cDrawUtil::DrawPlane(const tVector& coeffs, double size, eDrawMode draw_mode)
 {
-	const Eigen::Vector3d ref = Eigen::Vector3d(0, 0, 1);
+	/*const Eigen::Vector3d ref = Eigen::Vector3d(0, 0, 1);
 	Eigen::Vector3d n = Eigen::Vector3d(coeffs[0], coeffs[1], coeffs[2]);
 	double c = coeffs[3];
 
@@ -500,7 +500,7 @@ void cDrawUtil::DrawPlane(const tVector& coeffs, double size, eDrawMode draw_mod
 		cDrawUtil::Rotate(theta, tVector(axis[0], axis[1], axis[2], 0));
 	}
 	DrawRect(tVector::Zero(), tVector(size, size, 0, 0), draw_mode);
-	cDrawUtil::PopMatrixView();
+	cDrawUtil::PopMatrixView();*/
 }
 
 void cDrawUtil::DrawCapsule(double r, double h, eDrawMode draw_mode)

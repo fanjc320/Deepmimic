@@ -91,27 +91,27 @@ void cDeepMimicCore::Draw()
 
 void cDeepMimicCore::Keyboard(int key, int x, int y)
 {
-	char c = static_cast<char>(key);
+	/*char c = static_cast<char>(key);
 	double device_x = 0;
 	double device_y = 0;
 	CalcDeviceCoord(x, y, device_x, device_y);
-	mScene->Keyboard(c, device_x, device_y);
+	mScene->Keyboard(c, device_x, device_y);*/
 }
 
 void cDeepMimicCore::MouseClick(int button, int state, int x, int y)
 {
-	double device_x = 0;
+	/*double device_x = 0;
 	double device_y = 0;
 	CalcDeviceCoord(x, y, device_x, device_y);
-	mScene->MouseClick(button, state, device_x, device_y);
+	mScene->MouseClick(button, state, device_x, device_y);*/
 }
 
 void cDeepMimicCore::MouseMove(int x, int y)
 {
-	double device_x = 0;
+	/*double device_x = 0;
 	double device_y = 0;
 	CalcDeviceCoord(x, y, device_x, device_y);
-	mScene->MouseMove(device_x, device_y);
+	mScene->MouseMove(device_x, device_y);*/
 }
 
 void cDeepMimicCore::Reshape(int w, int h)

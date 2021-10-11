@@ -51,9 +51,9 @@ void cDrawObj::DrawBox(const cSimObj* box, const tVector& tex_coord_min, const t
 
 void cDrawObj::DrawPlane(const cSimObj* plane, double size, cDrawUtil::eDrawMode draw_mode)
 {
-	assert(plane->GetShape() == cShape::eShapePlane);
+	/*assert(plane->GetShape() == cShape::eShapePlane);
 	tVector coeffs = plane->GetSize();
-	cDrawUtil::DrawPlane(coeffs, size, draw_mode);
+	cDrawUtil::DrawPlane(coeffs, size, draw_mode);*/
 }
 
 void cDrawObj::DrawCapsule(const cSimObj* cap, cDrawUtil::eDrawMode draw_mode)
