@@ -474,117 +474,117 @@ void cMeshUtil::BuildBoxSolidMesh(std::unique_ptr<cDrawMesh>& out_mesh)
 
 void cMeshUtil::BuildBoxWireMesh(std::unique_ptr<cDrawMesh>& out_mesh)
 {
-	const int num_edges = 12;
-	const int vert_size = num_edges * 2 * gPosDim;
-	const int norm_size = num_edges * 2 * gNormDim;
-	const int coord_size = num_edges * 2 * gCoordDim;
-	const int idx_size = num_edges * 2;
+	//const int num_edges = 12;
+	//const int vert_size = num_edges * 2 * gPosDim;
+	//const int norm_size = num_edges * 2 * gNormDim;
+	//const int coord_size = num_edges * 2 * gCoordDim;
+	//const int idx_size = num_edges * 2;
 
-	const float vert_data[vert_size] = {
-		0.5, 0.5, -0.5, // top
-		-0.5, 0.5, -0.5,
-		-0.5, 0.5, -0.5,
-		-0.5, 0.5, 0.5,
-		-0.5, 0.5, 0.5,
-		0.5, 0.5, 0.5,
-		0.5, 0.5, 0.5,
-		0.5, 0.5, -0.5,
+	//const float vert_data[vert_size] = {
+	//	0.5, 0.5, -0.5, // top
+	//	-0.5, 0.5, -0.5,
+	//	-0.5, 0.5, -0.5,
+	//	-0.5, 0.5, 0.5,
+	//	-0.5, 0.5, 0.5,
+	//	0.5, 0.5, 0.5,
+	//	0.5, 0.5, 0.5,
+	//	0.5, 0.5, -0.5,
 
-		0.5, -0.5, 0.5, // bottom
-		-0.5, -0.5, 0.5,
-		-0.5, -0.5, 0.5,
-		-0.5, -0.5, -0.5,
-		-0.5, -0.5, -0.5,
-		0.5, -0.5, -0.5,
-		0.5, -0.5, -0.5,
-		0.5, -0.5, 0.5,
+	//	0.5, -0.5, 0.5, // bottom
+	//	-0.5, -0.5, 0.5,
+	//	-0.5, -0.5, 0.5,
+	//	-0.5, -0.5, -0.5,
+	//	-0.5, -0.5, -0.5,
+	//	0.5, -0.5, -0.5,
+	//	0.5, -0.5, -0.5,
+	//	0.5, -0.5, 0.5,
 
-		0.5, -0.5, 0.5, // front
-		0.5, 0.5, 0.5,
+	//	0.5, -0.5, 0.5, // front
+	//	0.5, 0.5, 0.5,
 
-		-0.5, -0.5, -0.5, // back
-		-0.5, 0.5, -0.5,
-		
-		0.5, 0.5, -0.5, // left
-		0.5, -0.5, -0.5,
-		
-		-0.5, 0.5, 0.5, // right
-		-0.5, -0.5, 0.5
-	};
+	//	-0.5, -0.5, -0.5, // back
+	//	-0.5, 0.5, -0.5,
+	//	
+	//	0.5, 0.5, -0.5, // left
+	//	0.5, -0.5, -0.5,
+	//	
+	//	-0.5, 0.5, 0.5, // right
+	//	-0.5, -0.5, 0.5
+	//};
 
-	const float norm_data[vert_size] = {
-		0, 1, 0, // top
-		0, 1, 0,
-		0, 1, 0,
-		0, 1, 0,
-		0, 1, 0,
-		0, 1, 0,
-		0, 1, 0,
-		0, 1, 0,
+	//const float norm_data[vert_size] = {
+	//	0, 1, 0, // top
+	//	0, 1, 0,
+	//	0, 1, 0,
+	//	0, 1, 0,
+	//	0, 1, 0,
+	//	0, 1, 0,
+	//	0, 1, 0,
+	//	0, 1, 0,
 
-		0, -1, 0, // bottom
-		0, -1, 0,
-		0, -1, 0,
-		0, -1, 0,
-		0, -1, 0,
-		0, -1, 0,
-		0, -1, 0,
-		0, -1, 0,
+	//	0, -1, 0, // bottom
+	//	0, -1, 0,
+	//	0, -1, 0,
+	//	0, -1, 0,
+	//	0, -1, 0,
+	//	0, -1, 0,
+	//	0, -1, 0,
+	//	0, -1, 0,
 
-		1, 0, 0, // front
-		1, 0, 0,
+	//	1, 0, 0, // front
+	//	1, 0, 0,
 
-		-1, 0, 0, // back
-		-1, 0, 0,
+	//	-1, 0, 0, // back
+	//	-1, 0, 0,
 
-		0, 0, -1, // left
-		0, 0, -1,
+	//	0, 0, -1, // left
+	//	0, 0, -1,
 
-		0, 0, 1, // right
-		0, 0, 1
-	};
+	//	0, 0, 1, // right
+	//	0, 0, 1
+	//};
 
 
-	const float coord_data[vert_size] = {
-		0, 0, // top
-		1, 0,
-		1, 0,
-		1, 1,
-		1, 1,
-		0, 1,
-		0, 1,
-		0, 0,
+	//const float coord_data[vert_size] = {
+	//	0, 0, // top
+	//	1, 0,
+	//	1, 0,
+	//	1, 1,
+	//	1, 1,
+	//	0, 1,
+	//	0, 1,
+	//	0, 0,
 
-		1, 0, // bottom
-		1, 1,
-		1, 1,
-		0, 1,
-		0, 1,
-		0, 0,
-		0, 0,
-		1, 0,
+	//	1, 0, // bottom
+	//	1, 1,
+	//	1, 1,
+	//	0, 1,
+	//	0, 1,
+	//	0, 0,
+	//	0, 0,
+	//	1, 0,
 
-		0, 0, // front
-		0, 1,
-		
-		0, 0, // back
-		0, 1,
+	//	0, 0, // front
+	//	0, 1,
+	//	
+	//	0, 0, // back
+	//	0, 1,
 
-		0, 1, // left
-		0, 0,
+	//	0, 1, // left
+	//	0, 0,
 
-		0, 1, // right
-		0, 0
-	};
+	//	0, 1, // right
+	//	0, 0
+	//};
 
-	int idx_data[idx_size];
-	for (int i = 0; i < idx_size; ++i)
-	{
-		idx_data[i] = i;
-	}
+	//int idx_data[idx_size];
+	//for (int i = 0; i < idx_size; ++i)
+	//{
+	//	idx_data[i] = i;
+	//}
 
-	out_mesh = std::unique_ptr<cDrawMesh>(new cDrawMesh());
-	BuildDrawMesh(vert_data, vert_size, norm_data, norm_size, coord_data, coord_size, idx_data, idx_size, out_mesh.get());
+	//out_mesh = std::unique_ptr<cDrawMesh>(new cDrawMesh());
+	//BuildDrawMesh(vert_data, vert_size, norm_data, norm_size, coord_data, coord_size, idx_data, idx_size, out_mesh.get());
 }
 
 void cMeshUtil::BuildSphereMesh(int stacks, int slices, std::unique_ptr<cDrawMesh>& out_mesh)

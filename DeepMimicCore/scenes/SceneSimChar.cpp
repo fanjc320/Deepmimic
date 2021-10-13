@@ -887,7 +887,7 @@ void cSceneSimChar::SpawnProjectile(double density, double min_size, double max_
 									double min_speed, double max_speed, double y_offset,
 									double life_time)
 {
-	double min_dist = 1;
+	/*double min_dist = 1;
 	double max_dist = 2;
 	tVector aabb_min;
 	tVector aabb_max;
@@ -941,11 +941,11 @@ void cSceneSimChar::SpawnProjectile(double density, double min_size, double max_
 	obj_entry.mObj = box;
 	obj_entry.mEndTime = GetTime() + life_time;
 	
-	AddObj(obj_entry);
+	AddObj(obj_entry);*/
 }
 
 void cSceneSimChar::ResetRandPertrub()
 {
-	mPerturbParams.mTimer = 0;
-	mPerturbParams.mNextTime = mRand.RandDouble(mPerturbParams.mTimeMin, mPerturbParams.mTimeMax);
+	/*mPerturbParams.mTimer = 0;
+	mPerturbParams.mNextTime = mRand.RandDouble(mPerturbParams.mTimeMin, mPerturbParams.mTimeMax);*/
 }

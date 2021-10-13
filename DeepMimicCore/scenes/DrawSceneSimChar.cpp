@@ -508,7 +508,8 @@ void cDrawSceneSimChar::DrawCharacter(const std::shared_ptr<cSimCharacter>& char
 {
 	const tVector fill_tint = tVector(1, 1, 1, 1);
 	bool enable_draw_shape = true;
-	cDrawSimCharacter::Draw(*(character.get()), fill_tint, GetLineColor(), enable_draw_shape);
+	//cDrawSimCharacter::Draw(*(character.get()), fill_tint, GetLineColor(), enable_draw_shape);
+	cDrawCharacter::Draw(*(character.get()), 0, fill_tint, GetLineColor());
 }
 
 void cDrawSceneSimChar::UpdateGroundDrawMesh()

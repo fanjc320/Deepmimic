@@ -97,7 +97,7 @@ void cDrawUtil::DrawBox(const tVector& pos, const tVector& size, const tVector& 
 {
 	if (draw_mode == eDrawWire || draw_mode == eDrawWireSimple)
 	{
-		DrawBoxWire(pos, size);
+		//DrawBoxWire(pos, size);
 	}
 	else if (draw_mode == eDrawSolid)
 	{

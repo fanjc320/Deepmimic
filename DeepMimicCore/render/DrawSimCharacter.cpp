@@ -3,14 +3,14 @@
 #include "sim/SimBox.h"
 #include "render/DrawObj.h"
 //#include "render/DrawPerturb.h"
-#include "render/GraphUtil.h"
+//#include "render/GraphUtil.h"
 
 void cDrawSimCharacter::Draw(const cSimCharacter& character, const tVector& fill_tint, const tVector& line_col, bool enable_draw_shape)
 {
 	bool has_draw_shapes = character.HasDrawShapes();
 	if (has_draw_shapes && enable_draw_shape)
 	{
-		cDrawCharacter::Draw(character, 0, fill_tint, line_col);
+		//cDrawCharacter::Draw(character, 0, fill_tint, line_col);
 	}
 	else
 	{

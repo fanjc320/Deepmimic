@@ -70,6 +70,14 @@ void cMatrixStack::MultMatrix(const tMatrix& mat)
 
 void cMatrixStack::Translate(const tVector& trans)
 {
+	/*矩阵的块操作：有两种使用方法：
+	matrix.block(i, j, p, q) : 表示返回从矩阵(i, j)开始，每行取p个元素，每列取q个元素所组成的临时新矩阵对象，原矩阵的元素不变；
+	matrix.block<p, q>(i, j) : <p, q>可理解为一个p行q列的子矩阵，该定义表示从原矩阵中第(i, j)开始，获取一个p行q列的子矩阵，返回该子矩阵组成的临时矩阵对象，原矩阵的元素不变*/
+
+	/*向量的块操作：
+	获取向量的前n个元素：vector.head(n);
+	获取向量尾部的n个元素：vector.tail(n);
+	获取从向量的第i个元素开始的n个元素：vector.segment(i, n);*/
 	mCurrMat.block(0, 3, 3, 1) += mCurrMat.block(0, 0, 3, 3) * trans.segment(0, 3);
 }
 

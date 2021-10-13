@@ -1,5 +1,5 @@
 #include "DrawCharacter.h"
-#include "DrawKinTree.h"
+//#include "DrawKinTree.h"
 #include "render/DrawUtil.h"
 #include <iostream>
 
@@ -229,11 +229,11 @@ void cDrawCharacter::DrawShapeSphere(const cKinTree::tDrawShapeDef& def, const t
 	cDrawUtil::SetColor(col);
 	cDrawUtil::DrawSphere(r, cDrawUtil::eDrawSolid);
 
-	if (line_col[3] > 0)
+	/*if (line_col[3] > 0)
 	{
 		cDrawUtil::SetColor(line_col);
 		cDrawUtil::DrawSphere(r, cDrawUtil::eDrawWireSimple);
-	}
+	}*/
 
 	cDrawUtil::PopMatrixView();
 }

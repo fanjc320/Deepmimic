@@ -74,9 +74,6 @@
     <ClCompile Include="render\DrawUtil.cpp">
       <Filter>Source Files\render</Filter>
     </ClCompile>
-    <ClCompile Include="render\GraphUtil.cpp">
-      <Filter>Source Files\render</Filter>
-    </ClCompile>
     <ClCompile Include="render\IBuffer.cpp">
       <Filter>Source Files\render</Filter>
     </ClCompile>
@@ -173,19 +170,7 @@
     <ClCompile Include="sim\SimCharGeneral.cpp">
       <Filter>Source Files\sim</Filter>
     </ClCompile>
-    <ClCompile Include="render\DrawSimCharacter.cpp">
-      <Filter>Source Files\render</Filter>
-    </ClCompile>
-    <ClCompile Include="render\DrawGround.cpp">
-      <Filter>Source Files\render</Filter>
-    </ClCompile>
-    <ClCompile Include="render\DrawObj.cpp">
-      <Filter>Source Files\render</Filter>
-    </ClCompile>
     <ClCompile Include="render\DrawCharacter.cpp">
-      <Filter>Source Files\render</Filter>
-    </ClCompile>
-    <ClCompile Include="render\DrawKinTree.cpp">
       <Filter>Source Files\render</Filter>
     </ClCompile>
     <ClCompile Include="scenes\DrawSceneSimChar.cpp">
@@ -343,9 +328,6 @@
     <ClInclude Include="render\DrawUtil.h">
       <Filter>Source Files\render</Filter>
     </ClInclude>
-    <ClInclude Include="render\GraphUtil.h">
-      <Filter>Source Files\render</Filter>
-    </ClInclude>
     <ClInclude Include="render\IBuffer.h">
       <Filter>Source Files\render</Filter>
     </ClInclude>
@@ -472,19 +454,7 @@
     <ClInclude Include="sim\SimCharGeneral.h">
       <Filter>Source Files\sim</Filter>
     </ClInclude>
-    <ClInclude Include="render\DrawSimCharacter.h">
-      <Filter>Source Files\render</Filter>
-    </ClInclude>
-    <ClInclude Include="render\DrawGround.h">
-      <Filter>Source Files\render</Filter>
-    </ClInclude>
-    <ClInclude Include="render\DrawObj.h">
-      <Filter>Source Files\render</Filter>
-    </ClInclude>
     <ClInclude Include="render\DrawCharacter.h">
-      <Filter>Source Files\render</Filter>
-    </ClInclude>
-    <ClInclude Include="render\DrawKinTree.h">
       <Filter>Source Files\render</Filter>
     </ClInclude>
     <ClInclude Include="scenes\DrawSceneSimChar.h">

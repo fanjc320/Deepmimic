@@ -258,13 +258,8 @@
     </ClCompile>
     <ClCompile Include="render\Camera.cpp" />
     <ClCompile Include="render\DrawCharacter.cpp" />
-    <ClCompile Include="render\DrawGround.cpp" />
-    <ClCompile Include="render\DrawKinTree.cpp" />
     <ClCompile Include="render\DrawMesh.cpp" />
-    <ClCompile Include="render\DrawObj.cpp" />
-    <ClCompile Include="render\DrawSimCharacter.cpp" />
     <ClCompile Include="render\DrawUtil.cpp" />
-    <ClCompile Include="render\GraphUtil.cpp" />
     <ClCompile Include="render\IBuffer.cpp" />
     <ClCompile Include="render\lodepng\lodepng.cpp" />
     <ClCompile Include="render\lodepng\lodepng_util.cpp" />
@@ -345,13 +340,8 @@
     <ClInclude Include="anim\Shape.h" />
     <ClInclude Include="render\Camera.h" />
     <ClInclude Include="render\DrawCharacter.h" />
-    <ClInclude Include="render\DrawGround.h" />
-    <ClInclude Include="render\DrawKinTree.h" />
     <ClInclude Include="render\DrawMesh.h" />
-    <ClInclude Include="render\DrawObj.h" />
-    <ClInclude Include="render\DrawSimCharacter.h" />
     <ClInclude Include="render\DrawUtil.h" />
-    <ClInclude Include="render\GraphUtil.h" />
     <ClInclude Include="render\IBuffer.h" />
     <ClInclude Include="render\lodepng\lodepng.h" />
     <ClInclude Include="render\lodepng\lodepng_util.h" />
