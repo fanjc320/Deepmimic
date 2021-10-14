@@ -2,7 +2,8 @@
 
 #include "Scene.h"
 #include "render/Camera.h"
-#include "render/ShadowMap.h"
+//#include "render/ShadowMap.h"
+#include "render/TextureDesc.h"
 #include "render/Shader.h"
 
 class cDrawScene : virtual public cScene
@@ -42,7 +43,7 @@ protected:
 	bool mDrawInfo;
 
 	// textures
-	std::unique_ptr<cShadowMap> mShadowMap;
+	//std::unique_ptr<cShadowMap> mShadowMap;
 	std::unique_ptr<cTextureDesc> mGridTex;
 
 	// shaders

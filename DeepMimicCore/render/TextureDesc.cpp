@@ -71,7 +71,7 @@ cTextureDesc::cTextureDesc( GLuint obj, GLuint tex, GLuint ds, int width, int he
 
 cTextureDesc::cTextureDesc(const std::string& filename, bool gen_mips) : cTextureDesc()
 {
-	std::vector<unsigned char> image;
+	/*std::vector<unsigned char> image;
 	unsigned width, height;
 	unsigned error = lodepng::decode(image, width, height, filename);
 
@@ -111,25 +111,25 @@ cTextureDesc::cTextureDesc(const std::string& filename, bool gen_mips) : cTextur
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
 		glBindTexture(GL_TEXTURE_2D, 0);
-	}
+	}*/
 }
 
 void cTextureDesc::BindBuffer() const
 {
-	if (IsRenderBuffer())
+	/*if (IsRenderBuffer())
 	{
 		glBindFramebuffer(GL_FRAMEBUFFER, mObject);
 		glViewport(0, 0, mWidth, mHeight);
 		PushTextureStack();
-	}
+	}*/
 }
 
 void cTextureDesc::UnbindBuffer() const
 {
-	if (IsRenderBuffer())
+	/*if (IsRenderBuffer())
 	{
 		PopTextureStack();
-	}
+	}*/
 }
 
 bool cTextureDesc::CheckBoundBuffer() const
@@ -141,23 +141,23 @@ bool cTextureDesc::CheckBoundBuffer() const
 
 void cTextureDesc::BindBuffer3DSlice(int slice) const
 {
-	glBindFramebuffer(GL_FRAMEBUFFER, mObject);
+	/*glBindFramebuffer(GL_FRAMEBUFFER, mObject);
 	glFramebufferTexture3DEXT(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, 
 							GL_TEXTURE_3D, mObject, 0, slice);
 	glViewport(0, 0, mWidth, mHeight);
-	PushTextureStack();
+	PushTextureStack();*/
 }
 
 void cTextureDesc::BindTex(GLint tex_slot) const
 {
-	glActiveTexture(tex_slot);
-	glBindTexture(GL_TEXTURE_2D, GetTexture());
+	/*glActiveTexture(tex_slot);
+	glBindTexture(GL_TEXTURE_2D, GetTexture());*/
 }
 
 void cTextureDesc::UnbindTex(GLint tex_slot) const
 {
-	glActiveTexture(tex_slot);
-	glBindTexture(GL_TEXTURE_2D, 0);
+	/*glActiveTexture(tex_slot);
+	glBindTexture(GL_TEXTURE_2D, 0);*/
 }
 
 GLuint cTextureDesc::GetObj() const
@@ -221,21 +221,21 @@ void cTextureDesc::Reshape( int w, int h )
 
 void cTextureDesc::ReadPixels(std::vector<GLfloat>& out_data, GLenum format/*= GL_RGBA*/)
 {
-	BindBuffer();
+	/*BindBuffer();
 
 	int num_channels = GetNumChannels();
 	int data_size = GetNumTexels() * num_channels;
 	out_data.resize(data_size);
 	glReadPixels(0, 0, mWidth, mHeight, format, GL_FLOAT, out_data.data());
 
-	UnbindBuffer();
+	UnbindBuffer();*/
 }
 
 void cTextureDesc::WritePixels(const std::vector<GLubyte>& data)
 {
-	glBindTexture(GL_TEXTURE_2D, mTexture);
+	/*glBindTexture(GL_TEXTURE_2D, mTexture);
 	glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, mWidth, mHeight, mFormat, mType, data.data());
-	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindTexture(GL_TEXTURE_2D, 0);*/
 }
 
 cTextureDesc::~cTextureDesc()
@@ -245,7 +245,7 @@ cTextureDesc::~cTextureDesc()
 
 void cTextureDesc::PushTextureStack() const
 {
-	tTexEntry entry;
+	/*tTexEntry entry;
 	entry.mTex = mObject;
 	entry.mViewportParams[0] = 0;
 	entry.mViewportParams[1] = 0;
@@ -253,12 +253,12 @@ void cTextureDesc::PushTextureStack() const
 	entry.mViewportParams[3] = mHeight;
 
 	std::cout << "----PushTextureStack buffer id:" << entry.mTex << std::endl;
-	gTexStack.push(entry);
+	gTexStack.push(entry);*/
 }
 
 void cTextureDesc::PopTextureStack() const
 {
-	bool bound = CheckBoundBuffer();
+	/*bool bound = CheckBoundBuffer();
 	if (bound)
 	{
 		std::cout << "----PopTextureStack pop:" << std::endl;
@@ -275,5 +275,5 @@ void cTextureDesc::PopTextureStack() const
 	else
 	{
 		throw std::runtime_error("Trying to pop unbound texture from stack.\n");
-	}
+	}*/
 }

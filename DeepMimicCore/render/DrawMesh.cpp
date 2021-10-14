@@ -18,6 +18,7 @@
 #include <algorithm>
 #include "render/DrawMesh.h"
 #include "render/DrawUtil.h"
+#include <iostream>
 
 cDrawMesh::cDrawMesh() : mNumElem(0), mVbos(0)
 {
@@ -50,6 +51,8 @@ void cDrawMesh::Draw(GLenum primitive, int start_idx)
 	SyncGPU(0, 0);
 	cDrawUtil::LoadShaderUniforms();
 	glDrawElements(primitive, mNumElem - start_idx, GL_UNSIGNED_INT, (void*)(start_idx * sizeof(GLuint)));
+
+	std::cout << "cDrawMesh::Draw primitive:" << primitive << " start:" << start_idx << " mNumElem:" << mNumElem << std::endl;
 }
 
 void cDrawMesh::Draw(GLenum primitive, int idx_start, int idx_end)
@@ -59,6 +62,7 @@ void cDrawMesh::Draw(GLenum primitive, int idx_start, int idx_end)
 	int num_elem = std::min(idx_end, mNumElem) - idx_start;
 	cDrawUtil::LoadShaderUniforms();
 	glDrawElements(primitive, num_elem, GL_UNSIGNED_INT, (void*)(idx_start * sizeof(GLuint)));
+	std::cout << "cDrawMesh::Draw primitive:" << primitive << " start:" << idx_start << " end:" << idx_end << std::endl;
 }
 
 void cDrawMesh::AddBuffer(int buff_num)

@@ -155,7 +155,7 @@ void cDrawScene::UpdateCamera()
 
 void cDrawScene::UpdateCameraTracking()
 {
-	eCamTrackMode mode = GetCamTrackMode();
+	/*eCamTrackMode mode = GetCamTrackMode();
 	if (mode == eCamTrackModeXYZ)
 	{
 		tVector track_pos = GetCamTrackPos();
@@ -200,12 +200,12 @@ void cDrawScene::UpdateCameraTracking()
 		}
 
 		mCamera.TranslateFocus(cam_focus);
-	}
+	}*/
 }
 
 void cDrawScene::UpdateCameraStill()
 {
-	tVector track_pos = GetCamTrackPos();
+	/*tVector track_pos = GetCamTrackPos();
 	tVector cam_focus = mCamera.GetFocus();
 
 	double cam_w = mCamera.GetWidth();
@@ -244,12 +244,12 @@ void cDrawScene::UpdateCameraStill()
 		}
 	}
 
-	mCamera.TranslateFocus(cam_focus);
+	mCamera.TranslateFocus(cam_focus);*/
 }
 
 double cDrawScene::GetCamStillSnapDistX() const
 {
-	const tVector axis = tVector(1, 0, 0, 0);
+	/*const tVector axis = tVector(1, 0, 0, 0);
 	double dist = 0.5 * mCamera.GetWidth();
 
 	tVector view_delta = mCamera.GetFocus() - mCamera.GetPosition();
@@ -270,7 +270,8 @@ double cDrawScene::GetCamStillSnapDistX() const
 		lerp = 1 - lerp;
 		dist = lerp * dist + (1 - lerp) * 0.5 * len;
 	}
-	return dist;
+	return dist;*/
+	return 1.0f;
 }
 
 tVector cDrawScene::GetCamTrackPos() const
@@ -393,7 +394,7 @@ void cDrawScene::DrawGrid() const
 
 void cDrawScene::DrawGroundMainScene()
 {
-	const double roughness = 0.5;
+	/*const double roughness = 0.5;
 	const double enable_tex = 1;
 
 	mShaderMesh->SetUniform4(mMeshMaterialDataHandle, tVector(roughness, enable_tex, 0, 0));
@@ -401,7 +402,7 @@ void cDrawScene::DrawGroundMainScene()
 
 	DrawGround();
 
-	mGridTex->UnbindTex(GL_TEXTURE0);
+	mGridTex->UnbindTex(GL_TEXTURE0);*/
 }
 
 void cDrawScene::DrawCharacterMainScene()
@@ -414,18 +415,18 @@ void cDrawScene::DrawCharacterMainScene()
 
 void cDrawScene::DrawObjsMainScene()
 {
-	const double roughness = 0.4;
+	/*const double roughness = 0.4;
 	const double enable_tex = 0;
 	mShaderMesh->SetUniform4(mMeshMaterialDataHandle, tVector(roughness, enable_tex, 0, 0));
-	DrawObjs();
+	DrawObjs();*/
 }
 
 void cDrawScene::DrawMiscMainScene()
 {
-	const double roughness = 0.4;
+	/*const double roughness = 0.4;
 	const double enable_tex = 0;
 	mShaderMesh->SetUniform4(mMeshMaterialDataHandle, tVector(roughness, enable_tex, 0, 0));
-	DrawMisc();
+	DrawMisc();*/
 }
 
 void cDrawScene::DrawGround() const
@@ -502,8 +503,8 @@ void cDrawScene::InitRenderResources()
 	mShadowCam = cCamera(cCamera::eProjOrtho, tVector(0, 0, 1, 0), tVector::Zero(),
 		tVector(0, 1, 0, 0), shadow_size, shadow_size, shadow_near_z,
 		shadow_far_z);
-	mShadowMap = std::unique_ptr<cShadowMap>(new cShadowMap());
-	mShadowMap->Init(shadow_res, shadow_res);
+	/*mShadowMap = std::unique_ptr<cShadowMap>(new cShadowMap());
+	mShadowMap->Init(shadow_res, shadow_res);*/
 
 	succ &= LoadTextures();
 
@@ -557,42 +558,42 @@ void cDrawScene::SetupMeshShader()
 		(float)shadow_mat(0, 3), (float)shadow_mat(1, 3), (float)shadow_mat(2, 3), (float)shadow_mat(3, 3) };
 	glProgramUniformMatrix4fv(mShaderMesh->GetProg(), mMeshShadowProjHandle, 1, false, shadow_mat_data);
 
-	mShadowMap->BindTex(GL_TEXTURE1);
+	//mShadowMap->BindTex(GL_TEXTURE1);
 }
 
 void cDrawScene::DoShadowPass()
 {
-	// front face culling to prevent shelf occlusion
-	glCullFace(GL_FRONT);
+	//// front face culling to prevent shelf occlusion
+	//glCullFace(GL_FRONT);
 
-	float dist = 30.f;
-	const tVector& sun_dir = GetLightDirection();
-	tVector delta = dist * sun_dir;
-	tVector focus = mCamera.GetFocus();
-	mShadowCam.SetPosition(focus + delta);
-	mShadowCam.SetFocus(focus);
+	//float dist = 30.f;
+	//const tVector& sun_dir = GetLightDirection();
+	//tVector delta = dist * sun_dir;
+	//tVector focus = mCamera.GetFocus();
+	//mShadowCam.SetPosition(focus + delta);
+	//mShadowCam.SetFocus(focus);
 
-	mShadowMap->BindBuffer();
-	mShaderDepth->Bind();
-	cDrawUtil::ClearColor(tVector(1, 1, 1, 0));
-	cDrawUtil::ClearDepth(1);
+	////mShadowMap->BindBuffer();
+	//mShaderDepth->Bind();
+	//cDrawUtil::ClearColor(tVector(1, 1, 1, 0));
+	//cDrawUtil::ClearDepth(1);
 
-	// shadow pass
-	cDrawUtil::PushMatrixProj();
-	mShadowCam.SetupGLProj();
+	//// shadow pass
+	//cDrawUtil::PushMatrixProj();
+	//mShadowCam.SetupGLProj();
 
-	cDrawUtil::PushMatrixView();
-	mShadowCam.SetupGLView();
+	//cDrawUtil::PushMatrixView();
+	//mShadowCam.SetupGLView();
 
-	DrawCharacters();
-	DrawObjs();
-	DrawMisc();
-	glCullFace(GL_BACK);
-	DrawGround();
+	//DrawCharacters();
+	//DrawObjs();
+	//DrawMisc();
+	//glCullFace(GL_BACK);
+	//DrawGround();
 
-	mShaderDepth->Unbind();
-	mShadowMap->UnbindBuffer();
+	//mShaderDepth->Unbind();
+	////mShadowMap->UnbindBuffer();
 
-	cDrawUtil::PopMatrixProj();
-	cDrawUtil::PopMatrixView();
+	//cDrawUtil::PopMatrixProj();
+	//cDrawUtil::PopMatrixView();
 }
