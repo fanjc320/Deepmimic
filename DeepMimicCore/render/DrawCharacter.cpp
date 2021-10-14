@@ -40,13 +40,13 @@ void cDrawCharacter::DrawShape(const cKinTree::tDrawShapeDef& def, const tMatrix
 		DrawShapeBox(def, parent_world_trans, fill_tint, line_col);
 		break;
 	case cShape::eShapeCapsule:
-		DrawShapeCapsule(def, parent_world_trans, fill_tint, line_col);
+		//DrawShapeCapsule(def, parent_world_trans, fill_tint, line_col);
 		break;
 	case cShape::eShapeSphere:
-		DrawShapeSphere(def, parent_world_trans, fill_tint, line_col);
+		//DrawShapeSphere(def, parent_world_trans, fill_tint, line_col);
 		break;
 	case cShape::eShapeCylinder:
-		DrawShapeCylinder(def, parent_world_trans, fill_tint, line_col);
+		//DrawShapeCylinder(def, parent_world_trans, fill_tint, line_col);
 		break;
 	case cShape::eShapeNull:
 		break;
@@ -159,9 +159,9 @@ void cDrawCharacter::DrawShapeBox(const cKinTree::tDrawShapeDef& def, const tMat
 	col = col.cwiseProduct(fill_tint);
 
 	cDrawUtil::PushMatrixView();
-	cDrawUtil::MultMatrixView(parent_world_trans);
-	cDrawUtil::Translate(attach_pt);
-	cDrawUtil::Rotate(euler);
+	//cDrawUtil::MultMatrixView(parent_world_trans);
+	//cDrawUtil::Translate(attach_pt);
+	//cDrawUtil::Rotate(euler);
 
 	cDrawUtil::SetColor(col);
 	cDrawUtil::DrawBox(tVector::Zero(), size, cDrawUtil::eDrawSolid);

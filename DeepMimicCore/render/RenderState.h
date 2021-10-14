@@ -116,15 +116,7 @@ public:
         glVertexAttribPointer(mAttribNumber, mNumComp, GL_FLOAT, GL_FALSE,
                               mDataStride, (GLvoid *) mDataOffset);
     }
-
-    GLuint operator[](unsigned int i)
-    {
-        if (i >= mVboIDs.size())
-        {
-            mVboIDs.resize(i+1, 0);
-            mBytes.resize(i+1, 0);
-        }
-        /*void glGenBuffers(GLsizei  	n,
+    /*void glGenBuffers(GLsizei  	n,
             GLuint * buffers);
         Parameters
             n
@@ -132,6 +124,14 @@ public:
 
             buffers
             Specifies an array in which the generated buffer object names are stored.*/
+    GLuint operator[](unsigned int i)
+    {
+        if (i >= mVboIDs.size())
+        {
+            mVboIDs.resize(i+1, 0);
+            mBytes.resize(i+1, 0);
+        }
+        
         if (mVboIDs[i] == 0)
             glGenBuffers(1, &mVboIDs[i]);
         return mVboIDs[i];
