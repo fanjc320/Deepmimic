@@ -43,7 +43,7 @@ void cDrawScene::Init()
 void cDrawScene::Reset()
 {
 	cScene::Reset();
-	ResetCamera();
+	//ResetCamera();
 }
 
 void cDrawScene::Draw()

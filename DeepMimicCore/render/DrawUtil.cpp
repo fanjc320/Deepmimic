@@ -167,8 +167,8 @@ void cDrawUtil::DrawBoxSolid(const tVector& pos, const tVector& size, const tVec
 	gBoxSolidMesh->LoadVBuffer(attr_info.mAttribNumber, sizeof(float) * coord_len, (GLubyte*)coord_data, 0, 1, &attr_info);
 
 	PushMatrixView();
-	Translate(pos);
-	Scale(size);
+	//Translate(pos);
+	//Scale(size);
 	gBoxSolidMesh->Draw(GL_TRIANGLES);
 	PopMatrixView();
 }
