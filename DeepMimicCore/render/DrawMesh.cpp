@@ -40,19 +40,34 @@ void cDrawMesh::Init(int num_buffers)
 		mVbos[i].SetRender(i + 1, mState);
 }
 
-void cDrawMesh::Draw(GLenum primitive)
+void cDrawMesh::Draw(GLenum primitive)//GL_TRIANGLES
 {
 	Draw(primitive, 0);
 }
+
+//void glDrawElements(GLenum  	mode,
+//	GLsizei  	count,
+//	GLenum  	type,
+//	const GLvoid* indices);
+//Parameters
+//mode
+//Specifies what kind of primitives to render.Symbolic constants GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES, GL_LINE_STRIP_ADJACENCY, GL_LINES_ADJACENCY, GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN, GL_TRIANGLES, GL_TRIANGLE_STRIP_ADJACENCYand GL_TRIANGLES_ADJACENCY are accepted.
+//count
+//Specifies the number of elements to be rendered.
+//type
+//Specifies the type of the values in indices.Must be one of GL_UNSIGNED_BYTE, GL_UNSIGNED_SHORT, or GL_UNSIGNED_INT.
+//indices
+//Specifies an offset of the first index in the array in the data store of the buffer currently bound to the GL_ELEMENT_ARRAY_BUFFER target
 
 void cDrawMesh::Draw(GLenum primitive, int start_idx)
 {
 	mState.BindVAO();
 	SyncGPU(0, 0);
 	cDrawUtil::LoadShaderUniforms();
-	glDrawElements(primitive, mNumElem - start_idx, GL_UNSIGNED_INT, (void*)(start_idx * sizeof(GLuint)));
 
-	std::cout << "cDrawMesh::Draw primitive:" << primitive << " start:" << start_idx << " mNumElem:" << mNumElem << std::endl;
+	std::cout << "cDrawMesh::Draw primitive(GL_TRIANGLES):" << primitive << " start:" << start_idx << " mNumElem:" << mNumElem << std::endl;
+
+	glDrawElements(primitive, mNumElem - start_idx, GL_UNSIGNED_INT, (void*)(start_idx * sizeof(GLuint)));
 }
 
 void cDrawMesh::Draw(GLenum primitive, int idx_start, int idx_end)
@@ -61,8 +76,9 @@ void cDrawMesh::Draw(GLenum primitive, int idx_start, int idx_end)
 	SyncGPU(0, 0);
 	int num_elem = std::min(idx_end, mNumElem) - idx_start;
 	cDrawUtil::LoadShaderUniforms();
+
+	std::cout << "cDrawMesh::Draw primitive(GL_TRIANGLES):" << primitive << " start:" << idx_start << " end:" << idx_end << std::endl;
 	glDrawElements(primitive, num_elem, GL_UNSIGNED_INT, (void*)(idx_start * sizeof(GLuint)));
-	std::cout << "cDrawMesh::Draw primitive:" << primitive << " start:" << idx_start << " end:" << idx_end << std::endl;
 }
 
 void cDrawMesh::AddBuffer(int buff_num)
@@ -71,6 +87,8 @@ void cDrawMesh::AddBuffer(int buff_num)
 	mVbos[buff_num].mRenderID = mVbos[buff_num].mRenderID + 1;
 }
 
+//attr_info.mAttribNumber = eAttributePosition
+//out_mesh->LoadVBuffer(attr_info.mAttribNumber, sizeof(float)* pos_size, (GLubyte*)pos_data, 0, 1, &attr_info);
 void cDrawMesh::LoadVBuffer(unsigned int buffer_num, int data_size, GLubyte *data, int data_offset, int num_attr, tAttribInfo *attr_info)
 {
 	if (buffer_num >= mVbos.size())

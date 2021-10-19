@@ -18,6 +18,7 @@
 
 #include <GL/glew.h>
 #include <vector>
+#include <iostream>
 
 struct tAttribInfo
 {
@@ -38,7 +39,7 @@ class cRenderState
 {
 public:
     cRenderState()
-    {
+    {   
         glGenVertexArrays(1, &mVaoID);
     }
     ~cRenderState()
@@ -59,10 +60,14 @@ public:
 
         Parameters
             target
-            Specifies the target to which the buffer object is bound.The symbolic constant must be GL_ARRAY_BUFFER, GL_COPY_READ_BUFFER, GL_COPY_WRITE_BUFFER, GL_ELEMENT_ARRAY_BUFFER, GL_PIXEL_PACK_BUFFER, GL_PIXEL_UNPACK_BUFFER, GL_TEXTURE_BUFFER, GL_TRANSFORM_FEEDBACK_BUFFER, or GL_UNIFORM_BUFFER.
-
+            Specifies the target to which the buffer object is bound.
+            The symbolic constant must be GL_ARRAY_BUFFER, GL_COPY_READ_BUFFER, GL_COPY_WRITE_BUFFER, GL_ELEMENT_ARRAY_BUFFER, GL_PIXEL_PACK_BUFFER, GL_PIXEL_UNPACK_BUFFER, GL_TEXTURE_BUFFER, GL_TRANSFORM_FEEDBACK_BUFFER, or GL_UNIFORM_BUFFER.
             buffer
             Specifies the name of a buffer object.*/
+
+//#define GL_ARRAY_BUFFER 0x8892
+//#define GL_ELEMENT_ARRAY_BUFFER 0x8893
+        std::cout << " BindVBO target(GL_ARRAY_BUFFER 0x8892 GL_ELEMENT_ARRAY_BUFFER 0x8893)0X:" << std::hex << target << " name id:" << operator[](i) << std::endl;
         glBindBuffer(target, operator[](i));
     }
 
@@ -78,13 +83,16 @@ public:
     void SetBufferData(unsigned int i, std::size_t num_bytes, unsigned char *data = NULL)
     {
         BindVBO(i);
+        std::cout << " SetBufferData id:" << i << " num_bytes:" << num_bytes << " mBytes[i]:" << mBytes[i] << std::endl;
         if (mBytes[i] < num_bytes)
         {
-            //当缓存初始化之后，你可以使用glBufferData()将数据拷贝到缓存对象。
-
-                /*void glBufferData(GLenum target，GLsizeiptr size, const GLvoid * data, GLenum usage);
-                第一个参数target可以为GL_ARRAY_BUFFER或GL_ELEMENT_ARRAY。size为待传递数据字节数量。第三个参数为源数据数组指针，
-                如data为NULL，则VBO仅仅预留给定数据大小的内存空间。最后一个参数usage标志位VBO的另一个性能提示，它提供缓存对象将如何使用：static、dynamic或stream、与read、copy或draw。*/
+                /*当缓存初始化之后，你可以使用glBufferData()将数据拷贝到缓存对象。
+                void glBufferData(GLenum target，GLsizeiptr size, const GLvoid * data, GLenum usage);
+                第一个参数target可以为GL_ARRAY_BUFFER或GL_ELEMENT_ARRAY。
+                size为待传递数据字节数量。
+                第三个参数为源数据数组指针，
+                如data为NULL，则VBO仅仅预留给定数据大小的内存空间。
+                最后一个参数usage标志位VBO的另一个性能提示，它提供缓存对象将如何使用：static、dynamic或stream、与read、copy或draw。*/
             mBytes[i] = static_cast<unsigned int>(num_bytes);
             glBufferData(GL_ARRAY_BUFFER, num_bytes, data, GL_STATIC_DRAW); // Static, because all changes happen in the edit mesh
         }
@@ -112,6 +120,24 @@ public:
         //    版权声明：本文为CSDN博主「soft_logic」的原创文章，遵循CC 4.0 BY - SA版权协议，转载请附上原文出处链接及本声明。
         //    原文链接：https ://blog.csdn.net/weixin_37459951/article/details/96433508
 
+
+       /* OpenGL函数。
+            void glVertexAttribPointer(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid * pointer);
+        参数：
+            index
+            size
+            指定要修改的顶点属性的索引值
+            指定每个顶点属性的组件数量。必须为1、2、3或者4。初始值为4。（如position是由3个（x, y, z）组成，而颜色是4个（r, g, b, a））
+            type
+            指定数组中每个组件的数据类型。可用的符号常量有GL_BYTE, GL_UNSIGNED_BYTE, GL_SHORT, GL_UNSIGNED_SHORT, GL_FIXED, 和 GL_FLOAT，初始值为GL_FLOAT。
+            normalized
+            指定当被访问时，固定点数据值是否应该被归一化（GL_TRUE）或者直接转换为固定点值（GL_FALSE）。
+            stride
+            指定连续顶点属性之间的偏移量。如果为0，那么顶点属性会被理解为：它们是紧密排列在一起的。初始值为0。
+            pointer
+            指定第一个组件在数组的第一个顶点属性中的偏移量。该数组与GL_ARRAY_BUFFER绑定，储存于缓冲区中。初始值为0；*/
+
+        std::cout << " SetAttributeData location:" << mAttribNumber << " mNumComp:" << mNumComp << std::endl;
         glEnableVertexAttribArray(mAttribNumber);
         glVertexAttribPointer(mAttribNumber, mNumComp, GL_FLOAT, GL_FALSE,
                               mDataStride, (GLvoid *) mDataOffset);
@@ -121,9 +147,23 @@ public:
         Parameters
             n
             Specifies the number of buffer object names to be generated.
-
             buffers
             Specifies an array in which the generated buffer object names are stored.*/
+  /*1.glGenBuffers 官方解释：generate buffer object names
+            意思是该函数用来生成缓冲区对象的名称。
+
+            函数原型：void glGenBuffers(GLsizei n, GLuint * buffers);
+
+        第一个参数是要生成的缓冲对象的数量，第二个是要输入用来存储缓冲对象名称的数组
+
+            该函数会在buffers里返回n个缓冲对象的名称。
+
+            个人理解如下，可以声明一个GLuint变量，然后使用glGenBuffers后，它就会把缓冲对象保存在vbo里，当然也可以声明一个数组类型，那么创建的3个缓冲对象的名称会依次保存在数组里。
+
+            GLuint vbo;
+        glGenBuffers(1, &vbo);
+        GLuint vbo[3];
+        glGenBuffers(3, vbo);*/
     GLuint operator[](unsigned int i)
     {
         if (i >= mVboIDs.size())

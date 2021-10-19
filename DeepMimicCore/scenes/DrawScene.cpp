@@ -35,7 +35,7 @@ void cDrawScene::Init()
 {
 	cScene::Init();
 	InitCamera();
-	ResetCamera();
+	//ResetCamera();
 
 	//InitRenderResources();
 }
@@ -43,7 +43,7 @@ void cDrawScene::Init()
 void cDrawScene::Reset()
 {
 	cScene::Reset();
-	//ResetCamera();
+	ResetCamera();
 }
 
 void cDrawScene::Draw()
@@ -281,7 +281,8 @@ tVector cDrawScene::GetCamTrackPos() const
 
 tVector cDrawScene::GetCamStillPos() const
 {
-	return tVector::Zero();
+	//return tVector::Zero();
+	return tVector::Ones();
 }
 
 void cDrawScene::ResetCamera()

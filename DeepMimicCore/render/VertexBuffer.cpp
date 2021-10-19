@@ -17,7 +17,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "render/VertexBuffer.h"
-
+#include <iostream>
 
 void cVertexBuffer::ResizeBuffer(int size)
 {
@@ -68,6 +68,9 @@ void cVertexBuffer::ResizeBuffer(int size)
  * buffer_type specifies whether you are binding an index buffer "GL_ELEMENT_ARRAY_BUFFER" or a
  * vertex buffer "GL_ARRAY_BUFFER"
  */
+
+ //本程序中所有传参都是 data_offset==0 num_attr==1
+//mVbos[buffer_num].LoadBuffer(data_size, data, data_offset, num_attr, attr_info);
 void cVertexBuffer::LoadBuffer(int data_size, GLubyte *data, int data_offset, int num_attr, tAttribInfo *attr_info)
 {
     // does nothing if data is already allocated
@@ -86,6 +89,7 @@ void cVertexBuffer::LoadBuffer(int data_size, GLubyte *data, int data_offset, in
 
     // update our internal attribute info
     memcpy(mAttrInfo, attr_info, num_attr * sizeof(tAttribInfo));
+    std::cout << "cVertexBuffer::LoadBuffer this:" << this << " atrribNum:" << mAttrInfo->mAttribNumber << " numComp:" << mAttrInfo->mNumComp << " num_attr:" << num_attr << std::endl;
 
     // update our internal data
     memcpy(mLocalData + data_offset, data, data_size);
@@ -105,8 +109,11 @@ void cVertexBuffer::SyncBuffer(GLuint buffer)
 {
     mRenderState->SetBufferData(buffer, mSize, (unsigned char *)mLocalData);
 
-    for (int i = 0; i < mNumAttr; ++i)
+    for (int i = 0; i < mNumAttr; ++i)//本程序mNumAttr==1
+    {
+        std::cout << "cVertexBuffer::SyncBuffer this:" << this << " atrribNum:" << mAttrInfo->mAttribNumber << " numComp:" << mAttrInfo->mNumComp << " num_attr:" << mNumAttr << std::endl;
         mRenderState->SetAttributeData(mAttrInfo[i]);
+    }
 }
 
 // copy all local data to the GPU using
