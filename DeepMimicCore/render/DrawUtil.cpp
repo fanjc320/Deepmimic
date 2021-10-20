@@ -166,11 +166,11 @@ void cDrawUtil::DrawBoxSolid(const tVector& pos, const tVector& size, const tVec
 	attr_info.mNumComp = cMeshUtil::gCoordDim;*/
 	//gBoxSolidMesh->LoadVBuffer(attr_info.mAttribNumber, sizeof(float) * coord_len, (GLubyte*)coord_data, 0, 1, &attr_info);
 
-	PushMatrixView();
+	//PushMatrixView();
 	//Translate(pos);
 	//Scale(size);
 	gBoxSolidMesh->Draw(GL_TRIANGLES);
-	PopMatrixView();
+	//PopMatrixView();
 }
 
 void cDrawUtil::DrawBoxWire(const tVector& pos, const tVector& size)

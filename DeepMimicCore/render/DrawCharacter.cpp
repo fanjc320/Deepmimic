@@ -160,8 +160,8 @@ void cDrawCharacter::DrawShapeBox(const cKinTree::tDrawShapeDef& def, const tMat
 
 	cDrawUtil::PushMatrixView();
 	cDrawUtil::MultMatrixView(parent_world_trans);
-	cDrawUtil::Translate(attach_pt);
-	cDrawUtil::Rotate(euler);
+	/*cDrawUtil::Translate(attach_pt);
+	cDrawUtil::Rotate(euler);*/
 
 	cDrawUtil::SetColor(col);
 	cDrawUtil::DrawBox(tVector::Zero(), size, cDrawUtil::eDrawSolid);
