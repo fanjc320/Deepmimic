@@ -7,10 +7,10 @@ class cShape
 public:
 	enum eShape
 	{
-		eShapeNull,
-		eShapeBox,
-		eShapeCapsule,
-		eShapeSphere,
+		eShapeNull,//0
+		eShapeBox,//1
+		eShapeCapsule,//2
+		eShapeSphere,//3
 		eShapeCylinder,
 		eShapePlane,
 		eShapeMax,

@@ -115,6 +115,20 @@ void cDrawCharacter::DrawCharShapes(const cCharacter& character, const tVector& 
 		}
 		else
 		{
+			cShape::eShape shape = static_cast<cShape::eShape>((int)curr_def[cKinTree::eDrawShapeShape]);
+			
+			if (shape != cShape::eShapeBox)
+			{
+				continue;
+			}
+			int parent_joint = (int)curr_def[cKinTree::eDrawShapeParentJoint];//5,11 11在下面输出为b，不知道为啥
+
+			//std::cout << " parent_joint:" << (int)parent_joint << std::endl; 11也是b
+			std::cout << "---DrawCharShapes shape:" << shape << " parent_joint:" << (int)parent_joint << " meshid:" << mesh_id << std::endl;//11->b
+			if (parent_joint == 11)
+			{
+				continue;
+			}
 			cDrawCharacter::DrawShape(curr_def, parent_world_trans, fill_tint, line_col);
 		}
 	}
