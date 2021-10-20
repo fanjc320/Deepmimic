@@ -946,15 +946,15 @@ void cDrawUtil::BuildShaders()
 		gDefaultProg.BuildShader("../data/shaders/Mesh_VS.glsl", "../data/shaders/VertColor_PS.glsl");
 	}
 
-	{
-		//gCopyProg.BuildShader("data/shaders/FullScreenQuad_VS.glsl", "data/shaders/DownSample_PS.glsl");
-		gCopyProg.BuildShader("../data/shaders/FullScreenQuad_VS.glsl", "../data/shaders/DownSample_PS.glsl");
-	}
+	//{
+	//	//gCopyProg.BuildShader("data/shaders/FullScreenQuad_VS.glsl", "data/shaders/DownSample_PS.glsl");
+	//	gCopyProg.BuildShader("../data/shaders/FullScreenQuad_VS.glsl", "../data/shaders/DownSample_PS.glsl");
+	//}
 
-	{
-		//gCopyMeshProg.BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/DownSample_PS.glsl");
-		gCopyMeshProg.BuildShader("../data/shaders/Mesh_VS.glsl", "../data/shaders/DownSample_PS.glsl");
-	}
+	//{
+	//	//gCopyMeshProg.BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/DownSample_PS.glsl");
+	//	gCopyMeshProg.BuildShader("../data/shaders/Mesh_VS.glsl", "../data/shaders/DownSample_PS.glsl");
+	//}
 }
 
 void cDrawUtil::DrawCylinderSolidWire(double r, double h, eDrawMode draw_mode)

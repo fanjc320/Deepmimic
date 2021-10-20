@@ -28,7 +28,7 @@ cDrawMesh::~cDrawMesh()
 {
 }
 
-void cDrawMesh::Init(int num_buffers)
+void cDrawMesh::Init(int num_buffers)// 3
 {
 	mState.BindVAO();
 
@@ -77,7 +77,7 @@ void cDrawMesh::Draw(GLenum primitive, int idx_start, int idx_end)
 	int num_elem = std::min(idx_end, mNumElem) - idx_start;
 	cDrawUtil::LoadShaderUniforms();
 
-	std::cout << "cDrawMesh::Draw primitive(GL_TRIANGLES):" << primitive << " start:" << idx_start << " end:" << idx_end << std::endl;
+	std::cout << "cDrawMesh::Draw primitive(GL_TRIANGLES):" << primitive << " start:" << idx_start << " end:" << idx_end << " mNumElem:" << mNumElem << std::endl;
 	glDrawElements(primitive, num_elem, GL_UNSIGNED_INT, (void*)(idx_start * sizeof(GLuint)));
 }
 
@@ -140,3 +140,5 @@ int cDrawMesh::GetNumVerts() const
 	}
 	return num_verts;
 }
+
+
