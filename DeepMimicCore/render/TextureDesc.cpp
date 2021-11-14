@@ -2,6 +2,7 @@
 #include <assert.h>
 #include "lodepng/lodepng.h"
 #include <iostream>
+#include <algorithm>
 
 std::stack<cTextureDesc::tTexEntry> cTextureDesc::gTexStack = std::stack<cTextureDesc::tTexEntry>();
 

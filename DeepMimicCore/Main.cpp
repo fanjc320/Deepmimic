@@ -108,7 +108,7 @@ void Update(double time_elapsed)
 			{
 				auto s = gCore->RecordState(id);
 				auto g = gCore->RecordGoal(id);
-				double r = gCore->CalcReward(id);
+				//double r = gCore->CalcReward(id);
 				++gSampleCount;
 
 				std::vector<double> action = std::vector<double>(gCore->GetActionSize(id), 0);

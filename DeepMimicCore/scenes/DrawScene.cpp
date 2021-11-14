@@ -292,7 +292,7 @@ void cDrawScene::ResetCamera()
 	if (mode == eCamTrackModeXZ
 		|| mode == eCamTrackModeY)
 	{
-		target_pos = GetCamTrackPos();
+		//target_pos = GetCamTrackPos();
 	}
 	else if (mode == eCamTrackModeStill)
 	{
@@ -563,37 +563,5 @@ void cDrawScene::SetupMeshShader()
 
 void cDrawScene::DoShadowPass()
 {
-	//// front face culling to prevent shelf occlusion
-	//glCullFace(GL_FRONT);
-
-	//float dist = 30.f;
-	//const tVector& sun_dir = GetLightDirection();
-	//tVector delta = dist * sun_dir;
-	//tVector focus = mCamera.GetFocus();
-	//mShadowCam.SetPosition(focus + delta);
-	//mShadowCam.SetFocus(focus);
-
-	////mShadowMap->BindBuffer();
-	//mShaderDepth->Bind();
-	//cDrawUtil::ClearColor(tVector(1, 1, 1, 0));
-	//cDrawUtil::ClearDepth(1);
-
-	//// shadow pass
-	//cDrawUtil::PushMatrixProj();
-	//mShadowCam.SetupGLProj();
-
-	//cDrawUtil::PushMatrixView();
-	//mShadowCam.SetupGLView();
-
-	//DrawCharacters();
-	//DrawObjs();
-	//DrawMisc();
-	//glCullFace(GL_BACK);
-	//DrawGround();
-
-	//mShaderDepth->Unbind();
-	////mShadowMap->UnbindBuffer();
-
-	//cDrawUtil::PopMatrixProj();
-	//cDrawUtil::PopMatrixView();
+	
 }

@@ -45,6 +45,8 @@ void cDeepMimicCore::ParseArgs(const std::vector<std::string>& args)
 
 void cDeepMimicCore::Init()
 {
+	glewExperimental = GL_TRUE;
+	glewInit();
 	if (EnableDraw())
 	{
 		cDrawUtil::InitDrawUtil();
