@@ -812,7 +812,7 @@ bool cSimCharacter::BuildMultiBody(std::shared_ptr<cMultiBody>& out_body)
 		bool is_root = cKinTree::IsRoot(mJointMat, j);
 		
 		btCollisionShape* col_shape = BuildCollisionShape(body_shape, body_size);
-		btVector3 inertia = btVector3(0, 0, 0);
+		btVector3 inertia = btVector3(0, 0, 0);//¹ßÐÔ
 		col_shape->calculateLocalInertia(static_cast<btScalar>(mass), inertia);
 
 		// arg so many transforms...

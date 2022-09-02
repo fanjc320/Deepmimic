@@ -633,6 +633,13 @@ tVector cSimBodyJoint::GetTotalForce() const
 	return force;
 }
 
+//2.1 Joint （关节）
+//移动——prismatic
+//转动——revolute
+//每个revolute或prismatic的joint具有1DOF——简化
+//每个joint对 某特定的axis 进行rotation或 translation
+//hinge_joint 铰链关节 门
+
 void cSimBodyJoint::ApplyTauRevolute()
 {
 	tVector torque = GetTotalTorque();
