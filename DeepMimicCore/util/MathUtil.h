@@ -8,7 +8,8 @@
 #include "Rand.h"
 
 const int gInvalidIdx = -1;
-
+//Eigen::MatrixXd和VectorXd的用法注意
+// https://zhuanlan.zhihu.com/p/213929051
 // for convenience define standard vector for rendering
 typedef Eigen::Vector4d tVector;
 typedef Eigen::Vector4d tVector3;

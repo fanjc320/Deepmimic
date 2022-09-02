@@ -35,9 +35,9 @@ void cDrawScene::Init()
 {
 	cScene::Init();
 	InitCamera();
-	ResetCamera();
+	//ResetCamera();
 
-	InitRenderResources();
+	//InitRenderResources();
 }
 
 void cDrawScene::Reset()
@@ -140,7 +140,7 @@ cDrawScene::eCamTrackMode cDrawScene::GetCamTrackMode() const
 
 void cDrawScene::UpdateCamera()
 {
-	eCamTrackMode mode = GetCamTrackMode();
+	/*eCamTrackMode mode = GetCamTrackMode();
 	if (mode == eCamTrackModeXZ
 		|| mode == eCamTrackModeY
 		|| mode == eCamTrackModeXYZ)
@@ -150,7 +150,7 @@ void cDrawScene::UpdateCamera()
 	else if (mode == eCamTrackModeStill)
 	{
 		UpdateCameraStill();
-	}
+	}*/
 }
 
 void cDrawScene::UpdateCameraTracking()
@@ -281,7 +281,8 @@ tVector cDrawScene::GetCamTrackPos() const
 
 tVector cDrawScene::GetCamStillPos() const
 {
-	return tVector::Zero();
+	//return tVector::Zero();
+	return tVector::Ones();
 }
 
 void cDrawScene::ResetCamera()
@@ -347,8 +348,8 @@ tVector cDrawScene::GetLightDirection() const
 void cDrawScene::DrawScene()
 {
 	//DoShadowPass();
-	mShaderMesh->Bind();
-	SetupMeshShader();
+	//mShaderMesh->Bind();
+	//SetupMeshShader();
 
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
@@ -358,7 +359,7 @@ void cDrawScene::DrawScene()
 	//DrawObjsMainScene();
 	//DrawMiscMainScene();
 
-	mShaderMesh->Unbind();
+	//mShaderMesh->Unbind();
 
 	//if (mDrawInfo)
 	//{
@@ -409,7 +410,7 @@ void cDrawScene::DrawCharacterMainScene()
 {
 	const double roughness = 0.4;
 	const double enable_tex = 0;
-	mShaderMesh->SetUniform4(mMeshMaterialDataHandle, tVector(roughness, enable_tex, 0, 0));
+	//mShaderMesh->SetUniform4(mMeshMaterialDataHandle, tVector(roughness, enable_tex, 0, 0));
 	DrawCharacters();
 }
 
@@ -467,51 +468,51 @@ tVector cDrawScene::GetGroundColor() const
 
 void cDrawScene::InitRenderResources()
 {
-	bool succ = true;
+	//bool succ = true;
 
-	{
-		mShaderDepth = std::unique_ptr<cShader>(new cShader());
-		//succ &= mShaderDepth->BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/Depth_PS.glsl");
-		succ &= mShaderDepth->BuildShader("../data/shaders/Mesh_VS.glsl", "../data/shaders/Depth_PS.glsl");
-	}
+	//{
+	//	mShaderDepth = std::unique_ptr<cShader>(new cShader());
+	//	//succ &= mShaderDepth->BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/Depth_PS.glsl");
+	//	succ &= mShaderDepth->BuildShader("../data/shaders/Mesh_VS.glsl", "../data/shaders/Depth_PS.glsl");
+	//}
 
-	{
-		mShaderMesh = std::unique_ptr<cShader>(new cShader());
-		//succ &= mShaderMesh->BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/Lighting_Lambert_PS.glsl");
-		succ &= mShaderMesh->BuildShader("../data/shaders/Mesh_VS.glsl", "../data/shaders/Lighting_Lambert_PS.glsl");
+	//{
+	//	mShaderMesh = std::unique_ptr<cShader>(new cShader());
+	//	//succ &= mShaderMesh->BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/Lighting_Lambert_PS.glsl");
+	//	succ &= mShaderMesh->BuildShader("../data/shaders/Mesh_VS.glsl", "../data/shaders/Lighting_Lambert_PS.glsl");
 
-		mShaderMesh->Bind();
-		mShaderMesh->GetUniformHandle(mMeshLightDirHandle, "gLightDir");
-		mShaderMesh->GetUniformHandle(mMeshLightColourHandle, "gLightColour");
-		mShaderMesh->GetUniformHandle(mMeshAmbientColourHandle, "gAmbientColour");
-		mShaderMesh->GetUniformHandle(mMeshShadowProjHandle, "gShadowProj");
-		mShaderMesh->GetUniformHandle(mMeshMaterialDataHandle, "gMaterialData");
-		mShaderMesh->GetUniformHandle(mMeshFogColorHandle, "gFogColor");
-		mShaderMesh->GetUniformHandle(mMeshFogDataHandle, "gFogData");
+	//	mShaderMesh->Bind();
+	//	mShaderMesh->GetUniformHandle(mMeshLightDirHandle, "gLightDir");
+	//	mShaderMesh->GetUniformHandle(mMeshLightColourHandle, "gLightColour");
+	//	mShaderMesh->GetUniformHandle(mMeshAmbientColourHandle, "gAmbientColour");
+	//	mShaderMesh->GetUniformHandle(mMeshShadowProjHandle, "gShadowProj");
+	//	mShaderMesh->GetUniformHandle(mMeshMaterialDataHandle, "gMaterialData");
+	//	mShaderMesh->GetUniformHandle(mMeshFogColorHandle, "gFogColor");
+	//	mShaderMesh->GetUniformHandle(mMeshFogDataHandle, "gFogData");
 
-		GLint albedo_tex = glGetUniformLocation(mShaderMesh->GetProg(), "gTexture");
-		glUniform1i(albedo_tex, 0);
-		GLint shadow_tex = glGetUniformLocation(mShaderMesh->GetProg(), "gShadowTex");
-		glUniform1i(shadow_tex, 1);
-		mShaderMesh->Unbind();
-	}
+	//	GLint albedo_tex = glGetUniformLocation(mShaderMesh->GetProg(), "gTexture");
+	//	glUniform1i(albedo_tex, 0);
+	//	GLint shadow_tex = glGetUniformLocation(mShaderMesh->GetProg(), "gShadowTex");
+	//	glUniform1i(shadow_tex, 1);
+	//	mShaderMesh->Unbind();
+	//}
 
-	float shadow_size = 40.f;
-	float shadow_near_z = 1.f;
-	float shadow_far_z = 60.f;
-	int shadow_res = 2048;
-	mShadowCam = cCamera(cCamera::eProjOrtho, tVector(0, 0, 1, 0), tVector::Zero(),
-		tVector(0, 1, 0, 0), shadow_size, shadow_size, shadow_near_z,
-		shadow_far_z);
-	/*mShadowMap = std::unique_ptr<cShadowMap>(new cShadowMap());
-	mShadowMap->Init(shadow_res, shadow_res);*/
+	//float shadow_size = 40.f;
+	//float shadow_near_z = 1.f;
+	//float shadow_far_z = 60.f;
+	//int shadow_res = 2048;
+	//mShadowCam = cCamera(cCamera::eProjOrtho, tVector(0, 0, 1, 0), tVector::Zero(),
+	//	tVector(0, 1, 0, 0), shadow_size, shadow_size, shadow_near_z,
+	//	shadow_far_z);
+	///*mShadowMap = std::unique_ptr<cShadowMap>(new cShadowMap());
+	//mShadowMap->Init(shadow_res, shadow_res);*/
 
-	succ &= LoadTextures();
+	//succ &= LoadTextures();
 
-	if (!succ)
-	{
-		printf("Failed to setup render resources\n");
-	}
+	//if (!succ)
+	//{
+	//	printf("Failed to setup render resources\n");
+	//}
 }
 
 bool cDrawScene::LoadTextures()
@@ -525,7 +526,7 @@ bool cDrawScene::LoadTextures()
 
 void cDrawScene::SetupMeshShader()
 {
-	tMatrix view_mat = mCamera.BuildWorldViewMatrix();
+	/*tMatrix view_mat = mCamera.BuildWorldViewMatrix();
 
 	tVector cam_focus = mCamera.GetFocus();
 	tVector cam_pos = mCamera.GetPosition();
@@ -556,7 +557,7 @@ void cDrawScene::SetupMeshShader()
 		(float)shadow_mat(0, 1), (float)shadow_mat(1, 1), (float)shadow_mat(2, 1), (float)shadow_mat(3, 1),
 		(float)shadow_mat(0, 2), (float)shadow_mat(1, 2), (float)shadow_mat(2, 2), (float)shadow_mat(3, 2),
 		(float)shadow_mat(0, 3), (float)shadow_mat(1, 3), (float)shadow_mat(2, 3), (float)shadow_mat(3, 3) };
-	glProgramUniformMatrix4fv(mShaderMesh->GetProg(), mMeshShadowProjHandle, 1, false, shadow_mat_data);
+	glProgramUniformMatrix4fv(mShaderMesh->GetProg(), mMeshShadowProjHandle, 1, false, shadow_mat_data);*/
 
 	//mShadowMap->BindTex(GL_TEXTURE1);
 }

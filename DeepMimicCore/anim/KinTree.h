@@ -71,22 +71,22 @@ public:
 
 	enum eDrawShape
 	{
-		eDrawShapeShape,
-		eDrawShapeParentJoint,
-		eDrawShapeAttachX,
-		eDrawShapeAttachY,
-		eDrawShapeAttachZ,
+		eDrawShapeShape,//0
+		eDrawShapeParentJoint,//1
+		eDrawShapeAttachX,//2
+		eDrawShapeAttachY,//3
+		eDrawShapeAttachZ,//4
 		eDrawShapeAttachThetaX, // Euler angles order XYZ
-		eDrawShapeAttachThetaY,
-		eDrawShapeAttachThetaZ,
-		eDrawShapeParam0,
-		eDrawShapeParam1,
-		eDrawShapeParam2,
-		eDrawShapeColorR,
-		eDrawShapeColorG,
-		eDrawShapeColorB,
-		eDrawShapeColorA,
-		eDrawShapeMeshID,
+		eDrawShapeAttachThetaY,//6
+		eDrawShapeAttachThetaZ,//7
+		eDrawShapeParam0,//8
+		eDrawShapeParam1,//9
+		eDrawShapeParam2,//10
+		eDrawShapeColorR,//11
+		eDrawShapeColorG,//12
+		eDrawShapeColorB,//13
+		eDrawShapeColorA,//14
+		eDrawShapeMeshID,//15
 		eDrawShapeParamMax
 	};
 	typedef Eigen::Matrix<double, 1, eDrawShapeParamMax> tDrawShapeDef;

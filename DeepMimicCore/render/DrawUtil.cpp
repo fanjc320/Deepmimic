@@ -61,8 +61,8 @@ void cDrawUtil::InitDrawUtil()
 
 	const GLubyte* renderer = glGetString(GL_RENDERER); // get renderer string
 	const GLubyte* version = glGetString(GL_VERSION); // version as a string
-	printf("Renderer: %s\n", renderer);
-	printf("OpenGL version supported %s\n", version);
+	/*printf("Renderer: %s\n", renderer);
+	printf("OpenGL version supported %s\n", version);*/
 
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_BLEND);
@@ -115,62 +115,62 @@ void cDrawUtil::DrawBoxSolid(const tVector& pos, const tVector& size, const tVec
 	const int coord_len = num_faces * 6 * cMeshUtil::gCoordDim;
 
 	const float coord_data[coord_len] = {
-		static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_min[2]), // top
-		static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_min[2]),
+		//static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_min[2]), // top
+		/*static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_min[2]),
 		static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_max[2]),
 		static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_max[2]),
 		static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_max[2]),
-		static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_min[2]),
+		static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_min[2]),*/
 
-		static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_min[2]), // bottom
-		static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_max[2]),
-		static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_max[2]),
-		static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_max[2]),
-		static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_min[2]),
-		static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_min[2]),
+		//static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_min[2]), // bottom
+		//static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_max[2]),
+		//static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_max[2]),
+		//static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_max[2]),
+		//static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_min[2]),
+		//static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_min[2]),
 
-		static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_min[1]), // front
-		static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_min[1]),
-		static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_max[1]),
-		static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_max[1]),
-		static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_max[1]),
-		static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_min[1]),
+		//static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_min[1]), // front
+		//static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_min[1]),
+		//static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_max[1]),
+		//static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_max[1]),
+		//static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_max[1]),
+		//static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_min[1]),
 
-		static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_min[1]), // back
-		static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_min[1]),
-		static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_max[1]),
-		static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_max[1]),
-		static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_max[1]),
-		static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_min[1]),
+		//static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_min[1]), // back
+		//static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_min[1]),
+		//static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_max[1]),
+		//static_cast<float>(tex_coord_max[0]), static_cast<float>(tex_coord_max[1]),
+		//static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_max[1]),
+		//static_cast<float>(tex_coord_min[0]), static_cast<float>(tex_coord_min[1]),
 
-		static_cast<float>(tex_coord_max[2]), static_cast<float>(tex_coord_min[1]), // left
-		static_cast<float>(tex_coord_max[2]), static_cast<float>(tex_coord_max[1]),
-		static_cast<float>(tex_coord_min[2]), static_cast<float>(tex_coord_max[1]),
-		static_cast<float>(tex_coord_min[2]), static_cast<float>(tex_coord_max[1]),
-		static_cast<float>(tex_coord_min[2]), static_cast<float>(tex_coord_min[1]),
-		static_cast<float>(tex_coord_max[2]), static_cast<float>(tex_coord_min[1]),
+		//static_cast<float>(tex_coord_max[2]), static_cast<float>(tex_coord_min[1]), // left
+		//static_cast<float>(tex_coord_max[2]), static_cast<float>(tex_coord_max[1]),
+		//static_cast<float>(tex_coord_min[2]), static_cast<float>(tex_coord_max[1]),
+		//static_cast<float>(tex_coord_min[2]), static_cast<float>(tex_coord_max[1]),
+		//static_cast<float>(tex_coord_min[2]), static_cast<float>(tex_coord_min[1]),
+		//static_cast<float>(tex_coord_max[2]), static_cast<float>(tex_coord_min[1]),
 
-		static_cast<float>(tex_coord_max[2]), static_cast<float>(tex_coord_min[1]), // right
-		static_cast<float>(tex_coord_max[2]), static_cast<float>(tex_coord_max[1]),
-		static_cast<float>(tex_coord_min[2]), static_cast<float>(tex_coord_max[1]),
-		static_cast<float>(tex_coord_min[2]), static_cast<float>(tex_coord_max[1]),
-		static_cast<float>(tex_coord_min[2]), static_cast<float>(tex_coord_min[1]),
-		static_cast<float>(tex_coord_max[2]), static_cast<float>(tex_coord_min[1])
+		//static_cast<float>(tex_coord_max[2]), static_cast<float>(tex_coord_min[1]), // right
+		//static_cast<float>(tex_coord_max[2]), static_cast<float>(tex_coord_max[1]),
+		//static_cast<float>(tex_coord_min[2]), static_cast<float>(tex_coord_max[1]),
+		//static_cast<float>(tex_coord_min[2]), static_cast<float>(tex_coord_max[1]),
+		//static_cast<float>(tex_coord_min[2]), static_cast<float>(tex_coord_min[1]),
+		//static_cast<float>(tex_coord_max[2]), static_cast<float>(tex_coord_min[1])
 	};
 
-	tAttribInfo attr_info;
+	/*tAttribInfo attr_info;
 	attr_info.mAttribNumber = cMeshUtil::eAttributeCoord;
 	attr_info.mAttribSize = sizeof(coord_data[0]);
 	attr_info.mDataOffset = 0;
 	attr_info.mDataStride = 0;
-	attr_info.mNumComp = cMeshUtil::gCoordDim;
-	gBoxSolidMesh->LoadVBuffer(attr_info.mAttribNumber, sizeof(float) * coord_len, (GLubyte*)coord_data, 0, 1, &attr_info);
+	attr_info.mNumComp = cMeshUtil::gCoordDim;*/
+	//gBoxSolidMesh->LoadVBuffer(attr_info.mAttribNumber, sizeof(float) * coord_len, (GLubyte*)coord_data, 0, 1, &attr_info);
 
-	PushMatrixView();
-	Translate(pos);
-	Scale(size);
+	//PushMatrixView();
+	//Translate(pos);
+	//Scale(size);
 	gBoxSolidMesh->Draw(GL_TRIANGLES);
-	PopMatrixView();
+	//PopMatrixView();
 }
 
 void cDrawUtil::DrawBoxWire(const tVector& pos, const tVector& size)
@@ -946,15 +946,15 @@ void cDrawUtil::BuildShaders()
 		gDefaultProg.BuildShader("../data/shaders/Mesh_VS.glsl", "../data/shaders/VertColor_PS.glsl");
 	}
 
-	{
-		//gCopyProg.BuildShader("data/shaders/FullScreenQuad_VS.glsl", "data/shaders/DownSample_PS.glsl");
-		gCopyProg.BuildShader("../data/shaders/FullScreenQuad_VS.glsl", "../data/shaders/DownSample_PS.glsl");
-	}
+	//{
+	//	//gCopyProg.BuildShader("data/shaders/FullScreenQuad_VS.glsl", "data/shaders/DownSample_PS.glsl");
+	//	gCopyProg.BuildShader("../data/shaders/FullScreenQuad_VS.glsl", "../data/shaders/DownSample_PS.glsl");
+	//}
 
-	{
-		//gCopyMeshProg.BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/DownSample_PS.glsl");
-		gCopyMeshProg.BuildShader("../data/shaders/Mesh_VS.glsl", "../data/shaders/DownSample_PS.glsl");
-	}
+	//{
+	//	//gCopyMeshProg.BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/DownSample_PS.glsl");
+	//	gCopyMeshProg.BuildShader("../data/shaders/Mesh_VS.glsl", "../data/shaders/DownSample_PS.glsl");
+	//}
 }
 
 void cDrawUtil::DrawCylinderSolidWire(double r, double h, eDrawMode draw_mode)

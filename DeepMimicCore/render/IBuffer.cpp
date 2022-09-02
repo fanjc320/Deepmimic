@@ -62,6 +62,7 @@ void cIBuffer::LoadBuffer(int num_elem, int elem_size, int *data, int data_offse
 // \param specify a buffer other than the stored buffer to allocate to
 void cIBuffer::SyncBuffer(GLuint buffer)
 {
+    std::cout << "cIBuffer::SyncBuffer this:" << this << " buffer:" << buffer << " mSize:" << mSize << std::endl;
     mRenderState->BindIBO(buffer);
     mRenderState->SetBufferData(buffer, mSize, (unsigned char *)mLocalData);
 }
