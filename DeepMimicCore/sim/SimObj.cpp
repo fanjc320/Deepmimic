@@ -91,7 +91,7 @@ tMatrix cSimObj::GetWorldTransform() const
 		auto bt_row = basis.getRow(i);
 		for (int j = 0; j < 3; ++j)
 		{
-			curr_row[j] = bt_row[j];
+			curr_row[j] = bt_row[j];//?????
 		}
 		curr_row[3] = origin[i] / scale;
 	}

@@ -100,7 +100,7 @@ void cContactManager::Update()
 						const btVector3& contact_pt = pt.getPositionWorldOnA();
 						pt0.mPos = tVector(contact_pt[0], contact_pt[1], contact_pt[2], 0) / world_scale;
 						pt0.mForce = force0;
-						mContactEntries[h0.mID].mContactPts.push_back(pt0);
+						//mContactEntries[h0.mID].mContactPts.push_back(pt0);
 					}
 
 					if (h1.IsValid())
@@ -109,7 +109,7 @@ void cContactManager::Update()
 						const btVector3& contact_pt = pt.getPositionWorldOnB();
 						pt1.mPos = tVector(contact_pt[0], contact_pt[1], contact_pt[2], 0) / world_scale;
 						pt1.mForce = -force0;
-						mContactEntries[h1.mID].mContactPts.push_back(pt1);
+						//mContactEntries[h1.mID].mContactPts.push_back(pt1);
 					}
 				}
 			}

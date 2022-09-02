@@ -89,8 +89,6 @@ public:
 	virtual const cContactManager& GetContactManager() const;
 
 	virtual void RayTest(const tVector& beg, const tVector& end, tRayTestResults& results) const;
-	virtual void AddPerturb(const tPerturb& perturb);
-	virtual const cPerturbManager& GetPerturbManager() const;
 
 	virtual tVector GetGravity() const;
 	virtual double GetScale() const;
@@ -136,7 +134,6 @@ protected:
 	std::unique_ptr<btBroadphaseInterface> mBroadPhase;
 
 	cContactManager mContactManager;
-	cPerturbManager mPerturbManager;
 	
 	virtual int GetNumConstriants() const;
 	virtual void BuildConsFactor(tVector& out_linear_factor, tVector& out_angular_factor);

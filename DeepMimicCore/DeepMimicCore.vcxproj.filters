@@ -137,9 +137,6 @@
     <ClCompile Include="sim\SimBox.cpp">
       <Filter>Source Files\sim</Filter>
     </ClCompile>
-    <ClCompile Include="sim\Perturb.cpp">
-      <Filter>Source Files\sim</Filter>
-    </ClCompile>
     <ClCompile Include="sim\PDController.cpp">
       <Filter>Source Files\sim</Filter>
     </ClCompile>
@@ -257,9 +254,6 @@
     <ClCompile Include="sim\ExpPDController.cpp">
       <Filter>Source Files\sim</Filter>
     </ClCompile>
-    <ClCompile Include="sim\PerturbManager.cpp">
-      <Filter>Source Files\sim</Filter>
-    </ClCompile>
     <ClCompile Include="render\MatrixStack.cpp">
       <Filter>Source Files\render</Filter>
     </ClCompile>
@@ -276,9 +270,6 @@
       <Filter>Source Files\sim</Filter>
     </ClCompile>
     <ClCompile Include="Test_Opengl.cpp">
-      <Filter>Source Files\test_opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="frameBuffer.cpp">
       <Filter>Source Files\test_opengl</Filter>
     </ClCompile>
   </ItemGroup>
@@ -418,9 +409,6 @@
     <ClInclude Include="sim\SimCapsule.h">
       <Filter>Source Files\sim</Filter>
     </ClInclude>
-    <ClInclude Include="sim\Perturb.h">
-      <Filter>Source Files\sim</Filter>
-    </ClInclude>
     <ClInclude Include="sim\PDController.h">
       <Filter>Source Files\sim</Filter>
     </ClInclude>
@@ -541,9 +529,6 @@
     <ClInclude Include="sim\ExpPDController.h">
       <Filter>Source Files\sim</Filter>
     </ClInclude>
-    <ClInclude Include="sim\PerturbManager.h">
-      <Filter>Source Files\sim</Filter>
-    </ClInclude>
     <ClInclude Include="render\MatrixStack.h">
       <Filter>Source Files\render</Filter>
     </ClInclude>
@@ -559,5 +544,8 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="DeepMimicCore.i" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

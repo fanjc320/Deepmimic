@@ -104,6 +104,8 @@ void cDrawCharacter::DrawCharShapes(const cCharacter& character, const tVector& 
 	for (int i = 0; i < num_shapes; ++i)
 	{
 		cKinTree::tDrawShapeDef curr_def = shape_defs.row(i);
+		//std::cout << " i:" << i << " curr_def:" << curr_def << std::endl;
+
 		int parent_joint = cKinTree::GetDrawShapeParentJoint(curr_def);
 		tMatrix parent_world_trans = character.BuildJointWorldTrans(parent_joint);
 
@@ -115,6 +117,12 @@ void cDrawCharacter::DrawCharShapes(const cCharacter& character, const tVector& 
 		}
 		else
 		{
+			/*parent_world_trans << 0.995075, -0.00033007, -0.0991241, 0.219024,
+				0.000338421, 1, 6.74357e-05, 0.0499651,
+				0.099124, -0.000100649, 0.995075, 0.258042,
+				0, 0, 0, 1;*/
+
+			//std::cout << "---DrawCharShapes parent_world_trans:" << parent_world_trans << std::endl;
 			cDrawCharacter::DrawShape(curr_def, parent_world_trans, fill_tint, line_col);
 		}
 	}

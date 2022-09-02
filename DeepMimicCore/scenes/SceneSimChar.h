@@ -53,14 +53,14 @@ public:
 	virtual const tVector& GetGravity() const;
 	virtual bool LoadControlParams(const std::string& param_file, const std::shared_ptr<cSimCharacter>& out_char);
 
-	virtual void AddPerturb(const tPerturb& perturb);
-	virtual void ApplyRandForce(double min_force, double max_force, 
+	//virtual void AddPerturb(const tPerturb& perturb);
+	/*virtual void ApplyRandForce(double min_force, double max_force, 
 								double min_dur, double max_dur, cSimObj* obj);
 	virtual void ApplyRandForce();
 	virtual void ApplyRandForce(int char_id);
 	virtual void RayTest(const tVector& beg, const tVector& end, cWorld::tRayTestResult& out_result) const;
 
-	virtual void SetGroundParamBlend(double lerp);
+	virtual void SetGroundParamBlend(double lerp);*/
 	virtual int GetNumParamSets() const;
 	virtual void OutputCharState(const std::string& out_file) const;
 	virtual void OutputGround(const std::string& out_file) const;
@@ -135,8 +135,8 @@ protected:
 	virtual void UpdateWorld(double time_step);
 	virtual void UpdateCharacters(double time_step);
 	virtual void PostUpdateCharacters(double time_step);
-	virtual void UpdateGround(double time_elapsed);
-	virtual void UpdateRandPerturb(double time_step);
+	/*virtual void UpdateGround(double time_elapsed);
+	virtual void UpdateRandPerturb(double time_step);*/
 
 	virtual void ResetScene();
 	virtual void ResetCharacters();
@@ -146,7 +146,7 @@ protected:
 	virtual void PreUpdate(double timestep);
 	virtual void PostUpdate(double timestep);
 
-	virtual int GetRandPerturbPartID(const std::shared_ptr<cSimCharacter>& character);
+	//virtual int GetRandPerturbPartID(const std::shared_ptr<cSimCharacter>& character);
 	virtual void GetViewBound(tVector& out_min, tVector& out_max) const;
 	virtual void ParseGroundParams(const std::shared_ptr<cArgParser>& parser, cGround::tParams& out_params) const;
 
