@@ -80,7 +80,7 @@ void cKinCharacter::Reset()
 	cCharacter::Reset();
 }
 
-bool cKinCharacter::LoadMotion(const std::string& motion_file)
+bool cKinCharacter::LoadMotion(const std::string& motion_file)//../data/motions/humanoid3d_spinkick.txt
 {
 	cMotion::tParams motion_params;
 	motion_params.mMotionFile = motion_file;
@@ -97,7 +97,7 @@ bool cKinCharacter::LoadMotion(const std::string& motion_file)
 
 	if (succ)
 	{
-		int char_dof = GetNumDof();
+		int char_dof = GetNumDof();//dimesion of freedom втси╤х
 		int motion_dof = mMotion.GetNumDof();
 
 		if (char_dof != motion_dof)

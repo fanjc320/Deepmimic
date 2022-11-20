@@ -67,14 +67,14 @@ void cContactManager::Update()
 	std::unique_ptr<btMultiBodyDynamicsWorld>& bt_world = mWorld.GetInternalWorld();
 
 	int num_manifolds = bt_world->getDispatcher()->getNumManifolds();
-	for (int i = 0; i < num_manifolds; ++i)
+	for (int i = 0; i < num_manifolds; ++i)//15
 	{
 		btPersistentManifold* mani = bt_world->getDispatcher()->getManifoldByIndexInternal(i);
 		const btCollisionObject* obj0 = static_cast<const btCollisionObject*>(mani->getBody0());
 		const btCollisionObject* obj1 = static_cast<const btCollisionObject*>(mani->getBody1());
 
 		int num_contacts = mani->getNumContacts();
-		for (int j = 0; j < num_contacts; ++j)
+		for (int j = 0; j < num_contacts; ++j)//1 when i ==7
 		{
 			btManifoldPoint& pt = mani->getContactPoint(j);
 			btScalar dist_tol = static_cast<btScalar>(0.001 * world_scale);

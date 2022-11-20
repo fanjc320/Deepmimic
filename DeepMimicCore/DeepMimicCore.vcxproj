@@ -37,40 +37,40 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Swig|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Swig|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -234,7 +234,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>G:\3party\freeglut-3.0.0\build\bin\Release;G:\3party\glew-2.1.0\lib\Release\x64;G:\freeglut-3.0.0\build\lib\Release;C:\Users\89402\.conda\pkgs\python-3.5.6-he025d50_0;G:\3party\bullet3-2.88\bin;$(PYTHON_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>G:\3party\freeglut-3.0.0\build\lib\Release;G:\3party\glew-2.1.0\lib\Release\x64;G:\freeglut-3.0.0\build\lib\Release;C:\Users\89402\.conda\pkgs\python-3.5.6-he025d50_0;G:\3party\bullet3-2.88\bin;$(PYTHON_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glu32.lib;glew32.lib;BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
@@ -252,7 +252,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="frameBuffer.cpp" />
     <ClCompile Include="Main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_Swig|x64'">false</ExcludedFromBuild>
     </ClCompile>
@@ -295,10 +294,8 @@
     <ClCompile Include="sim\GroundPlane.cpp" />
     <ClCompile Include="sim\ImpPDController.cpp" />
     <ClCompile Include="sim\MultiBody.cpp" />
-    <ClCompile Include="sim\PerturbManager.cpp" />
     <ClCompile Include="sim\SimBodyJoint.cpp" />
     <ClCompile Include="sim\PDController.cpp" />
-    <ClCompile Include="sim\Perturb.cpp" />
     <ClCompile Include="sim\RBDModel.cpp" />
     <ClCompile Include="sim\RBDUtil.cpp" />
     <ClCompile Include="sim\SimBox.cpp" />
@@ -378,10 +375,8 @@
     <ClInclude Include="sim\GroundPlane.h" />
     <ClInclude Include="sim\ImpPDController.h" />
     <ClInclude Include="sim\MultiBody.h" />
-    <ClInclude Include="sim\PerturbManager.h" />
     <ClInclude Include="sim\SimBodyJoint.h" />
     <ClInclude Include="sim\PDController.h" />
-    <ClInclude Include="sim\Perturb.h" />
     <ClInclude Include="sim\RBDModel.h" />
     <ClInclude Include="sim\RBDUtil.h" />
     <ClInclude Include="sim\SimBox.h" />

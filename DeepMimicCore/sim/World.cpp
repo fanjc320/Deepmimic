@@ -69,14 +69,14 @@ void cWorld::Init(const tParams& params)
 	SetGravity(params.mGravity);
 	
 	mContactManager.Init();
-	mPerturbManager.Clear();
+	//mPerturbManager.Clear();
 }
 
 void cWorld::Reset()
 {
 	mTimeStep = 0;
 	mContactManager.Reset();
-	mPerturbManager.Clear();
+	//mPerturbManager.Clear();
 
 	mSimWorld->clearForces();
 	mSolver->reset();
@@ -93,7 +93,7 @@ void cWorld::Reset()
 void cWorld::Update(double time_elapsed)
 {
 	time_elapsed = std::max(0.0, time_elapsed);
-	mPerturbManager.Update(time_elapsed);
+	//mPerturbManager.Update(time_elapsed);
 
 	btScalar timestep = static_cast<btScalar>(time_elapsed);
 	btScalar subtimestep = timestep / mParams.mNumSubsteps;
@@ -285,15 +285,15 @@ void cWorld::RayTest(const tVector& beg, const tVector& end, tRayTestResults& re
 	}
 }
 
-void cWorld::AddPerturb(const tPerturb& perturb)
-{
-	mPerturbManager.AddPerturb(perturb);
-}
+//void cWorld::AddPerturb(const tPerturb& perturb)
+//{
+//	//mPerturbManager.AddPerturb(perturb);
+//}
 
-const cPerturbManager& cWorld::GetPerturbManager() const
-{
-	return mPerturbManager;
-}
+//const cPerturbManager& cWorld::GetPerturbManager() const
+//{
+//	return mPerturbManager;
+//}
 
 tVector cWorld::GetGravity() const
 {

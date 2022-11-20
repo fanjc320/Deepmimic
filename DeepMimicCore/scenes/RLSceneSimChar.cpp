@@ -70,7 +70,7 @@ void cRLSceneSimChar::RecordGoal(int agent_id, Eigen::VectorXd& out_goal) const
 void cRLSceneSimChar::SetAction(int agent_id, const Eigen::VectorXd& action)
 {
 	const auto& ctrl = GetController(agent_id);
-	ctrl->ApplyAction(action);
+	ctrl->ApplyAction(action);//36
 }
 
 eActionSpace cRLSceneSimChar::GetActionSpace(int agent_id) const
@@ -228,7 +228,8 @@ void cRLSceneSimChar::PreUpdate(double timestep)
 {
 	cSceneSimChar::PreUpdate(timestep);
 
-	for (int a = 0; a < GetNumAgents(); ++a)
+	int numAgents = GetNumAgents();
+	for (int a = 0; a < numAgents; ++a)
 	{
 		const auto& ctrl = mAgentReg.GetAgent(a);
 		bool new_action = ctrl->NeedNewAction();

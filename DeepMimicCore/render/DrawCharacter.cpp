@@ -31,7 +31,7 @@ void cDrawCharacter::DrawPose(const cCharacter& character, const Eigen::VectorXd
 }
 
 void cDrawCharacter::DrawShape(const cKinTree::tDrawShapeDef& def, const tMatrix& parent_world_trans,
-	const tVector& fill_tint, const tVector& line_col)
+	const tVector& fill_tint, const tVector& line_col)//16,16, 4, 4
 {
 	cShape::eShape shape = static_cast<cShape::eShape>((int)def[cKinTree::eDrawShapeShape]);
 	switch (shape)
@@ -101,9 +101,9 @@ void cDrawCharacter::DrawCharShapes(const cCharacter& character, const tVector& 
 	size_t num_shapes = shape_defs.rows();
 
 	cDrawUtil::SetLineWidth(1);
-	for (int i = 0; i < num_shapes; ++i)
+	for (int i = 0; i < num_shapes; ++i)//29
 	{
-		cKinTree::tDrawShapeDef curr_def = shape_defs.row(i);
+		cKinTree::tDrawShapeDef curr_def = shape_defs.row(i);//29*16
 		int parent_joint = cKinTree::GetDrawShapeParentJoint(curr_def);
 		tMatrix parent_world_trans = character.BuildJointWorldTrans(parent_joint);
 
@@ -191,12 +191,12 @@ void cDrawCharacter::DrawShapeCapsule(const cKinTree::tDrawShapeDef& def, const 
 	double h = size[1];
 
 	cDrawUtil::PushMatrixView();
-	cDrawUtil::MultMatrixView(parent_world_trans);
-	cDrawUtil::Translate(attach_pt);
-	cDrawUtil::Rotate(theta, axis);
+	cDrawUtil::MultMatrixView(parent_world_trans);//16
+	cDrawUtil::Translate(attach_pt);//4
+	cDrawUtil::Rotate(theta, axis);//1,4
 
-	cDrawUtil::SetColor(col);
-	cDrawUtil::DrawCapsule(r, h, cDrawUtil::eDrawSolid);
+	cDrawUtil::SetColor(col);//4
+	cDrawUtil::DrawCapsule(r, h, cDrawUtil::eDrawSolid);//0.055,0.2999999999
 
 	if (line_col[3] > 0)
 	{
@@ -214,7 +214,7 @@ void cDrawCharacter::DrawShapeSphere(const cKinTree::tDrawShapeDef& def, const t
 	tVector axis = tVector(0, 0, 1, 0);
 	cKinTree::GetDrawShapeRotation(def, axis, theta);
 	int parent_joint = cKinTree::GetDrawShapeParentJoint(def);
-	tVector attach_pt = cKinTree::GetDrawShapeAttachPt(def);
+	tVector attach_pt = cKinTree::GetDrawShapeAttachPt(def);//4
 	tVector col = cKinTree::GetDrawShapeColor(def);
 	tVector size = tVector(def[cKinTree::eDrawShapeParam0], def[cKinTree::eDrawShapeParam1], 0, 0);
 	col = col.cwiseProduct(fill_tint);
@@ -222,8 +222,8 @@ void cDrawCharacter::DrawShapeSphere(const cKinTree::tDrawShapeDef& def, const t
 	double r = 0.5 * size[0];
 
 	cDrawUtil::PushMatrixView();
-	cDrawUtil::MultMatrixView(parent_world_trans);
-	cDrawUtil::Translate(attach_pt);
+	cDrawUtil::MultMatrixView(parent_world_trans);//16
+	cDrawUtil::Translate(attach_pt);//4*1
 	cDrawUtil::Rotate(theta, axis);
 
 	cDrawUtil::SetColor(col);

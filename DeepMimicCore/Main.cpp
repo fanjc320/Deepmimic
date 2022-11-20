@@ -100,9 +100,10 @@ void Update(double time_elapsed)
 	double timestep = time_elapsed / num_substeps;
 	num_substeps = (time_elapsed == 0) ? 1 : num_substeps;
 
-	for (int i = 0; i < num_substeps; ++i)
+	for (int i = 0; i < num_substeps; ++i)//10
 	{
-		for (int id = 0; id < gCore->GetNumAgents(); ++id)
+		int numAgents = gCore->GetNumAgents();
+		for (int id = 0; id < numAgents; ++id)//1
 		{
 			if (gCore->NeedNewAction(id))
 			{
@@ -112,7 +113,7 @@ void Update(double time_elapsed)
 				++gSampleCount;
 
 				std::vector<double> action = std::vector<double>(gCore->GetActionSize(id), 0);
-				gCore->SetAction(id, action);
+				gCore->SetAction(id, action);//,36
 			}
 		}
 
@@ -124,7 +125,8 @@ void Update(double time_elapsed)
 			bool valid_episode = gCore->CheckValidEpisode();
 			if (end_episode || !valid_episode)
 			{
-				for (int id = 0; id < gCore->GetNumAgents(); ++id)
+				int numAgents = gCore->GetNumAgents();//1
+				for (int id = 0; id < numAgents; ++id)
 				{
 					int terminated = gCore->CheckTerminate(id);
 					if (terminated)
@@ -132,7 +134,7 @@ void Update(double time_elapsed)
 						printf("Agent %i terminated\n", id);
 					}
 				}
-				gCore->SetSampleCount(gSampleCount);
+				gCore->SetSampleCount(gSampleCount);//34...
 				gCore->Reset();
 			}
 		}
@@ -224,7 +226,7 @@ void Animate(int callback_val)
 		gPrevTime = curr_time;
 
 		double timestep = (gPlaybackSpeed < 0) ? -gAnimStep : gAnimStep;
-		for (int i = 0; i < num_steps; ++i)
+		for (int i = 0; i < num_steps; ++i)//1
 		{
 			Update(timestep);
 		}

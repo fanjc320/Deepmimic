@@ -507,7 +507,7 @@ void cDrawUtil::DrawCapsule(double r, double h, eDrawMode draw_mode)
 {
 	PushMatrixView();
 
-	DrawTube(r, h, draw_mode);
+	DrawTube(r, h, draw_mode);//°ë¾¶Óë³¤¶È
 
 	Translate(tVector(0, 0.5 * h, 0, 0));
 	DrawHemisphere(r, draw_mode);

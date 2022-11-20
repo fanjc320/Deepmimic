@@ -40,7 +40,7 @@ bool cCharacter::Init(const std::string& char_file, bool load_draw_shapes)
 	bool succ = true;
 	if (char_file != "")
 	{
-		std::ifstream f_stream(char_file);
+		std::ifstream f_stream(char_file);//../data/characters/humanoid3d.txt
 		Json::Reader reader;
 		Json::Value root;
 		succ = reader.parse(f_stream, root);
@@ -65,7 +65,7 @@ bool cCharacter::Init(const std::string& char_file, bool load_draw_shapes)
 
 		if (cDrawUtil::EnableDraw() && load_draw_shapes)
 		{
-			succ &= LoadMeshes(char_file, mMeshes);
+			succ &= LoadMeshes(char_file, mMeshes);//../data/characters/humanoid3d.txt
 			succ &= LoadDrawShapeDefs(char_file, mDrawShapeDefs);
 		}
 	}
@@ -126,7 +126,7 @@ const Eigen::VectorXd& cCharacter::GetPose() const
 	return mPose;
 }
 
-void cCharacter::SetPose(const Eigen::VectorXd& pose)
+void cCharacter::SetPose(const Eigen::VectorXd& pose)//43
 {
 	assert(pose.size() == GetNumDof());
 	mPose = pose;

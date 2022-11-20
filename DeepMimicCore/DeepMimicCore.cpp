@@ -226,7 +226,7 @@ void cDeepMimicCore::SetAction(int agent_id, const std::vector<double>& action)
 	if (rl_scene != nullptr)
 	{
 		Eigen::VectorXd in_action;
-		ConvertVector(action, in_action);
+		ConvertVector(action, in_action);//36,36
 		rl_scene->SetAction(agent_id, in_action);
 	}
 }
@@ -550,7 +550,7 @@ void cDeepMimicCore::SetupScene()
 	mRLScene = nullptr;
 	if (EnableDraw())
 	{
-		cSceneBuilder::BuildDrawScene(scene_name, mScene);
+		cSceneBuilder::BuildDrawScene(scene_name, mScene);//◊ﬂ’‚¿Ô
 	}
 	else
 	{
