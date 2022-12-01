@@ -63,9 +63,9 @@ void cMatrixStack::SetMatrix(const tMatrix& mat)
 	mCurrMat = mat;
 }
 
-void cMatrixStack::MultMatrix(const tMatrix& mat)
+void cMatrixStack::MultMatrix(const tMatrix& mat)//Eigen::Matrix<double,4,4,0,4,4>Matrix4d
 {
-	mCurrMat = mCurrMat * mat;
+	mCurrMat = mCurrMat * mat;//16=16*16
 }
 
 void cMatrixStack::Translate(const tVector& trans)

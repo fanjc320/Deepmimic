@@ -105,7 +105,7 @@ bool cMotion::IsValid() const
 
 int cMotion::GetNumDof() const
 {
-	return GetFrameSize() - eFrameMax;
+	return GetFrameSize() - eFrameMax;//44-1
 }
 
 int cMotion::GetNumFrames() const
@@ -120,14 +120,14 @@ int cMotion::GetFrameSize() const
 
 void cMotion::BuildFrameVel(Eigen::MatrixXd& out_frame_vel, bool mirror /*= false*/) const
 {
-	int num_frames = GetNumFrames();
-	int dof = GetNumDof();
+	int num_frames = GetNumFrames();//78
+	int dof = GetNumDof();//43
 	out_frame_vel = Eigen::MatrixXd::Zero(num_frames, dof);
 
 	Eigen::VectorXd vel;
-	for (int f = 0; f < num_frames - 1; ++f)
+	for (int f = 0; f < num_frames - 1; ++f)//78
 	{
-		double dt = GetFrameDuration(f);
+		double dt = GetFrameDuration(f);//0.016666
 		Eigen::VectorXd frame0 = GetFrame(f);
 		Eigen::VectorXd frame1 = GetFrame(f + 1);
 		if (mirror)
@@ -156,10 +156,10 @@ void cMotion::FilterFrameVel(Eigen::MatrixXd& out_frame_vel) const
 	double dt = GetFrameDuration(0);
 	int num_dof = static_cast<int>(out_frame_vel.cols());
 
-	for (int i = 0; i < num_dof; ++i)
+	for (int i = 0; i < num_dof; ++i)//43
 	{
 		Eigen::VectorXd x = out_frame_vel.col(i);
-		cMathUtil::ButterworthFilter(dt, mVelFilterCutoff, x);
+		cMathUtil::ButterworthFilter(dt, mVelFilterCutoff, x);//0.016666,6,x:rows,78
 		out_frame_vel.col(i) = x;
 	}
 }
@@ -184,10 +184,10 @@ void cMotion::SetFrameTime(int i, double time)
 
 void cMotion::BlendFrames(int a, int b, double lerp, tFrame& out_frame) const
 {
-	lerp = cMathUtil::Saturate(lerp);
+	lerp = cMathUtil::Saturate(lerp);//0.0
 
 	// remove time params
-	tFrame frame0 = GetFrame(a);
+	tFrame frame0 = GetFrame(a);//m_rows:43
 	tFrame frame1 = GetFrame(b);
 
 	if (HasBlendFunc())
@@ -236,7 +236,7 @@ void cMotion::CalcFrameVel(double time, cMotion::tFrame& out_vel, bool force_mir
 		CalcIndexPhase(time, idx, phase);
 		auto vel0 = vel_frame->row(idx);
 		auto vel1 = vel_frame->row(idx + 1);
-		out_vel = (1 - phase) * vel0 + phase * vel1;
+		out_vel = (1 - phase) * vel0 + phase * vel1;//out_vel:m_rows43
 	}
 }
 
@@ -253,7 +253,7 @@ bool cMotion::LoadJson(const Json::Value& root)
 	if (!root[gLoopKey].isNull())
 	{
 		std::string loop_str = root[gLoopKey].asString();
-		ParseLoop(loop_str, mLoop);
+		ParseLoop(loop_str, mLoop);//"wrap"
 	}
 
 	mVelFilterCutoff = root.get(gVelFilterCutoffKey, mVelFilterCutoff).asDouble();
@@ -570,7 +570,7 @@ void cMotion::CalcFrameVel(const tFrame& frame0, const tFrame& frame1, double dt
 {
 	if (HasVelFunc())
 	{
-		mParams.mVelFunc(&frame0, &frame1, dt, &out_vel);
+		mParams.mVelFunc(&frame0, &frame1, dt, &out_vel);//out_vel rows 43
 	}
 	else
 	{

@@ -97,7 +97,7 @@ bool cKinCharacter::LoadMotion(const std::string& motion_file)//../data/motions/
 
 	if (succ)
 	{
-		int char_dof = GetNumDof();
+		int char_dof = GetNumDof();//dimesion of freedom втси╤х
 		int motion_dof = mMotion.GetNumDof();
 
 		if (char_dof != motion_dof)

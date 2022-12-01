@@ -278,7 +278,7 @@ tVector cSimBodyJoint::GetChildPos() const
 
 tMatrix cSimBodyJoint::BuildJointChildTrans() const
 {
-	return cMathUtil::TranslateMat(mParams.mChildPos) * cMathUtil::RotateMat(mParams.mChildRot);
+	return cMathUtil::TranslateMat(mParams.mChildPos) * cMathUtil::RotateMat(mParams.mChildRot);//?????
 }
 
 tMatrix cSimBodyJoint::BuildJointParentTrans() const
@@ -343,7 +343,7 @@ void cSimBodyJoint::BuildPose(Eigen::VectorXd& out_pose) const
 {
 	const btScalar* data = mMultBody->getJointPosMultiDof(mParams.mID);
 	double world_scale = mWorld->GetScale();
-	int param_size = GetParamSize();
+	int param_size = GetParamSize();//4
 	out_pose.resize(param_size);
 
 	switch (GetType())
@@ -444,7 +444,7 @@ void cSimBodyJoint::BuildVel(Eigen::VectorXd& out_vel) const
 	}
 }
 
-void cSimBodyJoint::SetPose(const Eigen::VectorXd& pose)
+void cSimBodyJoint::SetPose(const Eigen::VectorXd& pose)//rows 7
 {
 	btScalar data[7];
 	double world_scale = mWorld->GetScale();
@@ -686,8 +686,8 @@ void cSimBodyJoint::ApplyTauSpherical()
 	ClampTotalTorque(torque);
 	SetTotalTorque(torque);
 
-	double world_scale = mWorld->GetScale();
-	torque = cMathUtil::QuatRotVec(mParams.mChildRot, torque);
+	double world_scale = mWorld->GetScale();//4.0
+	torque = cMathUtil::QuatRotVec(mParams.mChildRot, torque);//4*1
 	btScalar bt_data[] = { static_cast<btScalar>(world_scale * world_scale * torque[0]),
 							static_cast<btScalar>(world_scale * world_scale * torque[1]),
 							static_cast<btScalar>(world_scale * world_scale * torque[2]) };

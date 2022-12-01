@@ -78,7 +78,7 @@ public:
 
 protected:
 
-	struct tPerturbParams
+	/*struct tPerturbParams
 	{
 		bool mEnableRandPerturbs;
 		double mTimer;
@@ -92,7 +92,7 @@ protected:
 		std::vector<int> mPerturbPartIDs;
 
 		tPerturbParams();
-	};
+	};*/
 
 	static const double gGroundSpawnOffset;
 
@@ -110,7 +110,7 @@ protected:
 	std::vector<cSimCharBuilder::eCharType> mCharTypes;
 
 	cGround::tParams mGroundParams;
-	tPerturbParams mPerturbParams;
+	//tPerturbParams mPerturbParams;
 
 	cIndexBuffer<tObjEntry, Eigen::aligned_allocator<tObjEntry>> mObjs;
 	cIndexBuffer<tJointEntry> mJoints;

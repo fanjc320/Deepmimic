@@ -137,9 +137,6 @@
     <ClCompile Include="sim\SimBox.cpp">
       <Filter>Source Files\sim</Filter>
     </ClCompile>
-    <ClCompile Include="sim\Perturb.cpp">
-      <Filter>Source Files\sim</Filter>
-    </ClCompile>
     <ClCompile Include="sim\PDController.cpp">
       <Filter>Source Files\sim</Filter>
     </ClCompile>
@@ -255,9 +252,6 @@
       <Filter>Source Files\util</Filter>
     </ClCompile>
     <ClCompile Include="sim\ExpPDController.cpp">
-      <Filter>Source Files\sim</Filter>
-    </ClCompile>
-    <ClCompile Include="sim\PerturbManager.cpp">
       <Filter>Source Files\sim</Filter>
     </ClCompile>
     <ClCompile Include="render\MatrixStack.cpp">
@@ -415,9 +409,6 @@
     <ClInclude Include="sim\SimCapsule.h">
       <Filter>Source Files\sim</Filter>
     </ClInclude>
-    <ClInclude Include="sim\Perturb.h">
-      <Filter>Source Files\sim</Filter>
-    </ClInclude>
     <ClInclude Include="sim\PDController.h">
       <Filter>Source Files\sim</Filter>
     </ClInclude>
@@ -536,9 +527,6 @@
       <Filter>Source Files\util</Filter>
     </ClInclude>
     <ClInclude Include="sim\ExpPDController.h">
-      <Filter>Source Files\sim</Filter>
-    </ClInclude>
-    <ClInclude Include="sim\PerturbManager.h">
       <Filter>Source Files\sim</Filter>
     </ClInclude>
     <ClInclude Include="render\MatrixStack.h">

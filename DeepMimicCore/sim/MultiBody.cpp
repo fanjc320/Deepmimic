@@ -26,7 +26,7 @@ void cMultiBody::compTreeLinkVelocities(btVector3 *omega, btVector3 *vel) const
 	omega[0] = quatRotate(base_rot, getBaseOmega());
 	vel[0] = quatRotate(base_rot, getBaseVel());
 
-	for (int i = 0; i < num_links; ++i)
+	for (int i = 0; i < num_links; ++i)//15
 	{
 		const btMultibodyLink& link = getLink(i);
 		const int parent = link.m_parent;

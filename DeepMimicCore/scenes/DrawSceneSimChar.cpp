@@ -253,10 +253,10 @@ void cDrawSceneSimChar::DrawTrace() const
 }
 
 
-void cDrawSceneSimChar::DrawPerturbs() const
-{
-	
-}
+//void cDrawSceneSimChar::DrawPerturbs() const
+//{
+//	
+//}
 
 void cDrawSceneSimChar::DrawGround() const
 {

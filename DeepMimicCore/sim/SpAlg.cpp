@@ -218,13 +218,13 @@ void cSpAlg::SetRot(const tMatrix& E, tSpTrans& out_X)
 tVector cSpAlg::GetRad(const tSpTrans& X)
 {
 	tVector r = tVector::Zero();
-	r.block(0, 0, 3, 1) = X.block(0, 3, 3, 1);
+	r.block(0, 0, 3, 1) = X.block(0, 3, 3, 1);//?????
 	return r;
 }
 
 void cSpAlg::SetRad(const tVector& r, tSpTrans& out_X)
 {
-	out_X.block(0, 3, 3, 1) = r.block(0, 0, 3, 1);
+	out_X.block(0, 3, 3, 1) = r.block(0, 0, 3, 1);//????
 }
 
 cSpAlg::tSpVec cSpAlg::ApplyTransM(const tSpTrans& X, const tSpVec& sv)
@@ -248,7 +248,7 @@ cSpAlg::tSpVec cSpAlg::ApplyTransF(const tSpTrans& X, const tSpVec& sv)
 	tVector o0 = GetOmega(sv);
 	tVector v0 = GetV(sv);
 
-	tVector o1 = E * (o0 - r.cross3(v0));
+	tVector o1 = E * (o0 - r.cross3(v0));//??????
 	tVector v1 = E * v0;
 
 	tSpVec new_vec = BuildSV(o1, v1);

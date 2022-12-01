@@ -38,18 +38,18 @@ bool cSceneSimChar::tJointEntry::IsValid() const
 	return mJoint != nullptr;
 }
 
-cSceneSimChar::tPerturbParams::tPerturbParams()
-{
-	mEnableRandPerturbs = false;
-	mTimer = 0;
-	mTimeMin = std::numeric_limits<double>::infinity();
-	mTimeMax = std::numeric_limits<double>::infinity();
-	mNextTime = 0;
-	mMinPerturb = 50;
-	mMaxPerturb = 100;
-	mMinDuration = 0.1;
-	mMaxDuration = 0.5;
-}
+//cSceneSimChar::tPerturbParams::tPerturbParams()
+//{
+//	mEnableRandPerturbs = false;
+//	mTimer = 0;
+//	mTimeMin = std::numeric_limits<double>::infinity();
+//	mTimeMax = std::numeric_limits<double>::infinity();
+//	mNextTime = 0;
+//	mMinPerturb = 50;
+//	mMaxPerturb = 100;
+//	mMinDuration = 0.1;
+//	mMaxDuration = 0.5;
+//}
 
 cSceneSimChar::cSceneSimChar()
 {
@@ -89,14 +89,14 @@ void cSceneSimChar::ParseArgs(const std::shared_ptr<cArgParser>& parser)
 	parser->ParseDouble("world_scale", mWorldParams.mScale);
 	parser->ParseVector("gravity", mWorldParams.mGravity);
 
-	parser->ParseBool("enable_rand_perturbs", mPerturbParams.mEnableRandPerturbs);
-	parser->ParseDouble("perturb_time_min", mPerturbParams.mTimeMin);
-	parser->ParseDouble("perturb_time_max", mPerturbParams.mTimeMax);
-	parser->ParseDouble("min_perturb", mPerturbParams.mMinPerturb);
-	parser->ParseDouble("max_perturb", mPerturbParams.mMaxPerturb);
-	parser->ParseDouble("min_pertrub_duration", mPerturbParams.mMinDuration);
-	parser->ParseDouble("max_perturb_duration", mPerturbParams.mMaxDuration);
-	parser->ParseInts("perturb_part_ids", mPerturbParams.mPerturbPartIDs);
+	//parser->ParseBool("enable_rand_perturbs", mPerturbParams.mEnableRandPerturbs);
+	//parser->ParseDouble("perturb_time_min", mPerturbParams.mTimeMin);
+	//parser->ParseDouble("perturb_time_max", mPerturbParams.mTimeMax);
+	//parser->ParseDouble("min_perturb", mPerturbParams.mMinPerturb);
+	//parser->ParseDouble("max_perturb", mPerturbParams.mMaxPerturb);
+	//parser->ParseDouble("min_pertrub_duration", mPerturbParams.mMinDuration);
+	//parser->ParseDouble("max_perturb_duration", mPerturbParams.mMaxDuration);
+	//parser->ParseInts("perturb_part_ids", mPerturbParams.mPerturbPartIDs);
 
 	parser->ParseInts("fall_contact_bodies", mFallContactBodies);
 
@@ -107,10 +107,10 @@ void cSceneSimChar::Init()
 {
 	cScene::Init();
 
-	if (mPerturbParams.mEnableRandPerturbs)
+	/*if (mPerturbParams.mEnableRandPerturbs)
 	{
 		ResetRandPertrub();
-	}
+	}*/
 
 	BuildWorld();
 	BuildGround();
@@ -152,12 +152,12 @@ void cSceneSimChar::Update(double time_elapsed)
 	// order matters!
 	UpdateCharacters(time_elapsed);
 	UpdateWorld(time_elapsed);//注释掉角色静止
-	//UpdateGround(time_elapsed);
-	//UpdateObjs(time_elapsed);
+	//UpdateGround(time_elapsed);//tmp
+	//UpdateObjs(time_elapsed);//tmp
 	UpdateJoints(time_elapsed);
 
-	PostUpdateCharacters(time_elapsed);//注释掉，角色无规律扭动
-	//PostUpdate(time_elapsed);
+	PostUpdateCharacters(time_elapsed);//注释掉，角色无规律扭动 time_elapsed:0.00166666666666
+	//PostUpdate(time_elapsed);//tmp
 }
 
 int cSceneSimChar::GetNumChars() const
@@ -204,13 +204,13 @@ bool cSceneSimChar::LoadControlParams(const std::string& param_file, const std::
 
 void cSceneSimChar::AddPerturb(const tPerturb& perturb)
 {
-	mWorld->AddPerturb(perturb);
+	//mWorld->AddPerturb(perturb);
 }
 
 void cSceneSimChar::ApplyRandForce(double min_force, double max_force, 
 									double min_dur, double max_dur, cSimObj* obj)
 {
-	assert(obj != nullptr);
+	/*assert(obj != nullptr);
 	tPerturb perturb = tPerturb::BuildForce();
 	perturb.mObj = obj;
 	perturb.mLocalPos.setZero();
@@ -220,7 +220,7 @@ void cSceneSimChar::ApplyRandForce(double min_force, double max_force,
 	perturb.mPerturb = mRand.RandDouble(min_force, max_force) * perturb.mPerturb.normalized();
 	perturb.mDuration = mRand.RandDouble(min_dur, max_dur);
 
-	AddPerturb(perturb);
+	AddPerturb(perturb);*/
 }
 
 void cSceneSimChar::ApplyRandForce()
@@ -233,18 +233,18 @@ void cSceneSimChar::ApplyRandForce()
 
 void cSceneSimChar::ApplyRandForce(int char_id)
 {
-	const std::shared_ptr<cSimCharacter>& curr_char = GetCharacter(char_id);
+	/*const std::shared_ptr<cSimCharacter>& curr_char = GetCharacter(char_id);
 	int num_parts = curr_char->GetNumBodyParts();
 	int part_idx = GetRandPerturbPartID(curr_char);
 	assert(part_idx != gInvalidIdx);
 	const auto& part = curr_char->GetBodyPart(part_idx);
-	ApplyRandForce(mPerturbParams.mMinPerturb, mPerturbParams.mMaxPerturb, mPerturbParams.mMinDuration, mPerturbParams.mMaxDuration, part.get());
+	ApplyRandForce(mPerturbParams.mMinPerturb, mPerturbParams.mMaxPerturb, mPerturbParams.mMinDuration, mPerturbParams.mMaxDuration, part.get());*/
 }
 
 int cSceneSimChar::GetRandPerturbPartID(const std::shared_ptr<cSimCharacter>& character)
 {
 	int rand_id = gInvalidIdx;
-	int num_part_ids = static_cast<int>(mPerturbParams.mPerturbPartIDs.size());
+	/*int num_part_ids = static_cast<int>(mPerturbParams.mPerturbPartIDs.size());
 	if (num_part_ids > 0)
 	{
 		int idx = mRand.RandInt(0, num_part_ids);
@@ -254,7 +254,7 @@ int cSceneSimChar::GetRandPerturbPartID(const std::shared_ptr<cSimCharacter>& ch
 	{
 		int num_parts = character->GetNumBodyParts();
 		rand_id = mRand.RandInt(0, num_parts);
-	}
+	}*/
 	return rand_id;
 }
 
@@ -327,7 +327,7 @@ bool cSceneSimChar::BuildCharacters()
 
 			InitCharacterPos(curr_char);
 
-			if (i < mCtrlParams.size())
+			if (i < mCtrlParams.size())//1
 			{
 				auto ctrl_params = mCtrlParams[i];
 				ctrl_params.mChar = curr_char;
@@ -387,7 +387,7 @@ bool cSceneSimChar::ParseCharParams(const std::shared_ptr<cArgParser>& parser, s
 	
 	int num_files = static_cast<int>(char_files.size());
 	out_params.resize(num_files);
-	for (int i = 0; i < num_files; ++i)
+	for (int i = 0; i < num_files; ++i)//1
 	{
 		cSimCharacter::tParams& params = out_params[i];
 		params.mID = i;
@@ -427,7 +427,7 @@ bool cSceneSimChar::ParseCharCtrlParams(const std::shared_ptr<cArgParser>& parse
 	parser->ParseStrings("char_ctrls", char_ctrl_strs);
 
 	out_params.resize(num_ctrls);
-	for (int i = 0; i < num_ctrls; ++i)
+	for (int i = 0; i < num_ctrls; ++i)//1
 	{
 		auto& ctrl_params = out_params[i];
 		const std::string& type_str = char_ctrl_strs[i];
@@ -590,7 +590,7 @@ void cSceneSimChar::UpdateWorld(double time_step)
 void cSceneSimChar::UpdateCharacters(double time_step)
 {
 	int num_chars = GetNumChars();
-	for (int i = 0; i < num_chars; ++i)
+	for (int i = 0; i < num_chars; ++i)//1
 	{
 		const auto& curr_char = GetCharacter(i);
 		curr_char->Update(time_step);//curr_char cSimCharacter
@@ -617,22 +617,22 @@ void cSceneSimChar::UpdateGround(double time_elapsed)
 
 void cSceneSimChar::UpdateRandPerturb(double time_step)
 {
-	mPerturbParams.mTimer += time_step;
+	/*mPerturbParams.mTimer += time_step;
 	if (mPerturbParams.mTimer >= mPerturbParams.mNextTime)
 	{
 		ApplyRandForce();
 		ResetRandPertrub();
-	}
+	}*/
 }
 
 void cSceneSimChar::ResetScene()
 {
 	cScene::ResetScene();
 
-	if (mPerturbParams.mEnableRandPerturbs)
+	/*if (mPerturbParams.mEnableRandPerturbs)
 	{
 		ResetRandPertrub();
-	}
+	}*/
 
 	ResetWorld();
 	ResetCharacters();

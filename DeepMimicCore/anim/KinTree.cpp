@@ -444,7 +444,7 @@ bool cKinTree::Load(const Json::Value& root, Eigen::MatrixXd& out_joint_mat)
 
 		out_joint_mat.resize(num_joints, eJointDescMax);
 		
-		for (int j = 0; j < num_joints; ++j)
+		for (int j = 0; j < num_joints; ++j)//15
 		{
 			tJointDesc curr_joint_desc = tJointDesc::Zero();
 
@@ -452,7 +452,7 @@ bool cKinTree::Load(const Json::Value& root, Eigen::MatrixXd& out_joint_mat)
 			succ = ParseJoint(joint_json, curr_joint_desc);
 			if (succ)
 			{
-				out_joint_mat.row(j) = curr_joint_desc;
+				out_joint_mat.row(j) = curr_joint_desc;//19¸öÔªËØ
 			}
 			else
 			{
@@ -461,7 +461,7 @@ bool cKinTree::Load(const Json::Value& root, Eigen::MatrixXd& out_joint_mat)
 			}
 		}
 
-		for (int j = 0; j < num_joints; ++j)
+		for (int j = 0; j < num_joints; ++j)//15
 		{
 			const auto& curr_desc = out_joint_mat.row(j);
 			int parent_id = static_cast<int>(curr_desc(eJointDescParent));
@@ -477,7 +477,7 @@ bool cKinTree::Load(const Json::Value& root, Eigen::MatrixXd& out_joint_mat)
 			out_joint_mat.row(j) = curr_desc;
 		}
 
-		PostProcessJointMat(out_joint_mat);
+		PostProcessJointMat(out_joint_mat);//15*19
 	}
 
 	return succ;
@@ -1022,9 +1022,9 @@ void cKinTree::PostProcessJointMat(Eigen::MatrixXd& out_joint_mat)
 	{
 		int curr_size = GetParamSize(out_joint_mat, j);
 		out_joint_mat(j, eJointDescParamOffset) = offset;
-		offset += curr_size;
+		offset += curr_size;//43
 	}
-	int root_id = GetRoot(out_joint_mat);
+	int root_id = GetRoot(out_joint_mat);//15*19
 
 	out_joint_mat(root_id, eJointDescAttachX) = 0;
 	out_joint_mat(root_id, eJointDescAttachY) = 0;
@@ -1618,7 +1618,7 @@ void cKinTree::VelToPoseDiff(const Eigen::MatrixXd& joint_mat, const Eigen::Vect
 	}
 }
 
-double cKinTree::CalcHeading(const Eigen::MatrixXd& joint_mat, const Eigen::VectorXd& pose)
+double cKinTree::CalcHeading(const Eigen::MatrixXd& joint_mat, const Eigen::VectorXd& pose)//15*19, 43
 {
 	// heading is the direction of the root in the xz plane
 	tVector ref_dir = tVector(1, 0, 0, 0);

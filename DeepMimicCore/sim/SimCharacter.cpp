@@ -102,7 +102,7 @@ void cSimCharacter::Update(double timestep)
 
 	if (HasController())
 	{
-		mController->Update(timestep);
+		//mController->Update(timestep);
 	}
 
 	// dont clear torques until next frame since they can be useful for visualization
@@ -117,7 +117,7 @@ void cSimCharacter::PostUpdate(double time_step)
 
 	if (HasController())
 	{
-		mController->PostUpdate(time_step);
+		//mController->PostUpdate(time_step);
 	}
 }
 
@@ -722,7 +722,7 @@ void cSimCharacter::PlayPossum()
 	}
 }
 
-void cSimCharacter::SetPose(const Eigen::VectorXd& pose)
+void cSimCharacter::SetPose(const Eigen::VectorXd& pose)//rows 43
 {
 	cCharacter::SetPose(pose);
 
@@ -749,23 +749,23 @@ void cSimCharacter::SetPose(const Eigen::VectorXd& pose)
 		cSimBodyJoint& curr_joint = GetJoint(j);
 		int param_offset = GetParamOffset(j);
 		int param_size = GetParamSize(j);
-		Eigen::VectorXd curr_params = pose.segment(param_offset, param_size);
-		curr_joint.SetPose(curr_params);
+		Eigen::VectorXd curr_params = pose.segment(param_offset, param_size);//7,4
+		curr_joint.SetPose(curr_params);//m_rows 4
 	}
 
 	UpdateLinkPos();
 	UpdateLinkVel();
 
-	if (HasController())
+	/*if (HasController())
 	{
 		mController->HandlePoseReset();
-	}
+	}*/
 }
 
 bool cSimCharacter::BuildSimBody(const tParams& params)
 {
 	bool succ = true;
-	succ = LoadBodyDefs(params.mCharFile, mBodyDefs);
+	succ = LoadBodyDefs(params.mCharFile, mBodyDefs);//15*17
 
 	if (succ)
 	{
@@ -1039,7 +1039,7 @@ bool cSimCharacter::BuildJoints()
 	mJoints.clear();
 	mJoints.resize(num_joints);
 	
-	for (int j = 0; j < num_joints; ++j)
+	for (int j = 0; j < num_joints; ++j)//15
 	{
 		bool is_root = cKinTree::IsRoot(mJointMat, j);
 		cSimBodyJoint& curr_joint = GetJoint(j);
@@ -1201,7 +1201,7 @@ void cSimCharacter::ClearJointTorques()
 void cSimCharacter::UpdateJoints()
 {
 	int num_joints = GetNumJoints();
-	for (int j = 1; j < num_joints; ++j)
+	for (int j = 1; j < num_joints; ++j)//15
 	{
 		cSimBodyJoint& joint = GetJoint(j);
 		if (joint.IsValid())
@@ -1232,7 +1232,8 @@ void cSimCharacter::UpdateLinkVel()
 	mMultBody->compTreeLinkVelocities(&ang_vel_buffer[0], &vel_buffer[0]);
 
 	double world_scale = mWorld->GetScale();
-	for (int b = 0; b < GetNumBodyParts(); ++b)
+	int numBodyparts = GetNumBodyParts();
+	for (int b = 0; b < numBodyparts; ++b)
 	{
 		if (IsValidBodyPart(b))
 		{
@@ -1473,8 +1474,8 @@ void cSimCharacter::BuildJointVel(int joint_id, Eigen::VectorXd& out_vel) const
 
 void cSimCharacter::BuildPose(Eigen::VectorXd& out_pose) const
 {
-	int num_joints = GetNumJoints();
-	int num_dof = cKinTree::GetNumDof(mJointMat);
+	int num_joints = GetNumJoints();//15
+	int num_dof = cKinTree::GetNumDof(mJointMat);//43
 	out_pose.resize(num_dof);
 	for (int j = 0; j < num_joints; ++j)
 	{

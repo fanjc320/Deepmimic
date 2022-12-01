@@ -89,7 +89,7 @@ protected:
 	virtual void DrawHeading() const;
 	virtual void DrawTrace() const;
 
-	virtual void DrawPerturbs() const;
+	//virtual void DrawPerturbs() const;
 
 	virtual void DrawGround() const;
 	virtual void DrawCharacters() const;
