@@ -278,9 +278,6 @@
     <ClCompile Include="Test_Opengl.cpp">
       <Filter>Source Files\test_opengl</Filter>
     </ClCompile>
-    <ClCompile Include="frameBuffer.cpp">
-      <Filter>Source Files\test_opengl</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util\CircularBuffer.h">

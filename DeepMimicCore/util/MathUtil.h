@@ -11,7 +11,7 @@ const int gInvalidIdx = -1;
 
 // for convenience define standard vector for rendering
 typedef Eigen::Vector4d tVector;
-typedef Eigen::Vector4d tVector3;
+typedef Eigen::Vector4d tVector3;//’‚¿Ô–¥¥Ì¡À????
 typedef Eigen::Matrix4d tMatrix;
 typedef Eigen::Matrix3d tMatrix3;
 typedef Eigen::Quaterniond tQuaternion;

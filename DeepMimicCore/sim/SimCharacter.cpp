@@ -678,7 +678,7 @@ void cSimCharacter::ApplyForce(const tVector& force, const tVector& local_pos)
 
 void cSimCharacter::ApplyTorque(const tVector& torque)
 {
-	const auto& root_body = GetRootPart();
+	const auto& root_body = GetRootPart();//cSimBodyLink
 	root_body->ApplyTorque(torque);
 }
 

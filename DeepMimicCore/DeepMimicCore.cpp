@@ -57,7 +57,7 @@ void cDeepMimicCore::Init()
 
 void cDeepMimicCore::Update(double timestep)
 {
-	mScene->Update(timestep);//×¢ÊÍ»­Ãæ¾²Ö¹ mScen:cDrawSceneImitate
+	mScene->Update(timestep);//×¢ÊÍ»­Ãæ¾²Ö¹ mScen:cDrawSceneImitate 0.00166666
 }
 
 void cDeepMimicCore::Reset()
@@ -550,7 +550,7 @@ void cDeepMimicCore::SetupScene()
 	mRLScene = nullptr;
 	if (EnableDraw())
 	{
-		cSceneBuilder::BuildDrawScene(scene_name, mScene);
+		cSceneBuilder::BuildDrawScene(scene_name, mScene);//imitate, empty
 	}
 	else
 	{

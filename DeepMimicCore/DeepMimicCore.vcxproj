@@ -118,6 +118,10 @@
     <TargetName>_$(ProjectName)</TargetName>
     <TargetExt>.exe</TargetExt>
     <IncludePath>$(IncludePath)</IncludePath>
+    <ReferencePath>C:\Users\bloo\.conda\envs\env_deepmimic;$(ReferencePath)</ReferencePath>
+    <ExecutablePath>C:\Users\bloo\.conda\envs\env_deepmimic;$(ExecutablePath)</ExecutablePath>
+    <LibraryPath>C:\Users\bloo\.conda\envs\env_deepmimic;$(LibraryPath)</LibraryPath>
+    <LibraryWPath>C:\Users\bloo\.conda\envs\env_deepmimic;$(LibraryWPath)</LibraryWPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -144,13 +148,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir);..\..\..\library\Bullet3\src;..\..\..\library\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);D:\software\deepmimic\bullet3-2.89\src;D:\software\deepmimic\swigwin-4.0.0\Source;D:\software\deepmimic\eigen-3.3.7\Eigen\src;D:\software\deepmimic\freeglut3.0\src;D:\software\deepmimic\glew-2.1.0\include;$(PYTHON_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\..\..\library\Bullet3\build3\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(PYTHON_LIB);D:\software\deepmimic\bullet3-2.89\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glu32.lib;glew32.lib;BulletDynamics_Debug.lib;BulletCollision_Debug.lib;LinearMath_Debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -224,7 +228,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>E:\TestProjs\3party\bullet3-2.88\src;$(ProjectDir);E:\TestProjs\3party\glew-2.1.0\include;E:\TestProjs\3party\freeglut-3.0.0\include;E:\TestProjs\3party\eigen-3.3.7;$(PYTHON_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\bloo\.conda\envs\env_deepmimic;C:\Users\bloo\.conda\envs\env_deepmimic\include;D:\projs_mine\thirdparty\bullet3-2.89\src;$(ProjectDir);D:\software\deepmimic\glew-2.1.0\include;D:\software\deepmimic\freeglut-3.0.0\include;D:\software\deepmimic\eigen-3.3.7;$(PYTHON_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BrowseInformation>false</BrowseInformation>
       <AdditionalOptions>/Zm200 %(AdditionalOptions)</AdditionalOptions>
@@ -234,7 +238,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>E:\TestProjs\3party\freeglut-3.0.0\build\lib\Release;E:\TestProjs\3party\glew-2.1.0\lib\Release\x64;D:\ProgramData\Anaconda3\pkgs\python-3.5.6-he025d50_0;E:\TestProjs\3party\bullet3-2.88\bin;$(PYTHON_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\bloo\.conda\pkgs\python-3.10.4-hbb2ffb3_0;C:\Users\bloo\.conda\envs\env_deepmimic;D:\software\deepmimic\freeglut-3.0.0\build\lib\Release;D:\software\deepmimic\glew-2.1.0\lib\Release\x64;C:\Users\bloo\.conda\envs\env_deepmimic\libs;D:\projs_mine\thirdparty\bullet3-2.89\bin;$(PYTHON_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glu32.lib;glew32.lib;BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
@@ -252,7 +256,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="frameBuffer.cpp" />
     <ClCompile Include="Main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release_Swig|x64'">false</ExcludedFromBuild>
     </ClCompile>

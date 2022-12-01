@@ -42,7 +42,7 @@ void SetupDeepMimicCore()
 	gCore->ParseArgs(gArgs);
 	gCore->Init();
 
-	int num_agents = gCore->GetNumAgents();
+	int num_agents = gCore->GetNumAgents();//1
 	for (int id = 0; id < num_agents; ++id)
 	{
 		int action_space = gCore->GetActionSpace(id);
@@ -97,7 +97,7 @@ void UpdateFrameBuffer()
 void Update(double time_elapsed)
 {
 	int num_substeps = gCore->GetNumUpdateSubsteps();
-	double timestep = time_elapsed / num_substeps;
+	double timestep = time_elapsed / num_substeps; //0.0166666/10
 	num_substeps = (time_elapsed == 0) ? 1 : num_substeps;
 
 	for (int i = 0; i < num_substeps; ++i)
@@ -218,12 +218,12 @@ void Animate(int callback_val)
 
 	if (gAnimating)
 	{
-		int num_steps = GetNumTimeSteps();
+		int num_steps = GetNumTimeSteps();//1
 		int curr_time = GetCurrTime();
-		int time_elapsed = curr_time - gPrevTime;
+		int time_elapsed = curr_time - gPrevTime;//41
 		gPrevTime = curr_time;
 
-		double timestep = (gPlaybackSpeed < 0) ? -gAnimStep : gAnimStep;
+		double timestep = (gPlaybackSpeed < 0) ? -gAnimStep : gAnimStep;//timestep/gAnimStep 0.01666666666
 		for (int i = 0; i < num_steps; ++i)
 		{
 			Update(timestep);

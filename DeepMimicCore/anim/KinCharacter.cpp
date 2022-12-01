@@ -80,7 +80,7 @@ void cKinCharacter::Reset()
 	cCharacter::Reset();
 }
 
-bool cKinCharacter::LoadMotion(const std::string& motion_file)
+bool cKinCharacter::LoadMotion(const std::string& motion_file)//../data/motions/humanoid3d_spinkick.txt
 {
 	cMotion::tParams motion_params;
 	motion_params.mMotionFile = motion_file;
@@ -299,7 +299,7 @@ tVector cKinCharacter::GetCycleRootDelta() const
 
 tVector cKinCharacter::CalcCycleRootDelta() const
 {
-	int num_frames = mMotion.GetNumFrames();
+	int num_frames = mMotion.GetNumFrames();//78
 	Eigen::VectorXd frame_beg = mMotion.GetFrame(0);
 	Eigen::VectorXd  frame_end = mMotion.GetFrame(num_frames - 1);
 
@@ -321,7 +321,7 @@ void cKinCharacter::CalcPose(double time, Eigen::VectorXd& out_pose) const
 		if (mMotion.EnableLoop())
 		{
 			int cycle_count = mMotion.CalcCycleCount(time);
-			root_delta = cycle_count * mCycleRootDelta;
+			root_delta = cycle_count * mCycleRootDelta;//0* matrix double 4,1,0,4,1
 		}
 	}
 	else
@@ -332,13 +332,13 @@ void cKinCharacter::CalcPose(double time, Eigen::VectorXd& out_pose) const
 	tVector root_pos = cKinTree::GetRootPos(mJointMat, out_pose);
 	tQuaternion root_rot = cKinTree::GetRootRot(mJointMat, out_pose);
 
-	root_delta_rot = mOriginRot * root_delta_rot;
-	root_rot = root_delta_rot * root_rot;
-	root_pos += root_delta;
+	root_delta_rot = mOriginRot * root_delta_rot; //matrix double 4,1,0,4,1 arr4[0,0,0,1] * arr4[0,0,0,1] 
+	root_rot = root_delta_rot * root_rot;//arr4
+	root_pos += root_delta;//matrix double 4,1,0,4,1
 	root_pos = cMathUtil::QuatRotVec(root_delta_rot, root_pos);
-	root_pos += mOrigin;
+	root_pos += mOrigin;//matrix double 4,1,0,4,1
 
-	cKinTree::SetRootPos(mJointMat, root_pos, out_pose);
+	cKinTree::SetRootPos(mJointMat, root_pos, out_pose);//m_rows 15 m_cols 19,, m_rows 43
 	cKinTree::SetRootRot(mJointMat, root_rot, out_pose);
 }
 
