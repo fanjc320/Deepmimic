@@ -270,10 +270,10 @@ bool cSceneImitate::BuildKinCharacter(int id, std::shared_ptr<cKinCharacter>& ou
 	cKinCharacter::tParams kin_char_params;
 
 	kin_char_params.mID = id;
-	kin_char_params.mCharFile = sim_char_params.mCharFile;
-	kin_char_params.mOrigin = sim_char_params.mInitPos;
+	kin_char_params.mCharFile = sim_char_params.mCharFile;//../data/characters/humanoid3d.txt
+	kin_char_params.mOrigin = sim_char_params.mInitPos;// arr4
 	kin_char_params.mLoadDrawShapes = false;
-	kin_char_params.mMotionFile = mMotionFile;
+	kin_char_params.mMotionFile = mMotionFile;//../data/motions/humanoid3d_spinkick.txt
 
 	bool succ = kin_char->Init(kin_char_params);
 	if (succ)

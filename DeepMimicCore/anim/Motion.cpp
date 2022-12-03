@@ -228,7 +228,7 @@ void cMotion::CalcFrameVel(double time, cMotion::tFrame& out_vel, bool force_mir
 		}
 		else
 		{
-			vel_frame = &mFrameVel;
+			vel_frame = &mFrameVel;//m_rows 78 m_cols 43
 		}
 
 		int idx;

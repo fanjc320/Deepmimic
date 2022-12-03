@@ -37,40 +37,40 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Swig|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Swig|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -118,6 +118,10 @@
     <TargetName>_$(ProjectName)</TargetName>
     <TargetExt>.exe</TargetExt>
     <IncludePath>$(IncludePath)</IncludePath>
+    <ReferencePath>C:\Users\bloo\.conda\envs\env_deepmimic;$(ReferencePath)</ReferencePath>
+    <ExecutablePath>C:\Users\bloo\.conda\envs\env_deepmimic;$(ExecutablePath)</ExecutablePath>
+    <LibraryPath>C:\Users\bloo\.conda\envs\env_deepmimic;$(LibraryPath)</LibraryPath>
+    <LibraryWPath>C:\Users\bloo\.conda\envs\env_deepmimic;$(LibraryWPath)</LibraryWPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -144,13 +148,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir);..\..\..\library\Bullet3\src;..\..\..\library\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);D:\software\deepmimic\bullet3-2.89\src;D:\software\deepmimic\swigwin-4.0.0\Source;D:\software\deepmimic\eigen-3.3.7\Eigen\src;D:\software\deepmimic\freeglut3.0\src;D:\software\deepmimic\glew-2.1.0\include;$(PYTHON_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\..\..\library\Bullet3\build3\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(PYTHON_LIB);D:\software\deepmimic\bullet3-2.89\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glu32.lib;glew32.lib;BulletDynamics_Debug.lib;BulletCollision_Debug.lib;LinearMath_Debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -224,7 +228,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>G:\3party\bullet3-2.88\src;$(ProjectDir);G:\3party\glew-2.1.0\include;G:\3party\freeglut-3.0.0\include;G:\3party\eigen-3.3.9;$(PYTHON_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\bloo\.conda\envs\env_deepmimic;C:\Users\bloo\.conda\envs\env_deepmimic\include;D:\projs_mine\thirdparty\bullet3-2.89\src;$(ProjectDir);D:\software\deepmimic\glew-2.1.0\include;D:\software\deepmimic\freeglut-3.0.0\include;D:\software\deepmimic\eigen-3.3.7;$(PYTHON_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BrowseInformation>false</BrowseInformation>
       <AdditionalOptions>/Zm200 %(AdditionalOptions)</AdditionalOptions>
@@ -234,7 +238,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>G:\3party\freeglut-3.0.0\build\lib\Release;G:\3party\glew-2.1.0\lib\Release\x64;G:\freeglut-3.0.0\build\lib\Release;C:\Users\89402\.conda\pkgs\python-3.5.6-he025d50_0;G:\3party\bullet3-2.88\bin;$(PYTHON_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\bloo\.conda\pkgs\python-3.10.4-hbb2ffb3_0;C:\Users\bloo\.conda\envs\env_deepmimic;D:\software\deepmimic\freeglut-3.0.0\build\lib\Release;D:\software\deepmimic\glew-2.1.0\lib\Release\x64;C:\Users\bloo\.conda\envs\env_deepmimic\libs;D:\projs_mine\thirdparty\bullet3-2.89\bin;$(PYTHON_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glu32.lib;glew32.lib;BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
@@ -294,8 +298,10 @@
     <ClCompile Include="sim\GroundPlane.cpp" />
     <ClCompile Include="sim\ImpPDController.cpp" />
     <ClCompile Include="sim\MultiBody.cpp" />
+    <ClCompile Include="sim\PerturbManager.cpp" />
     <ClCompile Include="sim\SimBodyJoint.cpp" />
     <ClCompile Include="sim\PDController.cpp" />
+    <ClCompile Include="sim\Perturb.cpp" />
     <ClCompile Include="sim\RBDModel.cpp" />
     <ClCompile Include="sim\RBDUtil.cpp" />
     <ClCompile Include="sim\SimBox.cpp" />
@@ -375,8 +381,10 @@
     <ClInclude Include="sim\GroundPlane.h" />
     <ClInclude Include="sim\ImpPDController.h" />
     <ClInclude Include="sim\MultiBody.h" />
+    <ClInclude Include="sim\PerturbManager.h" />
     <ClInclude Include="sim\SimBodyJoint.h" />
     <ClInclude Include="sim\PDController.h" />
+    <ClInclude Include="sim\Perturb.h" />
     <ClInclude Include="sim\RBDModel.h" />
     <ClInclude Include="sim\RBDUtil.h" />
     <ClInclude Include="sim\SimBox.h" />

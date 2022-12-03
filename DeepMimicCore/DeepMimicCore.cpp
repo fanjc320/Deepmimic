@@ -57,7 +57,7 @@ void cDeepMimicCore::Init()
 
 void cDeepMimicCore::Update(double timestep)
 {
-	mScene->Update(timestep);//×¢ÊÍ»­Ãæ¾²Ö¹ mScen:cDrawSceneImitate
+	mScene->Update(timestep);//×¢ÊÍ»­Ãæ¾²Ö¹ mScen:cDrawSceneImitate 0.00166666
 }
 
 void cDeepMimicCore::Reset()
@@ -226,7 +226,7 @@ void cDeepMimicCore::SetAction(int agent_id, const std::vector<double>& action)
 	if (rl_scene != nullptr)
 	{
 		Eigen::VectorXd in_action;
-		ConvertVector(action, in_action);//36,36
+		ConvertVector(action, in_action);
 		rl_scene->SetAction(agent_id, in_action);
 	}
 }
@@ -550,7 +550,7 @@ void cDeepMimicCore::SetupScene()
 	mRLScene = nullptr;
 	if (EnableDraw())
 	{
-		cSceneBuilder::BuildDrawScene(scene_name, mScene);//×ßÕâÀï
+		cSceneBuilder::BuildDrawScene(scene_name, mScene);//imitate, empty
 	}
 	else
 	{

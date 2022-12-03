@@ -114,7 +114,7 @@ void cSimBodyLink::ApplyForce(const tVector& force, const tVector& local_pos)
 void cSimBodyLink::ApplyTorque(const tVector& torque)
 {
 	btScalar scale = static_cast<btScalar>(mWorld->GetScale());
-	mMultBody->addLinkTorque(mJointID, scale * scale * btVector3(torque[0], torque[1], torque[2]));
+	mMultBody->addLinkTorque(mJointID, scale * scale * btVector3(torque[0], torque[1], torque[2]));//cMultiBody
 }
 
 void cSimBodyLink::ClearForces()
