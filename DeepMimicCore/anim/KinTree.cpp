@@ -1523,16 +1523,16 @@ void cKinTree::PostProcessPose(const Eigen::MatrixXd& joint_mat, Eigen::VectorXd
 {
 	// mostly to normalize quaternions
 	int num_joints = GetNumJoints(joint_mat);
-	int root_id = GetRoot(joint_mat);
-	int root_offset = GetParamOffset(joint_mat, root_id);
-	out_pose.segment(root_offset + gPosDim, gRotDim).normalize();
+	int root_id = GetRoot(joint_mat);//0
+	int root_offset = GetParamOffset(joint_mat, root_id);//0
+	out_pose.segment(root_offset + gPosDim, gRotDim).normalize();//0+3,4 out_pose rows 43
 
-	for (int j = 1; j < num_joints; ++j)
+	for (int j = 1; j < num_joints; ++j)//15
 	{
 		eJointType joint_type = GetJointType(joint_mat, j);
 		if (joint_type == eJointTypeSpherical)
 		{
-			int offset = GetParamOffset(joint_mat, j);
+			int offset = GetParamOffset(joint_mat, j);//rows 15 cols 19 
 			out_pose.segment(offset, gRotDim).normalize();
 		}
 	}

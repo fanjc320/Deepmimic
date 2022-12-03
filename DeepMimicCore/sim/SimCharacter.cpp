@@ -726,9 +726,9 @@ void cSimCharacter::SetPose(const Eigen::VectorXd& pose)//rows 43
 {
 	cCharacter::SetPose(pose);
 
-	double world_scale = mWorld->GetScale();
-	int root_id = cKinTree::GetRoot(mJointMat);
-	tVector root_pos = cKinTree::GetRootPos(mJointMat, pose);
+	double world_scale = mWorld->GetScale();//4.0
+	int root_id = cKinTree::GetRoot(mJointMat);//0
+	tVector root_pos = cKinTree::GetRootPos(mJointMat, pose);//row:15 cols:19, rows:43 
 	tQuaternion root_rot = cKinTree::GetRootRot(mJointMat, pose);
 	cKinTree::eJointType root_type = cKinTree::GetJointType(mJointMat, root_id);
 
@@ -750,7 +750,7 @@ void cSimCharacter::SetPose(const Eigen::VectorXd& pose)//rows 43
 		int param_offset = GetParamOffset(j);
 		int param_size = GetParamSize(j);
 		Eigen::VectorXd curr_params = pose.segment(param_offset, param_size);//7,4
-		curr_joint.SetPose(curr_params);//m_rows 4
+		curr_joint.SetPose(curr_params);//m_rows 4 or 1 µÈ
 	}
 
 	UpdateLinkPos();

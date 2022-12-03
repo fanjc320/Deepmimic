@@ -60,7 +60,7 @@ tVector cSimBodyLink::GetLinearVelocity(const tVector& local_pos) const
 	tVector lin_vel = GetLinearVelocity();
 	tQuaternion rot = GetRotation();
 	tVector world_pos = cMathUtil::QuatRotVec(rot, local_pos);
-	tVector vel = lin_vel + ang_vel.cross3(world_pos);
+	tVector vel = lin_vel + ang_vel.cross3(world_pos);//arr4
 	return vel;
 }
 
