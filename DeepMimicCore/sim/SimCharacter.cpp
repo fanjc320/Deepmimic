@@ -1438,7 +1438,7 @@ void cSimCharacter::BuildJointPose(int joint_id, Eigen::VectorXd& out_pose) cons
 		tVector root_pos = GetRootPos();
 		tQuaternion root_rot = GetRootRotation();
 
-		out_pose.segment(0, cKinTree::gPosDim) = root_pos.segment(0, cKinTree::gPosDim);
+		out_pose.segment(0, cKinTree::gPosDim) = root_pos.segment(0, cKinTree::gPosDim);//???? 
 		out_pose(cKinTree::gPosDim) = root_rot.w();
 		out_pose(cKinTree::gPosDim + 1) = root_rot.x();
 		out_pose(cKinTree::gPosDim + 2) = root_rot.y();
