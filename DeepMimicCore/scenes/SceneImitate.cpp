@@ -285,7 +285,7 @@ bool cSceneImitate::BuildKinCharacter(int id, std::shared_ptr<cKinCharacter>& ou
 
 void cSceneImitate::UpdateCharacters(double timestep)
 {
-	UpdateKinChar(timestep);
+	UpdateKinChar(timestep);//先更新KinChar,这是kinematic的,再更新SimChar,这是物理的，用物理的驱动来逼近KinChar的位置和速度
 	cRLSceneSimChar::UpdateCharacters(timestep);
 }
 
@@ -296,7 +296,7 @@ void cSceneImitate::UpdateKinChar(double timestep)
 	kin_char->Update(timestep);
 	double curr_phase = kin_char->GetPhase();
 
-	if (curr_phase < prev_phase)
+	if (curr_phase < prev_phase)//0.00022000445772363264 < 0.99892125120889241 ...
 	{
 		const auto& sim_char = GetCharacter();
 		SyncKinCharNewCycle(*sim_char, *kin_char);
@@ -413,7 +413,7 @@ void cSceneImitate::SyncKinCharNewCycle(const cSimCharacter& sim_char, cKinChara
 		out_kin_char.RotateRoot(drot);
 	}
 
-	if (mSyncCharRootPos)
+	if (mSyncCharRootPos)//??????为何要从simchar的位置来更新kinchar的位置???
 	{
 		tVector sim_root_pos = sim_char.GetRootPos();
 		tVector kin_root_pos = out_kin_char.GetRootPos();

@@ -133,7 +133,7 @@ void cSceneSimChar::Clear()
 	ClearObjs();
 }
 
-void cSceneSimChar::Update(double time_elapsed)
+void cSceneSimChar::Update(double time_elapsed)//!!!!!!
 {
 	//cScene::Update(time_elapsed);
 

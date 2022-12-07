@@ -142,7 +142,7 @@ void cCharacter::SetPose0(const Eigen::VectorXd& pose)
 	mPose0 = pose;
 }
 
-const Eigen::VectorXd& cCharacter::GetVel() const
+const Eigen::VectorXd& cCharacter::GetVel() const //µ÷ÓÃ¶ÑÕ»ºÃÆæ¹Ö
 {
 	return mVel;
 }
@@ -155,7 +155,7 @@ void cCharacter::SetVel(const Eigen::VectorXd& vel)
 
 const Eigen::VectorXd& cCharacter::GetVel0() const
 {
-	return mVel0;
+	return mVel0;//m_rows 1023
 }
 
 void cCharacter::SetVel0(const Eigen::VectorXd& vel)

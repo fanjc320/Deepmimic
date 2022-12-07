@@ -180,10 +180,10 @@ double cKinCharacter::GetPhase() const
 
 void cKinCharacter::Pose(double time)
 {
-	CalcPose(time, mPose);
+	CalcPose(time, mPose);//m_rows 43
 	SetPose(mPose);
 
-	CalcVel(time, mVel);
+	CalcVel(time, mVel);//m_rows 43
 	SetVel(mVel);
 }
 

@@ -106,13 +106,13 @@ void Update(double time_elapsed)
 		{
 			if (gCore->NeedNewAction(id))
 			{
-				auto s = gCore->RecordState(id);
+				auto s = gCore->RecordState(id);//没用到
 				auto g = gCore->RecordGoal(id);
 				//double r = gCore->CalcReward(id);
 				++gSampleCount;
 
 				std::vector<double> action = std::vector<double>(gCore->GetActionSize(id), 0);
-				gCore->SetAction(id, action);
+				gCore->SetAction(id, action); // 似乎没用
 			}
 		}
 

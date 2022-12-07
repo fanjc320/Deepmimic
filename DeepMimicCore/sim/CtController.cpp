@@ -285,7 +285,7 @@ void cCtController::BuildStateNormGroups(Eigen::VectorXi& out_groups) const
 void cCtController::RecordState(Eigen::VectorXd& out_state)
 {
 	Eigen::VectorXd phase_state;
-	cDeepMimicCharController::RecordState(out_state);
+	cDeepMimicCharController::RecordState(out_state);//m_rows 197
 
 	if (mEnablePhaseInput)
 	{
@@ -476,12 +476,12 @@ void cCtController::BuildStateVel(Eigen::VectorXd& out_vel) const
 	mirror_inv_origin_quat = cMathUtil::MirrorQuaternion(mirror_inv_origin_quat, cMathUtil::eAxisZ);
 	
 	int idx = 0;
-	for (int i = 0; i < num_parts; ++i)
+	for (int i = 0; i < num_parts; ++i)//15
 	{
 		int part_id = RetargetJointID(i);
 		int root_id = mChar->GetRootID();
 
-		const auto& curr_part = mChar->GetBodyPart(part_id);
+		const auto& curr_part = mChar->GetBodyPart(part_id);//cSimBodyLink
 		tVector curr_vel = curr_part->GetLinearVelocity();
 
 		if (mRecordWorldRootRot && i == root_id)

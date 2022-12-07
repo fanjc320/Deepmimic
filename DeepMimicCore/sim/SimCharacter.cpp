@@ -749,7 +749,7 @@ void cSimCharacter::SetPose(const Eigen::VectorXd& pose)//rows 43
 		cSimBodyJoint& curr_joint = GetJoint(j);
 		int param_offset = GetParamOffset(j);
 		int param_size = GetParamSize(j);
-		Eigen::VectorXd curr_params = pose.segment(param_offset, param_size);//7,4
+		Eigen::VectorXd curr_params = pose.segment(param_offset, param_size);//7,4;11,4.....
 		curr_joint.SetPose(curr_params);//m_rows 4 or 1 µÈ
 	}
 
@@ -1213,7 +1213,7 @@ void cSimCharacter::UpdateJoints()
 
 void cSimCharacter::UpdateLinkPos()
 {
-	mMultBody->updateCollisionObjectWorldTransforms(mRotBuffer, mVecBuffer0);
+	mMultBody->updateCollisionObjectWorldTransforms(mRotBuffer, mVecBuffer0);//!!!!
 }
 
 void cSimCharacter::UpdateLinkVel()
@@ -1229,7 +1229,7 @@ void cSimCharacter::UpdateLinkVel()
 	btAlignedObjectArray<btVector3>& ang_vel_buffer = mVecBuffer0;
 	btAlignedObjectArray<btVector3>& vel_buffer = mVecBuffer1;
 
-	mMultBody->compTreeLinkVelocities(&ang_vel_buffer[0], &vel_buffer[0]);
+	mMultBody->compTreeLinkVelocities(&ang_vel_buffer[0], &vel_buffer[0]);//!!!!!
 
 	double world_scale = mWorld->GetScale();
 	int numBodyparts = GetNumBodyParts();
@@ -1493,7 +1493,7 @@ void cSimCharacter::BuildVel(Eigen::VectorXd& out_vel) const
 {
 	int num_joints = GetNumJoints();
 	int num_dof = cKinTree::GetNumDof(mJointMat);
-	out_vel.resize(num_dof);
+	out_vel.resize(num_dof);//43
 
 	for (int j = 0; j < num_joints; ++j)
 	{

@@ -495,7 +495,7 @@ void cMotion::CalcIndexPhase(double time, int& out_idx, double& out_phase) const
 
 void cMotion::UpdateVel()
 {
-	BuildFrameVel(mFrameVel, false);
+	BuildFrameVel(mFrameVel, false);//m_rows 78 m_cols 43
 
 	if (mLoop == eLoopMirror)
 	{
@@ -570,7 +570,7 @@ void cMotion::CalcFrameVel(const tFrame& frame0, const tFrame& frame1, double dt
 {
 	if (HasVelFunc())
 	{
-		mParams.mVelFunc(&frame0, &frame1, dt, &out_vel);//out_vel rows 43
+		mParams.mVelFunc(&frame0, &frame1, dt, &out_vel);//out_vel rows 43 !!!!!!
 	}
 	else
 	{

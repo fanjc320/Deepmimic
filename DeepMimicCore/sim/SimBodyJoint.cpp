@@ -209,7 +209,7 @@ tVector cSimBodyJoint::CalcWorldVel() const
 {
 	if (HasChild())
 	{
-		tVector anchor = GetChildPos();
+		tVector anchor = GetChildPos();//arr 0-3
 		return mChild->GetLinearVelocity(anchor);
 	}
 	else
@@ -486,7 +486,7 @@ void cSimBodyJoint::SetPose(const Eigen::VectorXd& pose)//rows 7
 		break;
 	}
 
-	mMultBody->setJointPosMultiDof(mParams.mID, data);
+	mMultBody->setJointPosMultiDof(mParams.mID, data);//1\2\3..., arr 0-6
 }
 
 void cSimBodyJoint::SetVel(const Eigen::VectorXd& vel)

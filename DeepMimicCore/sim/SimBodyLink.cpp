@@ -51,7 +51,7 @@ tVector cSimBodyLink::GetSize() const
 
 tVector cSimBodyLink::GetLinearVelocity() const
 {
-	return mLinVel;
+	return mLinVel;//arr 0-3  //由compTreeLinkVelocities 计算得到
 }
 
 tVector cSimBodyLink::GetLinearVelocity(const tVector& local_pos) const
@@ -60,7 +60,7 @@ tVector cSimBodyLink::GetLinearVelocity(const tVector& local_pos) const
 	tVector lin_vel = GetLinearVelocity();
 	tQuaternion rot = GetRotation();
 	tVector world_pos = cMathUtil::QuatRotVec(rot, local_pos);
-	tVector vel = lin_vel + ang_vel.cross3(world_pos);//arr4
+	tVector vel = lin_vel + ang_vel.cross3(world_pos);//arr4 ???????
 	return vel;
 }
 
@@ -127,7 +127,7 @@ cShape::eShape cSimBodyLink::GetShape() const
 	return mObjShape;
 }
 
-void cSimBodyLink::UpdateVel(const tVector& lin_vel, const tVector& ang_vel)
+void cSimBodyLink::UpdateVel(const tVector& lin_vel, const tVector& ang_vel)//由compTreeLinkVelocities调用
 {
 	mLinVel = lin_vel;
 	mAngVel = ang_vel;

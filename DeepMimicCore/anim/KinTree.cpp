@@ -1498,7 +1498,7 @@ void cKinTree::CalcVel(const Eigen::MatrixXd& joint_mat, const Eigen::VectorXd& 
 
 	for (int j = 1; j < num_joints; ++j)
 	{
-		int param_offset = GetParamOffset(joint_mat, j);
+		int param_offset = GetParamOffset(joint_mat, j);//
 		int param_size = GetParamSize(joint_mat, j);
 		eJointType joint_type = GetJointType(joint_mat, j);
 
