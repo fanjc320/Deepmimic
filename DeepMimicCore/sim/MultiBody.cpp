@@ -18,6 +18,7 @@ cMultiBody::~cMultiBody()
 {
 }
 
+//这个函数和SpatialTransform 在2.88版本之前是private的，所以这里重写了，后面版本是public了，可以直接用
 void cMultiBody::compTreeLinkVelocities(btVector3 *omega, btVector3 *vel) const
 {
 	int num_links = getNumLinks();
@@ -39,7 +40,7 @@ void cMultiBody::compTreeLinkVelocities(btVector3 *omega, btVector3 *vel) const
 		// now add qidot * shat_i
 		//only supported for revolute/prismatic joints, todo: spherical and planar joints
 		const btScalar* jointVel = getJointVelMultiDof(i);
-		for (int dof = 0; dof < link.m_dofCount; ++dof)
+		for (int dof = 0; dof < link.m_dofCount; ++dof)//1,3...
 		{
 			omega[i + 1] += jointVel[dof] * link.getAxisTop(dof);
 			vel[i + 1] += jointVel[dof] * link.getAxisBottom(dof);

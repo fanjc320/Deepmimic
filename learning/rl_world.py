@@ -87,7 +87,7 @@ class RLWorld(object):
         return
 
     def update(self, timestep):
-        #self._update_agents(timestep)
+        self._update_agents(timestep)
         self._update_env(timestep)
         return
 

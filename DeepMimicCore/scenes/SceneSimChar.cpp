@@ -510,16 +510,16 @@ void cSceneSimChar::InitCharacterPosFixed(const std::shared_ptr<cSimCharacter>& 
 
 void cSceneSimChar::SetCharRandPlacement(const std::shared_ptr<cSimCharacter>& out_char)
 {
-	tVector rand_pos = tVector::Zero();
-	tQuaternion rand_rot = tQuaternion::Identity();
+	tVector rand_pos = tVector::Zero();//arr4
+	tQuaternion rand_rot = tQuaternion::Identity();//arr4
 	CalcCharRandPlacement(out_char, rand_pos, rand_rot);
 	out_char->SetRootTransform(rand_pos, rand_rot);
 }
 
 void cSceneSimChar::CalcCharRandPlacement(const std::shared_ptr<cSimCharacter>& out_char, tVector& out_pos, tQuaternion& out_rot)
 {
-	tVector char_pos = out_char->GetRootPos();
-	tQuaternion char_rot = out_char->GetRootRotation();
+	tVector char_pos = out_char->GetRootPos();//arr4
+	tQuaternion char_rot = out_char->GetRootRotation();//arr4
 
 	tVector rand_pos;
 	tQuaternion rand_rot;

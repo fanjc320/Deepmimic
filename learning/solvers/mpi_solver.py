@@ -16,7 +16,7 @@ class MPISolver(Solver):
         self.sess = sess
         self.optimizer = optimizer
         self._build_grad_feed(vars)
-        self._update = optimizer.apply_gradients(zip(self._grad_tf_list, self.vars))
+        self._update = optimizer.apply_gradients(zip(self._grad_tf_list, self.vars)) # !!!!
         self._set_flat_vars = TFUtil.SetFromFlat(sess, self.vars)
         self._get_flat_vars = TFUtil.GetFlat(sess, self.vars)
 

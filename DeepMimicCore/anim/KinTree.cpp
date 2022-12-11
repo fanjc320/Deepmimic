@@ -500,9 +500,9 @@ tVector cKinTree::GetRootPos(const Eigen::MatrixXd& joint_mat, const Eigen::Vect
 
 void cKinTree::SetRootPos(const Eigen::MatrixXd& joint_mat, const tVector& pos, Eigen::VectorXd& out_state)
 {
-	int root_id = GetRoot(joint_mat);
-	int param_offset = GetParamOffset(joint_mat, root_id);
-	out_state.segment(param_offset, gPosDim) = pos.segment(0, gPosDim);
+	int root_id = GetRoot(joint_mat);//0
+	int param_offset = GetParamOffset(joint_mat, root_id);//0
+	out_state.segment(param_offset, gPosDim) = pos.segment(0, gPosDim);//0,3
 }
 
 tQuaternion cKinTree::GetRootRot(const Eigen::MatrixXd& joint_mat, const Eigen::VectorXd& state)

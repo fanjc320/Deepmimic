@@ -120,15 +120,15 @@ class RLAgent(ABC):
         self.path.clear()
         return
 
-    def update(self, timestep):
+    def update(self, timestep):#!!!!!
         if self.need_new_action():
             self._update_new_action()
 
-        if (self._mode == self.Mode.TRAIN and self.enable_training):
+        if (self._mode == self.Mode.TRAIN and self.enable_training):#!!!!!
             self._update_counter += timestep
 
             while self._update_counter >= self.update_period:
-                self._train()
+                self._train()#!!!!!!
                 self._update_exp_params()
                 self.world.env.set_sample_count(self._total_sample_count)
                 self._update_counter -= self.update_period

@@ -142,11 +142,11 @@ public:
 
 protected:
 	std::shared_ptr<cMultiBody> mMultBody;
-	std::vector<std::shared_ptr<cSimBodyLink>> mBodyParts;
-	tEigenArr<cSimBodyJoint> mJoints;
-	std::vector<std::shared_ptr<btMultiBodyJointLimitConstraint>> mCons;
+	std::vector<std::shared_ptr<cSimBodyLink>> mBodyParts;//15
+	tEigenArr<cSimBodyJoint> mJoints;//15
+	std::vector<std::shared_ptr<btMultiBodyJointLimitConstraint>> mCons;//4
 
-	double mFriction;
+	double mFriction;//0.9....
 	Eigen::MatrixXd mBodyDefs;
 
 	std::shared_ptr<cCharController> mController;

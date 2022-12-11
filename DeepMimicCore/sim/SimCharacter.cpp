@@ -60,11 +60,11 @@ bool cSimCharacter::Init(const std::shared_ptr<cWorld>& world, const tParams& pa
 
 	if (succ)
 	{
-		mPose0 = mPose;
+		mPose0 = mPose;//没用到
 		mVel0 = mVel;
 
-		SetPose(mPose);
-		SetVel(mVel);
+		SetPose(mPose);//43
+		SetVel(mVel);//43
 	}
 
 	return succ;
@@ -192,10 +192,10 @@ void cSimCharacter::SetRootTransform(const tVector& pos, const tQuaternion& rot)
 	root_vel = cMathUtil::QuatRotVec(delta_rot, root_vel);
 	root_ang_vel = cMathUtil::QuatRotVec(delta_rot, root_ang_vel);
 
-	cKinTree::SetRootPos(mJointMat, pos, mPose);
-	cKinTree::SetRootRot(mJointMat, rot, mPose);
-	cKinTree::SetRootVel(mJointMat, root_vel, mVel);
-	cKinTree::SetRootAngVel(mJointMat, root_ang_vel, mVel);
+	cKinTree::SetRootPos(mJointMat, pos, mPose);//[15,19],4,43
+	cKinTree::SetRootRot(mJointMat, rot, mPose);//[15,19],4,43
+	cKinTree::SetRootVel(mJointMat, root_vel, mVel);//[15,19],4,43
+	cKinTree::SetRootAngVel(mJointMat, root_ang_vel, mVel);//[15,19],4,43
 
 	SetPose(mPose);
 	SetVel(mVel);
@@ -293,7 +293,7 @@ void cSimCharacter::SetVel(const Eigen::VectorXd& vel)
 		cSimBodyJoint& curr_jont = GetJoint(j);
 		int param_offset = GetParamOffset(j);
 		int param_size = GetParamSize(j);
-		Eigen::VectorXd curr_params = vel.segment(param_offset, param_size);
+		Eigen::VectorXd curr_params = vel.segment(param_offset, param_size);//curr_params:m_rows4 = (11,4)...
 		curr_jont.SetVel(curr_params);
 	}
 
@@ -330,7 +330,7 @@ tVector cSimCharacter::CalcJointPos(int joint_id) const
 	return pos;
 }
 
-tVector cSimCharacter::CalcJointVel(int joint_id) const
+tVector cSimCharacter::CalcJointVel(int joint_id) const// joint的velocity是通过link来获得的
 {
 	const cSimBodyJoint& joint = GetJoint(joint_id);
 	tVector vel;
@@ -349,7 +349,7 @@ tVector cSimCharacter::CalcJointVel(int joint_id) const
 		tVector part_attach_pt = cKinTree::GetBodyAttachPt(mBodyDefs, parent_id);
 		attach_pt -= part_attach_pt;
 
-		const auto& parent_part = GetBodyPart(parent_id);
+		const auto& parent_part = GetBodyPart(parent_id);//cSimBodyLink parent_part
 		vel = parent_part->GetLinearVelocity(attach_pt);
 	}
 
@@ -722,7 +722,7 @@ void cSimCharacter::PlayPossum()
 	}
 }
 
-void cSimCharacter::SetPose(const Eigen::VectorXd& pose)//rows 43
+void cSimCharacter::SetPose(const Eigen::VectorXd& pose)//rows 43 !!!!!!
 {
 	cCharacter::SetPose(pose);
 
@@ -750,10 +750,10 @@ void cSimCharacter::SetPose(const Eigen::VectorXd& pose)//rows 43
 		int param_offset = GetParamOffset(j);
 		int param_size = GetParamSize(j);
 		Eigen::VectorXd curr_params = pose.segment(param_offset, param_size);//7,4;11,4.....
-		curr_joint.SetPose(curr_params);//m_rows 4 or 1 等
+		curr_joint.SetPose(curr_params);//m_rows 4 or 1 等  !!!!!
 	}
 
-	UpdateLinkPos();
+	UpdateLinkPos();//!!!!!!!
 	UpdateLinkVel();
 
 	/*if (HasController())
@@ -1229,11 +1229,13 @@ void cSimCharacter::UpdateLinkVel()
 	btAlignedObjectArray<btVector3>& ang_vel_buffer = mVecBuffer0;
 	btAlignedObjectArray<btVector3>& vel_buffer = mVecBuffer1;
 
-	mMultBody->compTreeLinkVelocities(&ang_vel_buffer[0], &vel_buffer[0]);//!!!!!
+	//compute linearand angular velocities of MultiBody links
+	//https://pybullet.org/Bullet/phpBB3/viewtopic.php?t=11492
+	mMultBody->compTreeLinkVelocities(&ang_vel_buffer[0], &vel_buffer[0]);//!!!!! 角速度omega 和速度 vel
 
 	double world_scale = mWorld->GetScale();
 	int numBodyparts = GetNumBodyParts();
-	for (int b = 0; b < numBodyparts; ++b)
+	for (int b = 0; b < numBodyparts; ++b)//15
 	{
 		if (IsValidBodyPart(b))
 		{

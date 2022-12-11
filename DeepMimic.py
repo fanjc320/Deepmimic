@@ -292,7 +292,7 @@ def setup_draw():
 def build_world(args, enable_draw, playback_speed=1):
     arg_parser = build_arg_parser(args)
     env = DeepMimicEnv(args, enable_draw)
-    world = RLWorld(env, arg_parser)
+    world = RLWorld(env, arg_parser) #!!!!!
     world.env.set_playback_speed(playback_speed)
     return world
 

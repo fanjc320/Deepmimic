@@ -75,7 +75,7 @@ bool cMotion::Load(const tParams& params)
 		succ = LoadJson(root);
 		if (succ)
 		{
-			PostProcessFrames(mFrames);
+			PostProcessFrames(mFrames);//m_rows78 m_cols44
 			UpdateVel();
 		}
 		else
@@ -390,11 +390,11 @@ std::string cMotion::BuildLoopStr(eLoop loop) const
 
 void cMotion::PostProcessFrames(Eigen::MatrixXd& frames) const
 {
-	int frame_size = GetFrameSize();
+	int frame_size = GetFrameSize();//44
 	int num_frames = static_cast<int>(frames.rows());
 	double curr_time = gMinTime;
 
-	for (int f = 0; f < num_frames; ++f)
+	for (int f = 0; f < num_frames; ++f)//78
 	{
 		auto curr_frame = frames.row(f);
 		double duration = curr_frame(0, eFrameTime);
@@ -403,9 +403,9 @@ void cMotion::PostProcessFrames(Eigen::MatrixXd& frames) const
 
 		if (HasPostProcessFunc())
 		{
-			Eigen::VectorXd pose = curr_frame.segment(eFrameMax, frame_size - eFrameMax);
+			Eigen::VectorXd pose = curr_frame.segment(eFrameMax, frame_size - eFrameMax);//mrows 43
 			mParams.mPostProcessFunc(&pose);
-			curr_frame.segment(eFrameMax, frame_size - eFrameMax) = pose;
+			curr_frame.segment(eFrameMax, frame_size - eFrameMax) = pose;//(1, 44-1) = 43
 		}
 	}
 }

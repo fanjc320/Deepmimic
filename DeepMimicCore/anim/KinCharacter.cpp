@@ -388,7 +388,7 @@ void cKinCharacter::MirrorFrame(const std::vector<int>* right_joints, const std:
 void cKinCharacter::CalcFrameVel(const cMotion::tFrame* a, const cMotion::tFrame* b, double timestep, cMotion::tFrame* out_vel) const
 {
 	const auto& joint_mat = GetJointMat();
-	cKinTree::CalcVel(joint_mat, *a, *b, timestep, *out_vel);
+	cKinTree::CalcVel(joint_mat, *a, *b, timestep, *out_vel);//([15,19],43,43,0.0166666,
 }
 
 void cKinCharacter::PostProcessFrame(cMotion::tFrame* out_frame) const
