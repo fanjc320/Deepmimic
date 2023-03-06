@@ -444,10 +444,10 @@ void cSimBodyJoint::BuildVel(Eigen::VectorXd& out_vel) const
 	}
 }
 
-void cSimBodyJoint::SetPose(const Eigen::VectorXd& pose)//rows 7
+void cSimBodyJoint::SetPose(const Eigen::VectorXd& pose)//m_rows:7
 {
 	btScalar data[7];
-	double world_scale = mWorld->GetScale();
+	double world_scale = mWorld->GetScale();//4
 
 	switch (GetType())
 	{
@@ -472,7 +472,7 @@ void cSimBodyJoint::SetPose(const Eigen::VectorXd& pose)//rows 7
 	case cKinTree::eJointTypeSpherical:
 	{
 		tQuaternion q = cMathUtil::VecToQuat(pose);
-		q = mParams.mChildRot * q * mParams.mChildRot.conjugate();
+		q = mParams.mChildRot * q * mParams.mChildRot.conjugate();//???????
 		data[0] = q.x();
 		data[1] = q.y();
 		data[2] = q.z();

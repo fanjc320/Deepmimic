@@ -16,7 +16,7 @@ void cDrawRLScene::Init()
 
 int cDrawRLScene::GetNumAgents() const
 {
-	return GetRLScene()->GetNumAgents();
+	return GetRLScene()->GetNumAgents();//GetRLScene 只是在子类被定义的啊,这里为啥能直接用??????
 }
 
 bool cDrawRLScene::NeedNewAction(int agent_id) const

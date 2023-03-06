@@ -278,7 +278,7 @@ class PGAgent(TFAgent):
             self.tar_val_tf: tar_V
         }
 
-        loss, grads = self.sess.run([self.critic_loss_tf, self.critic_grad_tf], feed)
+        loss, grads = self.sess.run([self.critic_loss_tf, self.critic_grad_tf], feed)#!!!!
         self.critic_solver.update(grads)
         return loss
     

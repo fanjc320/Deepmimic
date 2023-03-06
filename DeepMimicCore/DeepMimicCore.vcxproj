@@ -70,7 +70,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Swig|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -228,7 +228,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\bloo\.conda\envs\env_deepmimic;C:\Users\bloo\.conda\envs\env_deepmimic\include;D:\projs_mine\thirdparty\bullet3-2.89\src;$(ProjectDir);D:\software\deepmimic\glew-2.1.0\include;D:\software\deepmimic\freeglut-3.0.0\include;D:\software\deepmimic\eigen-3.3.7;$(PYTHON_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\bloo\.conda\envs\env_deepmimic;C:\Users\bloo\.conda\envs\env_deepmimic\include;G:\3party\bullet3-2.88\src;$(ProjectDir);G:\3party\glew-2.1.0\include;G:\3party\freeglut-3.0.0\include;G:\3party\eigen-3.3.9;$(PYTHON_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BrowseInformation>false</BrowseInformation>
       <AdditionalOptions>/Zm200 %(AdditionalOptions)</AdditionalOptions>
@@ -238,7 +238,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\bloo\.conda\pkgs\python-3.10.4-hbb2ffb3_0;C:\Users\bloo\.conda\envs\env_deepmimic;D:\software\deepmimic\freeglut-3.0.0\build\lib\Release;D:\software\deepmimic\glew-2.1.0\lib\Release\x64;C:\Users\bloo\.conda\envs\env_deepmimic\libs;D:\projs_mine\thirdparty\bullet3-2.89\bin;$(PYTHON_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\bloo\.conda\pkgs\python-3.10.4-hbb2ffb3_0;C:\Users\bloo\.conda\envs\env_deepmimic;G:\3party\freeglut-3.0.0\build\lib\Release;G:\3party\glew-2.1.0\lib\Release\x64;C:\Users\bloo\.conda\envs\env_deepmimic\libs;G:\3party\bullet3-2.88\bin;$(PYTHON_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glu32.lib;glew32.lib;BulletDynamics.lib;BulletCollision.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>

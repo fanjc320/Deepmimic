@@ -25,7 +25,7 @@ class TFAgent(RLAgent):
         return
 
     def save_model(self, out_path):
-        with self.sess.as_default(), self.graph.as_default():
+        with self.sess.as_default(), self.graph.as_default():#.as_default()https://blog.csdn.net/nanhuaibeian/article/details/101862790
             try:
                 save_path = self.saver.save(self.sess, out_path, write_meta_graph=False, write_state=False)
                 Logger.print('Model saved to: ' + save_path)
@@ -35,7 +35,7 @@ class TFAgent(RLAgent):
 
     def load_model(self, in_path):
         with self.sess.as_default(), self.graph.as_default():
-            self.saver.restore(self.sess, in_path)
+            self.saver.restore(self.sess, in_path)#????
             self._load_normalizers()
             Logger.print('Model loaded from: ' + in_path)
         return

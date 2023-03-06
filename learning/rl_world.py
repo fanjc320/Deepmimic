@@ -131,7 +131,7 @@ class RLWorld(object):
         if (agent_file == 'none'):
             agent = None
         else:
-            agent = AgentBuilder.build_agent(self, id, agent_file)
+            agent = AgentBuilder.build_agent(self, id, agent_file)#!!!!!
             assert (agent != None), 'Failed to build agent {:d} from: {}'.format(id, agent_file)
         
         return agent

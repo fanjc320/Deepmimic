@@ -272,6 +272,12 @@
     <ClCompile Include="Test_Opengl.cpp">
       <Filter>Source Files\test_opengl</Filter>
     </ClCompile>
+    <ClCompile Include="sim\PerturbManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sim\Perturb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util\CircularBuffer.h">
@@ -541,6 +547,8 @@
     <ClInclude Include="sim\DeepMimicCharController.h">
       <Filter>Source Files\sim</Filter>
     </ClInclude>
+    <ClInclude Include="sim\PerturbManager.h" />
+    <ClInclude Include="sim\Perturb.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="DeepMimicCore.i" />

@@ -63,8 +63,8 @@ bool cSimCharacter::Init(const std::shared_ptr<cWorld>& world, const tParams& pa
 		mPose0 = mPose;//√ª”√µΩ
 		mVel0 = mVel;
 
-		SetPose(mPose);//43
-		SetVel(mVel);//43
+		SetPose(mPose);//m_rows:43
+		SetVel(mVel);//m_rows:43
 	}
 
 	return succ;
@@ -1505,7 +1505,7 @@ void cSimCharacter::BuildVel(Eigen::VectorXd& out_vel) const
 		int param_offset = GetParamOffset(j);
 		int param_size = GetParamSize(j);
 		assert(joint_vel.size() == param_size);
-		out_vel.segment(param_offset, param_size) = joint_vel;
+		out_vel.segment(param_offset, param_size) = joint_vel;//!!!!!
 	}
 }
 

@@ -115,6 +115,7 @@ class RLAgent(ABC):
         return
 
     int_output_dir = property(get_int_output_dir, set_int_output_dir)
+    # https://realpython.com/python-property/
 
     def reset(self):
         self.path.clear()

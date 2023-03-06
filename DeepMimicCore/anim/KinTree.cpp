@@ -1479,7 +1479,7 @@ void cKinTree::CalcJointVelDiff(const Eigen::MatrixXd& joint_mat, int joint_id, 
 	out_diff = vel1.segment(param_offset, param_size) - vel0.segment(param_offset, param_size);
 }
 
-void cKinTree::CalcVel(const Eigen::MatrixXd& joint_mat, const Eigen::VectorXd& pose0, const Eigen::VectorXd& pose1, double dt, Eigen::VectorXd& out_vel)
+void cKinTree::CalcVel(const Eigen::MatrixXd& joint_mat, const Eigen::VectorXd& pose0, const Eigen::VectorXd& pose1, double dt, Eigen::VectorXd& out_vel)//m_rows:43£¬m_rows:43, 0.01666666£¬m_rows:43
 {
 	assert(pose0.size() == pose1.size());
 	out_vel.resize(pose0.size());

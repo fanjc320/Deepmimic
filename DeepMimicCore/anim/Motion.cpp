@@ -213,7 +213,7 @@ void cMotion::CalcFrame(double time, tFrame& out_frame, bool force_mirror /*=fal
 	}
 }
 
-void cMotion::CalcFrameVel(double time, cMotion::tFrame& out_vel, bool force_mirror /*=false*/) const
+void cMotion::CalcFrameVel(double time, cMotion::tFrame& out_vel, bool force_mirror /*=false*/) const//0.000, m_rows:43, false
 {
 	if (!EnableLoop() && time >= GetDuration())
 	{
@@ -234,7 +234,7 @@ void cMotion::CalcFrameVel(double time, cMotion::tFrame& out_vel, bool force_mir
 		int idx;
 		double phase;
 		CalcIndexPhase(time, idx, phase);
-		auto vel0 = vel_frame->row(idx);
+		auto vel0 = vel_frame->row(idx);//0
 		auto vel1 = vel_frame->row(idx + 1);
 		out_vel = (1 - phase) * vel0 + phase * vel1;//out_vel:m_rows43
 	}
@@ -463,7 +463,7 @@ void cMotion::CalcIndexPhase(double time, int& out_idx, double& out_phase) const
 
 	if (!EnableLoop())
 	{
-		if (time <= gMinTime)
+		if (time <= gMinTime)//0
 		{
 			out_idx = 0;
 			out_phase = 0;
