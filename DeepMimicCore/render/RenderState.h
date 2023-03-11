@@ -39,6 +39,8 @@ class cRenderState
 public:
     cRenderState()
     {
+        //glewExperimental = GL_TRUE;
+        //glewInit();
         glGenVertexArrays(1, &mVaoID);
     }
     ~cRenderState()
