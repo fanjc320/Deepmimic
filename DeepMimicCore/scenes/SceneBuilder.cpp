@@ -10,7 +10,7 @@ void cSceneBuilder::BuildScene(const std::string& scene_name, std::shared_ptr<cS
 {
 	if (scene_name == "")
 	{
-		printf("No scene specified\n");
+		printf("c-No scene specified\n");
 		assert(false);
 	}
 	else if (scene_name == "kin_char")
@@ -32,7 +32,7 @@ void cSceneBuilder::BuildDrawScene(const std::string& scene_name, std::shared_pt
 {
 	if (scene_name == "")
 	{
-		printf("No scene specified\n");
+		printf("c--No scene specified\n");
 		assert(false);
 	}
 	else if (scene_name == "kin_char")

@@ -39,6 +39,15 @@ void SetupDeepMimicCore()
 {
 	bool enable_draw = true;
 	gCore = std::unique_ptr<cDeepMimicCore>(new cDeepMimicCore(enable_draw));
+	if (gArgs.size() < 1)
+	{
+		std::cout << "gArgs0:" << gArgs[0] << std::endl;
+
+	}
+	else
+	{
+		std::cout << "gArgs1:" << gArgs[1] << std::endl;
+	}
 	gCore->ParseArgs(gArgs);
 	gCore->Init();
 
@@ -364,7 +373,7 @@ void DrawMainLoop()
 int main(int argc, char** argv)
 {
 	FormatArgs(argc, argv, gArgs);
-
+	std::cout << "c++ gArgs0:" << gArgs[0] << std::endl;
 	InitDraw(argc, argv);
 	SetupDeepMimicCore();
 	SetupDraw();

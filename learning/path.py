@@ -30,7 +30,7 @@ class Path(object):
         return True
 
     def clear(self):
-        self.states = []
+        self.states = []#???? where does it define?
         self.goals = []
         self.actions = []
         self.logps = []

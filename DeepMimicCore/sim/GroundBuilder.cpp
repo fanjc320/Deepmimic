@@ -1,5 +1,25 @@
 #include "GroundBuilder.h"
 #include "sim/GroundPlane.h"
+#include <iostream>
+#include <fstream>
+
+void ReadDataFromFileLBLIntoCharArray(const std::string& param_file)
+{
+	std::ifstream fin(param_file);
+	//std::ifstream fin("data/terrain/plane.txt");//dll模式下 ok ../data 不ok
+	if (!fin) {
+		std::cout << "fail to open the file:" << param_file << std::endl;
+	}
+	const int LINE_LENGTH = 100; //一:fstream.getline的第二个参数需要传入字符数，而非字节数，文档中没有明确说明。
+	//二:如果单行超过了缓冲，则循环会结束。
+	//总结：用getline的时候，一定要保证缓冲区够大，能够容纳各种可能的数据行。切记传入字符数。
+	//在此例中则为创建"data.txt"的时候，每一行的字符数不要超过100，否则while循环会结束。
+	char str[LINE_LENGTH];
+	while (fin.getline(str, LINE_LENGTH))
+	{
+		std::cout << "Read from file: " << str << std::endl;
+	}
+}
 
 bool cGroundBuilder::ParseParamsJson(const std::string& param_file, cGround::tParams& out_params)
 {
@@ -7,6 +27,8 @@ bool cGroundBuilder::ParseParamsJson(const std::string& param_file, cGround::tPa
 	Json::Reader reader;
 	Json::Value root;
 	bool succ = reader.parse(f_stream, root);
+	ReadDataFromFileLBLIntoCharArray(param_file);
+	//std::cout << "c++ ParseParamsJson terrain_file:" << f_stream << std::endl;
 	f_stream.close();
 
 	if (succ)

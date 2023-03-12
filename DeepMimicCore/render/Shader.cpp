@@ -68,7 +68,7 @@ GLuint cShader::LoadShader(const std::string& filename, GLenum shader_type)
 
 	//read shader file
 	std::ifstream shader_file(filename.c_str());
-	std::cout << "Compiling shader: " << filename.c_str() << std::endl;
+	std::cout << "-Compiling shader: " << filename.c_str() << std::endl;
 
 	std::string shader_code((std::istreambuf_iterator<char>(shader_file)),
 		(std::istreambuf_iterator<char>()));

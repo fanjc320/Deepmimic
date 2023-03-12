@@ -25,9 +25,9 @@ void cDeepMimicCore::SeedRand(int seed)
 void cDeepMimicCore::ParseArgs(const std::vector<std::string>& args)
 {
 	mArgParser->LoadArgs(args);
-
 	std::string arg_file = "";
 	mArgParser->ParseString("arg_file", arg_file);
+	std::cout << " c++ arg_file:" << arg_file << std::endl;
 	if (arg_file != "")
 	{
 		// append the args from the file to the ones from the commandline
@@ -172,6 +172,7 @@ bool cDeepMimicCore::IsRLScene() const
 
 int cDeepMimicCore::GetNumAgents() const
 {
+	std::cout << "GetNumAgents test cout in swig" << std::endl;
 	const auto& rl_scene = GetRLScene();
 	if (rl_scene != nullptr)
 	{

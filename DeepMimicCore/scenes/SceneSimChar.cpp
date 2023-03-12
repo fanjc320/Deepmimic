@@ -8,6 +8,7 @@
 #include "sim/DeepMimicCharController.h"
 
 #include "util/FileUtil.h"
+#include <iostream>
 
 const int gDefaultCharID = 0;
 const double gCharViewDistPad = 1;
@@ -718,6 +719,8 @@ void cSceneSimChar::ParseGroundParams(const std::shared_ptr<cArgParser>& parser,
 		bool succ = cGroundBuilder::ParseParamsJson(terrain_file, out_params);
 		if (!succ)
 		{
+			printf(" terrain_file:%s \n", terrain_file.c_str());
+			std::cout << "c++ cout terrain_file: % s \n" << terrain_file.c_str() << std::endl;
 			printf("Failed to parse terrain params from %s\n", terrain_file.c_str());
 			assert(false);
 		}

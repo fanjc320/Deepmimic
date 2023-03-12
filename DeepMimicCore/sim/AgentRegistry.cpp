@@ -59,7 +59,7 @@ void cAgentRegistry::PrintInfo() const
 	int num_agents = GetNumAgents();
 	printf("\n");
 	printf("Agent Registry\n");
-	printf("Num Agents: %i\n", num_agents);
+	printf("=Num Agents: %i\n", num_agents);
 
 	for (int i = 0; i < num_agents; ++i)
 	{
