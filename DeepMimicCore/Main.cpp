@@ -115,13 +115,13 @@ void Update(double time_elapsed)
 		{
 			if (gCore->NeedNewAction(id))
 			{
-				auto s = gCore->RecordState(id);
-				auto g = gCore->RecordGoal(id);
-				double r = gCore->CalcReward(id);
+				auto s = gCore->RecordState(id);//size-197
+				auto g = gCore->RecordGoal(id);//size=0
+				double r = gCore->CalcReward(id);//0.99890062977706384
 				++gSampleCount;
 
 				std::vector<double> action = std::vector<double>(gCore->GetActionSize(id), 0);
-				gCore->SetAction(id, action);
+				gCore->SetAction(id, action);//0, size:36 Ö»ÊÇinitialize?
 			}
 		}
 

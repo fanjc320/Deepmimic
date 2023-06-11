@@ -264,6 +264,7 @@ void cPDController::GetTargetTheta(Eigen::VectorXd& out_theta) const
 		printf("Only revolute joints support world space targets\n");
 		assert(false);
 	}
+	std::cout << "cPDController::GetTargetTheta out_theta:" << out_theta << std::endl;
 }
 
 void cPDController::GetTargetVel(Eigen::VectorXd& out_vel) const

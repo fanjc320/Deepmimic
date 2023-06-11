@@ -191,7 +191,7 @@ void cImpPDController::CalcControlForces(double time_step, Eigen::VectorXd& out_
 	TIMER_RECORD_END(Solve, mPerfSolveTime, mPerfSolveCount)
 #endif
 	
-	out_tau += Kp_mat * pose_err + Kd_mat * (vel_err - t * acc);
+	out_tau += Kp_mat * pose_err + Kd_mat * (vel_err - t * acc);//rowa43=rows43 *rows43+rows43*(rows43-0.0016*rows43)!!!!!!!!!!!!!
 }
 
 void cImpPDController::BuildTargetPose(Eigen::VectorXd& out_pose) const

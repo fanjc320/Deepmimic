@@ -514,6 +514,11 @@ void cSceneSimChar::SetCharRandPlacement(const std::shared_ptr<cSimCharacter>& o
 	tVector rand_pos = tVector::Zero();
 	tQuaternion rand_rot = tQuaternion::Identity();
 	CalcCharRandPlacement(out_char, rand_pos, rand_rot);
+	/*rand_pos [0] 0.0000000000000000	double
+		[1]	0.82509398579597470	double
+		[2]	0.0000000000000000	double
+		[3]	0.0000000000000000	double*/
+
 	out_char->SetRootTransform(rand_pos, rand_rot);
 }
 
@@ -578,7 +583,12 @@ void cSceneSimChar::ResolveCharGroundIntersect(const std::shared_ptr<cSimCharact
 	if (min_violation < 0)
 	{
 		tVector root_pos = out_char->GetRootPos();
-		root_pos[1] += -min_violation;
+		root_pos[1] += -min_violation;//-0.012549390852451325
+	/*	root_pos [0] - 1.2293457987699874e-09	double
+			[1]	0.83764337664842603	double
+			[2] - 1.8626451422920631e-10	double
+			[3]	0.0000000000000000	double*/
+
 		out_char->SetRootPos(root_pos);
 	}
 }

@@ -6,6 +6,7 @@
 #include "util/JsonUtil.h"
 #include "render/MeshUtil.h"
 #include "render/DrawUtil.h"
+#include <iostream>
 
 // Json keys
 const std::string cCharacter::gSkeletonKey = "Skeleton";
@@ -128,7 +129,10 @@ const Eigen::VectorXd& cCharacter::GetPose() const
 
 void cCharacter::SetPose(const Eigen::VectorXd& pose)
 {
+	printf("cCharacter::SetPose %d: dof:%d", pose.size(), GetNumDof());//43, 43
 	assert(pose.size() == GetNumDof());
+	printf("cCharacter::SetPose pose:%s", pose);//43, 43
+	std::cout << "pose:" << pose << std::endl;
 	mPose = pose;
 }
 

@@ -60,7 +60,7 @@ bool cSimCharacter::Init(const std::shared_ptr<cWorld>& world, const tParams& pa
 
 	if (succ)
 	{
-		mPose0 = mPose;
+		mPose0 = mPose;//all 0 now 
 		mVel0 = mVel;
 
 		SetPose(mPose);
@@ -399,7 +399,7 @@ tVector cSimCharacter::CalcCOM() const
 {
 	tVector com = tVector::Zero();
 	double total_mass = 0;
-	for (int i = 0; i < static_cast<int>(mBodyParts.size()); ++i)
+	for (int i = 0; i < static_cast<int>(mBodyParts.size()); ++i)//15
 	{
 		if (IsValidBodyPart(i))
 		{

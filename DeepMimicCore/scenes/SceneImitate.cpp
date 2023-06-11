@@ -296,7 +296,7 @@ void cSceneImitate::UpdateCharacters(double timestep)
 	cRLSceneSimChar::UpdateCharacters(timestep);
 }
 
-void cSceneImitate::UpdateKinChar(double timestep)
+void cSceneImitate::UpdateKinChar(double timestep)//0.00166666
 {
 	const auto& kin_char = GetKinChar();
 	double prev_phase = kin_char->GetPhase();
@@ -360,7 +360,7 @@ void cSceneImitate::SyncCharacters()
 	auto ct_ctrl = dynamic_cast<cCtController*>(ctrl.get());
 	if (ct_ctrl != nullptr)
 	{
-		double kin_time = GetKinTime();
+		double kin_time = GetKinTime();//0.24286810275835960/0.54297153051262992...
 		ct_ctrl->SetInitTime(kin_time);
 	}
 }
@@ -417,7 +417,7 @@ void cSceneImitate::SyncKinCharRoot()
 
 void cSceneImitate::SyncKinCharNewCycle(const cSimCharacter& sim_char, cKinCharacter& out_kin_char) const
 {
-	if (mSyncCharRootRot)
+	if (mSyncCharRootRot)//false
 	{
 		double sim_heading = sim_char.CalcHeading();
 		double kin_heading = out_kin_char.CalcHeading();
@@ -425,30 +425,30 @@ void cSceneImitate::SyncKinCharNewCycle(const cSimCharacter& sim_char, cKinChara
 		out_kin_char.RotateRoot(drot);
 	}
 
-	if (mSyncCharRootPos)
+	if (mSyncCharRootPos)//true
 	{
-		/*[0] 0.23778474673628808	double
+		/*sim_root_pos [0] 0.23778474673628808	double
 			[1]	0.86422647178173062	double
 			[2]	0.14734950564801694	double
 			[3]	0.0000000000000000	double*/
 
 		tVector sim_root_pos = sim_char.GetRootPos();
-		/*[0] 0.23778474673628808	double
-			[1]	0.82502784922647043	double
-			[2]	0.14734950564801694	double
-			[3]	0.0000000000000000	double*/
+		/*kin_root_pos 		[0]	0.028180620511782162	double
+		[1]	0.82495957940717690	double
+		[2]	0.0012196294692190662	double
+		[3]	0.0000000000000000	double*/
 
 		tVector kin_root_pos = out_kin_char.GetRootPos();//kin_root_pos	{...}	Eigen::Matrix<double,4,1,0,4,1>
 		kin_root_pos[0] = sim_root_pos[0];//sim_root_pos	{...}	Eigen::Matrix<double,4,1,0,4,1>
 		kin_root_pos[2] = sim_root_pos[2];
-		/*[0] - 0.22189667409262037	double
+		/*origin:[0] - 0.22189667409262037	double
 			[1] - 6.4584421588520513e-08	double
 			[2] - 0.044404052970989059	double
 			[3]	0.0000000000000000	double*/
 
 		tVector origin = out_kin_char.GetOriginPos();
-		double dh = kin_root_pos[1] - origin[1];//0.825
-		double ground_h = mGround->SampleHeight(kin_root_pos);
+		double dh = kin_root_pos[1] - origin[1];//0.825-~0=0.825
+		double ground_h = mGround->SampleHeight(kin_root_pos);//0
 		kin_root_pos[1] = ground_h + dh;//0+0.825
 
 		out_kin_char.SetRootPos(kin_root_pos);

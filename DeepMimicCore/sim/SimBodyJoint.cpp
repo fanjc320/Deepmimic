@@ -341,10 +341,10 @@ int cSimBodyJoint::GetParamSize() const
 
 void cSimBodyJoint::BuildPose(Eigen::VectorXd& out_pose) const
 {
-	const btScalar* data = mMultBody->getJointPosMultiDof(mParams.mID);
-	double world_scale = mWorld->GetScale();
+	const btScalar* data = mMultBody->getJointPosMultiDof(mParams.mID);//data:-0.0563406236 mID:2
+	double world_scale = mWorld->GetScale();//4
 	int param_size = GetParamSize();
-	out_pose.resize(param_size);
+	out_pose.resize(param_size);//4
 
 	switch (GetType())
 	{
@@ -390,9 +390,9 @@ void cSimBodyJoint::BuildPose(Eigen::VectorXd& out_pose) const
 
 void cSimBodyJoint::BuildVel(Eigen::VectorXd& out_vel) const
 {
-	const btScalar* data = mMultBody->getJointVelMultiDof(mParams.mID);
-	double world_scale = mWorld->GetScale();
-	int param_size = GetParamSize();
+	const btScalar* data = mMultBody->getJointVelMultiDof(mParams.mID);//data:2.72087431... mID:1/2/3...
+	double world_scale = mWorld->GetScale();//4
+	int param_size = GetParamSize();//4
 	out_vel.resize(param_size);
 
 	switch (GetType())
@@ -444,7 +444,7 @@ void cSimBodyJoint::BuildVel(Eigen::VectorXd& out_vel) const
 	}
 }
 
-void cSimBodyJoint::SetPose(const Eigen::VectorXd& pose)
+void cSimBodyJoint::SetPose(const Eigen::VectorXd& pose)//m_rows 4
 {
 	btScalar data[7];
 	double world_scale = mWorld->GetScale();//4

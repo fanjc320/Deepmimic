@@ -70,7 +70,7 @@ void cCtPDController::UpdateBuildTau(double time_step, Eigen::VectorXd& out_tau)
 
 void cCtPDController::UpdatePDCtrls(double time_step, Eigen::VectorXd& out_tau)
 {
-	int num_dof = mChar->GetNumDof();
+	int num_dof = mChar->GetNumDof();//43
 	out_tau = Eigen::VectorXd::Zero(num_dof);
 	mPDCtrl.UpdateControlForce(time_step, out_tau);
 }

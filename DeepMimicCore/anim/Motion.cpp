@@ -64,7 +64,7 @@ bool cMotion::Load(const tParams& params)
 	Clear();
 	
 	mParams = params;
-	std::ifstream f_stream(mParams.mMotionFile);
+	std::ifstream f_stream(mParams.mMotionFile);//.. / data / motions / humanoid3d_spinkick.txt
 	Json::Value root;
 	Json::Reader reader;
 	bool succ = reader.parse(f_stream, root);
@@ -184,15 +184,15 @@ void cMotion::SetFrameTime(int i, double time)
 
 void cMotion::BlendFrames(int a, int b, double lerp, tFrame& out_frame) const
 {
-	lerp = cMathUtil::Saturate(lerp);
+	lerp = cMathUtil::Saturate(lerp);//0.79558961965894459
 
 	// remove time params
-	tFrame frame0 = GetFrame(a);
-	tFrame frame1 = GetFrame(b);
+	tFrame frame0 = GetFrame(a);//27 m_rows 43
+	tFrame frame1 = GetFrame(b);//28
 
 	if (HasBlendFunc())
 	{
-		mParams.mBlendFunc(&frame0, &frame1, lerp, &out_frame);
+		mParams.mBlendFunc(&frame0, &frame1, lerp, &out_frame);//
 	}
 	else
 	{
