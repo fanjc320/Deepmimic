@@ -155,7 +155,7 @@ void cSceneSimChar::Update(double time_elapsed)
 	UpdateWorld(time_elapsed);
 	UpdateGround(time_elapsed);
 	UpdateObjs(time_elapsed);
-	UpdateJoints(time_elapsed);
+	//UpdateJoints(time_elapsed);
 
 	PostUpdateCharacters(time_elapsed);
 	PostUpdate(time_elapsed);
@@ -741,6 +741,7 @@ void cSceneSimChar::UpdateObjs(double time_step)
 	}
 }
 
+// 没用
 void cSceneSimChar::UpdateJoints(double timestep)
 {
 	int num_joints = GetNumJoints();
@@ -804,6 +805,7 @@ void cSceneSimChar::ClearJoints()
 	mJoints.Clear();
 }
 
+//没用到
 int cSceneSimChar::AddJoint(const tJointEntry& joint_entry)
 {
 	int handle = static_cast<int>(mJoints.Add(joint_entry));

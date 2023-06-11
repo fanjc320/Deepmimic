@@ -109,7 +109,7 @@ void Update(double time_elapsed)
 	double timestep = time_elapsed / num_substeps;
 	num_substeps = (time_elapsed == 0) ? 1 : num_substeps;
 
-	for (int i = 0; i < num_substeps; ++i)
+	for (int i = 0; i < num_substeps; ++i)//10
 	{
 		for (int id = 0; id < gCore->GetNumAgents(); ++id)
 		{
@@ -141,7 +141,7 @@ void Update(double time_elapsed)
 						printf("Agent %i terminated\n", id);
 					}
 				}
-				gCore->SetSampleCount(gSampleCount);
+				gCore->SetSampleCount(gSampleCount);//34
 				gCore->Reset();
 			}
 		}
@@ -152,7 +152,7 @@ void Draw(void)
 {
 	UpdateFrameBuffer();
 	gCore->Draw();
-	
+
 	glutSwapBuffers();
 	gReshaping = false;
 }
@@ -163,7 +163,7 @@ void Reshape(int w, int h)
 
 	gWinWidth = w;
 	gWinHeight = h;
-	
+
 	gDefaultFrameBuffer->Reshape(w, h);
 	glViewport(0, 0, gWinWidth, gWinHeight);
 	glutPostRedisplay();
@@ -228,29 +228,29 @@ void Animate(int callback_val)
 	if (gAnimating)
 	{
 		int num_steps = GetNumTimeSteps();
-		int curr_time = GetCurrTime();
-		int time_elapsed = curr_time - gPrevTime;
+		int curr_time = GetCurrTime();//389164
+		int time_elapsed = curr_time - gPrevTime;//62
 		gPrevTime = curr_time;
 
-		double timestep = (gPlaybackSpeed < 0) ? -gAnimStep : gAnimStep;
-		for (int i = 0; i < num_steps; ++i)
+		double timestep = (gPlaybackSpeed < 0) ? -gAnimStep : gAnimStep;//0.016666
+		for (int i = 0; i < num_steps; ++i)//1
 		{
 			Update(timestep);
 		}
-		
+
 		// FPS counting
-		double update_count = num_steps / (0.001 * time_elapsed);
+		double update_count = num_steps / (0.001 * time_elapsed);//16.129
 		if (std::isfinite(update_count))
 		{
 			gUpdatesPerSec = counter_decay * gUpdatesPerSec + (1 - counter_decay) * update_count;
-			gCore->SetUpdatesPerSec(gUpdatesPerSec);
+			gCore->SetUpdatesPerSec(gUpdatesPerSec);//16.129
 		}
 
 		int timer_step = CalcDisplayAnimTime(num_steps);
-		int update_dur = GetCurrTime() - curr_time;
+		int update_dur = GetCurrTime() - curr_time;//190298
 		timer_step -= update_dur;
-		timer_step = std::max(timer_step, 0);
-		
+		timer_step = std::max(timer_step, 0);//0
+
 		glutTimerFunc(timer_step, Animate, 0);
 		glutPostRedisplay();
 	}
@@ -282,7 +282,7 @@ void ChangePlaybackSpeed(double delta)
 	}
 }
 
-void Keyboard(unsigned char key, int x, int y) 
+void Keyboard(unsigned char key, int x, int y)
 {
 	gCore->Keyboard(key, x, y);
 
@@ -370,8 +370,16 @@ void DrawMainLoop()
 	glutMainLoop();
 }
 
+int testBlock();
+bool bTest = false;
 int main(int argc, char** argv)
 {
+	if (bTest)
+	{
+		testBlock();
+		return 0;
+	}
+
 	FormatArgs(argc, argv, gArgs);
 	std::cout << "c++ gArgs0:" << gArgs[0] << std::endl;
 	InitDraw(argc, argv);
@@ -383,3 +391,28 @@ int main(int argc, char** argv)
 	return EXIT_SUCCESS;
 }
 
+#include <Eigen/Core>
+#include <iostream>
+
+template<typename Derived>
+Eigen::Block<Derived>
+topLeftCorner(Eigen::MatrixBase<Derived>& m, int rows, int cols)
+{
+	return Eigen::Block<Derived>(m.derived(), 0, 0, rows, cols);
+}
+
+template<typename Derived>
+const Eigen::Block<const Derived>
+topLeftCorner(const Eigen::MatrixBase<Derived>& m, int rows, int cols)
+{
+	return Eigen::Block<const Derived>(m.derived(), 0, 0, rows, cols);
+}
+
+int testBlock()
+{
+	Eigen::Matrix4d m = Eigen::Matrix4d::Identity();
+	std::cout << "topLeftCorner m:" << topLeftCorner(4 * m, 2, 3) << std::endl; // calls the const version
+	topLeftCorner(m, 2, 3) *= 5;              // calls the non-const version
+	std::cout << "topLeftCorner: Now the matrix m is:" << std::endl << m << std::endl;
+	return 0;
+}

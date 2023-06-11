@@ -49,8 +49,8 @@ bool cShader::BuildShader(const std::string& vs_filename, const std::string& ps_
 {
 	Clear();
 
-	GLuint vs = LoadShader(vs_filename, GL_VERTEX_SHADER);
-	GLuint ps = LoadShader(ps_filename, GL_FRAGMENT_SHADER);
+	GLuint vs = LoadShader(vs_filename, GL_VERTEX_SHADER);//data/shaders/Mesh_VS.glsl not work
+	GLuint ps = LoadShader(ps_filename, GL_FRAGMENT_SHADER);//data/shaders/VertColor_PS.glsl not work
 	mProg = CreateShader(vs, ps);
 
 	bool succ = mProg != gInvalidIdx;

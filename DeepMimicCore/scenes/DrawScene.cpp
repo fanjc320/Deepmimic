@@ -470,12 +470,14 @@ void cDrawScene::InitRenderResources()
 
 	{
 		mShaderDepth = std::unique_ptr<cShader>(new cShader());
-		succ &= mShaderDepth->BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/Depth_PS.glsl");
+		//succ &= mShaderDepth->BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/Depth_PS.glsl");
+		succ &= mShaderDepth->BuildShader("G:/Deepmimic_fjc/data/shaders/Mesh_VS.glsl", "G:/Deepmimic_fjc/data/shaders/Depth_PS.glsl");
 	}
 
 	{
 		mShaderMesh = std::unique_ptr<cShader>(new cShader());
-		succ &= mShaderMesh->BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/Lighting_Lambert_PS.glsl");
+		//succ &= mShaderMesh->BuildShader("data/shaders/Mesh_VS.glsl", "data/shaders/Lighting_Lambert_PS.glsl");
+		succ &= mShaderMesh->BuildShader("G:/Deepmimic_fjc/data/shaders/Mesh_VS.glsl", "G:/Deepmimic_fjc/data/shaders/Lighting_Lambert_PS.glsl");
 
 		mShaderMesh->Bind();
 		mShaderMesh->GetUniformHandle(mMeshLightDirHandle, "gLightDir");

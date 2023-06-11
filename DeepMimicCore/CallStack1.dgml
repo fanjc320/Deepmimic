@@ -1,0 +1,741 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph DataVirtualized="True" Layout="Sugiyama" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(Name=cMultiBody::compTreeLinkVelocities @1 @6 OverloadingParameters=[(Type=&quot;btVector3 *&quot; Name=omega),(Type=&quot;btVector3 *&quot; Name=vel)] @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="263.123333333333,1038.2475,171.9,25.24" Label="compTreeLinkVelocities" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/MultiBody.cpp StartLineNumber=27 StartCharacterOffset=0 EndLineNumber=27 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(Name=cSceneImitate::SyncKinCharNewCycle @1 @6 OverloadingParameters=[(Type=&quot;const cSimCharacter &amp; {cSimCharGeneral}&quot; Name=sim_char),(Type=&quot;cKinCharacter &amp;&quot; Name=out_kin_char)] @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="1099.09333333333,753.609999999998,163.96,25.24" Label="SyncKinCharNewCycle" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneImitate.cpp StartLineNumber=430 StartCharacterOffset=0 EndLineNumber=430 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(Name=cSceneSimChar::GetViewBound @1 @6 OverloadingParameters=[(Type=&quot;Eigen::Matrix&lt;double,4,1,0,4,1&gt; &amp;&quot; Name=out_min),(Type=&quot;Eigen::Matrix&lt;double,4,1,0,4,1&gt; &amp;&quot; Name=out_max)] @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="1433.36333333333,696.682499999998,121.42,25.24" Label="GetViewBound" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneSimChar.cpp StartLineNumber=698 StartCharacterOffset=0 EndLineNumber=698 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(Name=cSimBodyJoint::SetPose @1 @6 OverloadingParameters=[(Type=&quot;const Eigen::Matrix&lt;double,-1,1,0,-1,1&gt; &amp;&quot; Name=pose)] @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="407.301666666667,981.319999999998,81.5433333333333,25.24" Label="SetPose" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimBodyJoint.cpp StartLineNumber=479 StartCharacterOffset=0 EndLineNumber=479 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(Name=cSimBodyJoint::SetTotalTorque @1 @6 OverloadingParameters=[(@45 Name=torque)] @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="1271.08,981.319999999998,123.986666666667,25.2399999999999" Label="SetTotalTorque" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimBodyJoint.cpp StartLineNumber=585 StartCharacterOffset=0 EndLineNumber=585 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(Name=cSimBodyJoint::SetVel @1 @6 OverloadingParameters=[(Type=&quot;const Eigen::Matrix&lt;double,-1,1,0,-1,1&gt; &amp;&quot; Name=vel)] @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="154.91,981.319999999998,72.3266666666666,25.24" Label="SetVel" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimBodyJoint.cpp StartLineNumber=497 StartCharacterOffset=0 EndLineNumber=497 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(Name=cSimBodyLink::UpdateVel @1 @6 OverloadingParameters=[(@45 Name=lin_vel),(@45 Name=ang_vel)] @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="135.906666666667,1038.2475,96.3333333333334,25.24" Label="UpdateVel" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimBodyLink.cpp StartLineNumber=132 StartCharacterOffset=0 EndLineNumber=132 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(Name=cSimCharacter::ApplyControlForces @1 @6 OverloadingParameters=[(Type=&quot;const Eigen::Matrix&lt;double,-1,1,0,-1,1&gt; &amp;&quot; Name=tau)] @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="1082.47,924.392499999998,149.206666666667,25.2399999999999" Label="ApplyControlForces" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimCharacter.cpp StartLineNumber=710 StartCharacterOffset=0 EndLineNumber=710 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(Name=cSimCharacter::BuildJointPose @1 @6 OverloadingParameters=[(@34 Name=joint_id),(Type=&quot;Eigen::Matrix&lt;double,-1,1,0,-1,1&gt; &amp;&quot; Name=out_pose)] @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="831.191666666666,810.537499999998,119.763333333333,25.24" Label="BuildJointPose" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimCharacter.cpp StartLineNumber=1448 StartCharacterOffset=0 EndLineNumber=1448 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(Name=cSimCharacter::BuildJointVel @1 @6 OverloadingParameters=[(@34 Name=joint_id),(Type=&quot;Eigen::Matrix&lt;double,-1,1,0,-1,1&gt; &amp;&quot; Name=out_vel)] @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="981.8,810.537499999998,110.546666666667,25.24" Label="BuildJointVel" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimCharacter.cpp StartLineNumber=1464 StartCharacterOffset=0 EndLineNumber=1464 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(Name=cSimCharacter::BuildMultiBody @1 @2 OverloadingParameters=[(Type=&quot;std::shared_ptr&lt;cMultiBody&gt; &amp;&quot; Name=out_body)] @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="0,981.319999999998,124.146666666667,25.24" Label="BuildMultiBody" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimCharacter.cpp StartLineNumber=941 StartCharacterOffset=0 EndLineNumber=941 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="(Name=cSimCharacter::UpdateLinkPos @1 @6 @3)" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="519.065,981.319999999998,122.016666666667,25.24" Label="UpdateLinkPos" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimCharacter.cpp StartLineNumber=1215 StartCharacterOffset=0 EndLineNumber=1215 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@10" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="473.463333333333,227.709999999999,103.22,25.24" Label="SetupScene" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/DeepMimicCore.cpp StartLineNumber=565 StartCharacterOffset=0 EndLineNumber=565 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@11" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="635.335,468.972499999998,67.4766666666667,25.24" Label="Reset" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/DrawScene.cpp StartLineNumber=45 StartCharacterOffset=0 EndLineNumber=45 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@12" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="497.781666666666,298.189999999999,54.5833333333334,25.24" Label="Init" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/DrawSceneImitate.cpp StartLineNumber=22 StartCharacterOffset=0 EndLineNumber=22 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@13" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="497.781666666666,355.117499999999,54.5833333333334,25.24" Label="Init" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/DrawSceneSimChar.cpp StartLineNumber=35 StartCharacterOffset=0 EndLineNumber=35 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@14" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="618.356666666666,582.827499999998,101.433333333333,25.24" Label="ResetScene" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/DrawSceneSimChar.cpp StartLineNumber=169 StartCharacterOffset=0 EndLineNumber=169 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@15" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="497.781666666666,525.899999999998,54.5833333333334,25.24" Label="Init" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/RLSceneSimChar.cpp StartLineNumber=30 StartCharacterOffset=0 EndLineNumber=30 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@16" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="486.356666666666,582.827499999998,101.433333333333,25.24" Label="ResetScene" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/RLSceneSimChar.cpp StartLineNumber=208 StartCharacterOffset=0 EndLineNumber=208 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@17" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="635.335,525.899999999998,67.4766666666667,25.24" Label="Reset" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/Scene.cpp StartLineNumber=44 StartCharacterOffset=0 EndLineNumber=44 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@18" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="497.781666666666,468.972499999998,54.5833333333334,25.24" Label="Init" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneImitate.cpp StartLineNumber=159 StartCharacterOffset=0 EndLineNumber=159 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@19" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="472.985,696.682499999998,128.176666666667,25.24" Label="ResetCharacters" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneImitate.cpp StartLineNumber=320 StartCharacterOffset=0 EndLineNumber=320 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@20" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="632.075,639.754999999998,199.996666666667,25.24" Label="ResolveCharGroundIntersect" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneImitate.cpp StartLineNumber=386 StartCharacterOffset=0 EndLineNumber=386 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@21" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="319.38,753.609999999998,123.386666666667,25.24" Label="SyncCharacters" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneImitate.cpp StartLineNumber=359 StartCharacterOffset=0 EndLineNumber=359 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@22" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="400.781666666666,582.827499999998,54.5833333333334,25.24" Label="Init" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneSimChar.cpp StartLineNumber=118 StartCharacterOffset=0 EndLineNumber=118 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@23" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="311.945,696.682499999998,130.256666666667,25.24" Label="InitCharacterPos" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneSimChar.cpp StartLineNumber=484 StartCharacterOffset=0 EndLineNumber=484 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@24" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="472.985,753.609999999998,128.176666666667,25.24" Label="ResetCharacters" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneSimChar.cpp StartLineNumber=653 StartCharacterOffset=0 EndLineNumber=653 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@25" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="486.356666666666,639.754999999998,101.433333333333,25.24" Label="ResetScene" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneSimChar.cpp StartLineNumber=643 StartCharacterOffset=0 EndLineNumber=643 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@26" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="632.075,696.682499999998,199.996666666667,25.24" Label="ResolveCharGroundIntersect" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneSimChar.cpp StartLineNumber=539 StartCharacterOffset=0 EndLineNumber=539 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@27" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="1287.96333333333,867.464999999998,90.22,25.24" Label="ApplyTau" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimBodyJoint.cpp StartLineNumber=177 StartCharacterOffset=0 EndLineNumber=177 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@28" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="1261.75833333333,924.392499999998,142.63,25.24" Label="ApplyTauSpherical" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimBodyJoint.cpp StartLineNumber=687 StartCharacterOffset=0 EndLineNumber=687 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@29" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="503.335,810.537499999998,67.4766666666667,25.24" Label="Reset" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimCharacter.cpp StartLineNumber=89 StartCharacterOffset=0 EndLineNumber=89 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@30" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="1277.47,810.537499999998,111.206666666667,25.24" Label="UpdateJoints" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimCharacter.cpp StartLineNumber=1209 StartCharacterOffset=0 EndLineNumber=1209 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@31" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="257.268333333333,981.319999999998,119.61,25.24" Label="UpdateLinkVel" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimCharacter.cpp StartLineNumber=1232 StartCharacterOffset=0 EndLineNumber=1232 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@32" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="607.146666666666,227.709999999999,123.853333333333,25.24" Label="DrawMainLoop" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/Main.cpp StartLineNumber=370 StartCharacterOffset=0 EndLineNumber=370 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@33" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="476.02,113.855,162.106666666667,25.24" Label="SetupDeepMimicCore" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/Main.cpp StartLineNumber=52 StartCharacterOffset=0 EndLineNumber=52 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@35" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="626.98,298.189999999999,84.1866666666667,25.24" Label="Animate" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/Main.cpp StartLineNumber=238 StartCharacterOffset=0 EndLineNumber=238 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@37" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="632.075,753.609999999998,199.996666666667,25.24" Label="ResolveCharGroundIntersect" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneImitate.cpp StartLineNumber=396 StartCharacterOffset=0 EndLineNumber=396 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@38" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="158.945,753.609999999998,130.256666666667,25.24" Label="InitCharacterPos" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneSimChar.cpp StartLineNumber=492 StartCharacterOffset=0 EndLineNumber=492 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@39" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="601.075,810.537499999998,199.996666666667,25.24" Label="ResolveCharGroundIntersect" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneSimChar.cpp StartLineNumber=582 StartCharacterOffset=0 EndLineNumber=582 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@4" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="218.23,639.754999999998,125.686666666667,25.24" Label="BuildCharacters" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneImitate.cpp StartLineNumber=224 StartCharacterOffset=0 EndLineNumber=224 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@40" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="170.928333333333,810.537499999998,170.29,25.24" Label="SetCharRandPlacement" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneSimChar.cpp StartLineNumber=517 StartCharacterOffset=0 EndLineNumber=517 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@41" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="862.911666666666,753.609999999998,92.3233333333334,25.24" Label="BuildPose" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimCharacter.cpp StartLineNumber=1482 StartCharacterOffset=0 EndLineNumber=1482 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@42" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="473.463333333333,412.044999999998,103.22,25.24" Label="SetupScene" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/DrawSceneSimChar.cpp StartLineNumber=157 StartCharacterOffset=0 EndLineNumber=157 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@43" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="985.52,753.609999999998,83.1066666666666,25.24" Label="BuildVel" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimCharacter.cpp StartLineNumber=1500 StartCharacterOffset=0 EndLineNumber=1500 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@44" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="10.3049999999998,924.392499999998,115.536666666667,25.24" Label="BuildSimBody" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimCharacter.cpp StartLineNumber=772 StartCharacterOffset=0 EndLineNumber=772 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@46" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="509.925,867.464999999998,102.296666666667,25.24" Label="SetRootPos" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimCharacter.cpp StartLineNumber=171 StartCharacterOffset=0 EndLineNumber=171 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@47" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="340.301666666667,924.392499999998,81.5433333333334,25.24" Label="SetPose" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimCharacter.cpp StartLineNumber=757 StartCharacterOffset=0 EndLineNumber=757 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@48" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="1095.85666666667,867.464999999998,132.433333333333,25.24" Label="UpdateApplyTau" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/DeepMimicCharController.cpp StartLineNumber=83 StartCharacterOffset=0 EndLineNumber=83 EndCharacterOffset=0)" UseManualLocation="True">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@5" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="124.23,696.682499999998,125.686666666667,25.24" Label="BuildCharacters" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneSimChar.cpp StartLineNumber=321 StartCharacterOffset=0 EndLineNumber=321 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@50" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="732.966666666666,468.972499999998,78.2133333333334,25.24" Label="Update" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/DrawSceneSimChar.cpp StartLineNumber=55 StartCharacterOffset=0 EndLineNumber=55 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@51" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="732.988333333333,525.899999999998,112.17,25.24" Label="UpdateScene" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/DrawSceneSimChar.cpp StartLineNumber=163 StartCharacterOffset=0 EndLineNumber=163 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@52" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="950.966666666667,582.827499999998,78.2133333333333,25.24" Label="Update" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneSimChar.cpp StartLineNumber=154 StartCharacterOffset=0 EndLineNumber=154 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@53" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="1272.16666666667,639.754999999998,121.813333333333,25.24" Label="UpdateGround" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneSimChar.cpp StartLineNumber=615 StartCharacterOffset=0 EndLineNumber=615 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@54" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="629.966666666666,355.117499999998,78.2133333333334,25.24" Label="Update" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/Main.cpp StartLineNumber=128 StartCharacterOffset=0 EndLineNumber=128 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@56" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="1122.96666666667,810.537499999998,78.2133333333334,25.24" Label="Update" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/DeepMimicCharController.cpp StartLineNumber=59 StartCharacterOffset=0 EndLineNumber=59 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@57" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="908.118333333333,639.754999999998,163.91,25.24" Label="PostUpdateCharacters" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneSimChar.cpp StartLineNumber=607 StartCharacterOffset=0 EndLineNumber=607 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@58" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="1263.61666666667,696.682499999998,138.913333333333,25.24" Label="UpdateCharacters" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneSimChar.cpp StartLineNumber=597 StartCharacterOffset=0 EndLineNumber=597 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@59" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="938.468333333333,696.682499999998,103.21,25.24" Label="PostUpdate" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimCharacter.cpp StartLineNumber=116 StartCharacterOffset=0 EndLineNumber=116 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@61" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="732.966666666666,412.044999999998,78.2133333333334,25.24" Label="Update" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/DeepMimicCore.cpp StartLineNumber=60 StartCharacterOffset=0 EndLineNumber=60 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@62" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="1102.61666666667,639.754999999998,138.913333333333,25.24" Label="UpdateCharacters" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneImitate.cpp StartLineNumber=296 StartCharacterOffset=0 EndLineNumber=296 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@63" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="1110.54833333333,696.682499999998,123.05,25.24" Label="UpdateKinChar" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/scenes/SceneImitate.cpp StartLineNumber=309 StartCharacterOffset=0 EndLineNumber=309 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@64" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="1293.96666666667,753.609999999998,78.2133333333334,25.24" Label="Update" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimCharacter.cpp StartLineNumber=109 StartCharacterOffset=0 EndLineNumber=109 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@65" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="155.91,924.392499999998,72.3266666666667,25.24" Label="SetVel" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimCharacter.cpp StartLineNumber=300 StartCharacterOffset=0 EndLineNumber=300 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@66" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="636.841666666666,56.9274999999998,64.4633333333334,25.24" Label="main" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/Main.cpp StartLineNumber=378 StartCharacterOffset=0 EndLineNumber=378 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@67" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="100.781666666667,867.464999999998,54.5833333333333,25.24" Label="Init" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimCharacter.cpp StartLineNumber=46 StartCharacterOffset=0 EndLineNumber=46 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@68" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="185.858333333333,867.464999999998,140.43,25.24" Label="SetRootTransform" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/sim/SimCharacter.cpp StartLineNumber=201 StartCharacterOffset=0 EndLineNumber=201 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@7" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="412.335,867.464999999998,67.4766666666667,25.24" Label="Reset" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/anim/Character.cpp StartLineNumber=104 StartCharacterOffset=0 EndLineNumber=104 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@8" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="529.781666666666,170.782499999999,54.5833333333334,25.24" Label="Init" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/DeepMimicCore.cpp StartLineNumber=55 StartCharacterOffset=0 EndLineNumber=55 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="@9" Category="CodeSchema_CallStackUnresolvedMethod" Bounds="635.335,412.044999999998,67.4766666666667,25.24" Label="Reset" SourceLocation="(Assembly=file:///G:/Deepmimic_fjc/DeepMimicCore/DeepMimicCore.cpp StartLineNumber=65 StartCharacterOffset=0 EndLineNumber=65 EndCharacterOffset=0)">
+      <Category Ref="CallStackEntry" />
+      <Category Ref="CodeSchema_SourceLocation" />
+    </Node>
+    <Node Id="ExternalCodeRootNode" Category="ExternalCallStackEntry" Bounds="619.345,0,99.4566666666667,25.24" Label="External Code">
+      <Category Ref="CallStackEntry" />
+    </Node>
+  </Nodes>
+  <Links>
+    <Link Source="@10" Target="@12" Category="CallStackDirectCall" Bounds="525.073303222656,252.949996948242,0,36.2400054931641" />
+    <Link Source="@11" Target="@17" Category="CallStackDirectCall" Bounds="669.073303222656,494.212493896484,0,22.6875305175781" />
+    <Link Source="@12" Target="@13" Category="CallStackDirectCall" Bounds="525.073303222656,323.429992675781,0,22.6875" />
+    <Link Source="@13" Target="@42" Category="CallStackDirectCall" Bounds="525.073303222656,380.357513427734,0,22.6875" />
+    <Link Source="@14" Target="@17" Category="CallStackDirectCall" Bounds="639.823364257813,556.8173828125,11.95849609375,26.0101318359375" />
+    <Link Source="@15" Target="@22" Category="CallStackDirectCall" Bounds="457.338806152344,551.140014648438,46.2310485839844,27.1321411132813" />
+    <Link Source="@16" Target="@25" Category="CallStackDirectCall" Bounds="537.073303222656,608.067504882813,0,22.6875" />
+    <Link Source="@17" Target="@14" Category="CallStackDirectCall" Bounds="686.364807128906,551.140014648438,11.95849609375,26.0100708007813" />
+    <Link Source="@17" Target="@16" Category="CallStackDirectCall" Bounds="570.878723144531,550.843505859375,66.1559448242188,28.0402221679688" />
+    <Link Source="@18" Target="@15" Category="CallStackDirectCall" Bounds="525.073303222656,494.212493896484,0,22.6875305175781" />
+    <Link Source="@19" Target="@21" Category="CallStackDirectCall" Bounds="424.110931396484,721.922485351563,78.3794555664063,28.6022338867188" />
+    <Link Source="@19" Target="@24" Category="CallStackDirectCall" Bounds="537.073303222656,721.922485351563,0,22.6875" />
+    <Link Source="@20" Target="@26" Category="CallStackDirectCall" Bounds="732.073303222656,664.994995117188,0,22.6875" />
+    <Link Source="@21" Target="@47" Category="CallStackDirectCall" Bounds="381.073333740234,778.849975585938,0,136.542541503906" />
+    <Link Source="@22" Target="@20" Category="CallStackDirectCall" Bounds="455.364990234375,603.20654296875,191.199584960938,35.0859375" />
+    <Link Source="@22" Target="@23" Category="CallStackDirectCall" Bounds="407.360565185547,608.067504882813,20.7127685546875,83.9150390625" />
+    <Link Source="@22" Target="@4" Category="CallStackDirectCall" Bounds="322.053741455078,605.963500976563,78.8648376464844,30.5413208007813" />
+    <Link Source="@23" Target="@38" Category="CallStackDirectCall" Bounds="272.103759765625,721.922485351563,76.5938415527344,28.940185546875" />
+    <Link Source="@24" Target="@29" Category="CallStackDirectCall" Bounds="537.073303222656,778.849975585938,0,22.6875" />
+    <Link Source="@25" Target="@19" Category="CallStackDirectCall" Bounds="537.073303222656,664.994995117188,0,22.6875" />
+    <Link Source="@25" Target="@23" Category="CallStackDirectCall" Bounds="421.931610107422,664.994995117188,80.5587768554688,28.7348022460938" />
+    <Link Source="@26" Target="@37" Category="CallStackDirectCall" Bounds="732.073303222656,721.922485351563,0,22.6875" />
+    <Link Source="@27" Target="@28" Category="CallStackDirectCall" Bounds="1333.07333333333,892.704999999998,0,22.6875" />
+    <Link Source="@28" Target="(Name=cSimBodyJoint::SetTotalTorque @1 @6 OverloadingParameters=[(@45 Name=torque)] @3)" Category="CallStackDirectCall" Bounds="1333.07333333333,949.632499999998,2.27373675443232E-13,22.6874999999998" />
+    <Link Source="@29" Target="@7" Category="CallStackDirectCall" Bounds="473.876708984375,835.777526855469,43.0232543945313,26.914306640625" />
+    <Link Source="@30" Target="@27" Category="CallStackDirectCall" Bounds="1333.07333333333,835.777499999998,0,22.6875" />
+    <Link Source="@31" Target="(Name=cMultiBody::compTreeLinkVelocities @1 @6 OverloadingParameters=[(Type=&quot;btVector3 *&quot; Name=omega),(Type=&quot;btVector3 *&quot; Name=vel)] @3)" Category="CallStackDirectCall" Bounds="324.167266845703,1006.55999755859,13.4020690917969,23.8421020507813" />
+    <Link Source="@31" Target="(Name=cSimBodyLink::UpdateVel @1 @6 OverloadingParameters=[(@45 Name=lin_vel),(@45 Name=ang_vel)] @3)" Category="CallStackDirectCall" Bounds="221.831436157227,1006.55999755859,65.7577362060547,28.1460571289063" />
+    <Link Source="@32" Target="@35" Category="CallStackIndirectCall" Bounds="669.073303222656,252.949996948242,0,36.2400054931641" Label="External Code" LabelBounds="589.616666666666,267.949999999999,79.4566666666667,15.2399999999998" />
+    <Link Source="@33" Target="@8" Category="CallStackDirectCall" Bounds="557.073303222656,139.095001220703,0,22.6875" />
+    <Link Source="@35" Target="@54" Category="CallStackDirectCall" Bounds="669.073303222656,323.429992675781,0,22.6875" />
+    <Link Source="@37" Target="@39" Category="CallStackDirectCall" Bounds="712.249755859375,778.849975585938,12.9513549804688,23.783447265625" />
+    <Link Source="@38" Target="@40" Category="CallStackDirectCall" Bounds="231.167266845703,778.849975585938,13.4020538330078,23.842041015625" />
+    <Link Source="@39" Target="@46" Category="CallStackDirectCall" Bounds="600.446411132813,835.777526855469,69.5909423828125,28.2974243164063" />
+    <Link Source="@4" Target="@21" Category="CallStackDirectCall" Bounds="281.073333740234,664.994995117188,47.0171203613281,86.1149291992188" />
+    <Link Source="@4" Target="@5" Category="CallStackDirectCall" Bounds="215.610076904297,664.994995117188,44.6248168945313,27.0253295898438" />
+    <Link Source="@40" Target="@68" Category="CallStackDirectCall" Bounds="256.073333740234,835.777526855469,0,22.6875" />
+    <Link Source="@41" Target="(Name=cSimCharacter::BuildJointPose @1 @6 OverloadingParameters=[(@34 Name=joint_id),(Type=&quot;Eigen::Matrix&lt;double,-1,1,0,-1,1&gt; &amp;&quot; Name=out_pose)] @3)" Category="CallStackDirectCall" Bounds="897.776977539063,778.849975585938,7.3060302734375,23.1062622070313" />
+    <Link Source="@42" Target="@18" Category="CallStackDirectCall" Bounds="525.073303222656,437.285003662109,0,22.6875" />
+    <Link Source="@43" Target="(Name=cSimCharacter::BuildJointVel @1 @6 OverloadingParameters=[(@34 Name=joint_id),(Type=&quot;Eigen::Matrix&lt;double,-1,1,0,-1,1&gt; &amp;&quot; Name=out_vel)] @3)" Category="CallStackDirectCall" Bounds="1029.29016113281,778.849975585938,4.0091552734375,22.8232421875" />
+    <Link Source="@44" Target="(Name=cSimCharacter::BuildMultiBody @1 @2 OverloadingParameters=[(Type=&quot;std::shared_ptr&lt;cMultiBody&gt; &amp;&quot; Name=out_body)] @3)" Category="CallStackDirectCall" Bounds="64.346794128418,949.632507324219,2.39642333984375,22.737060546875" />
+    <Link Source="@46" Target="@47" Category="CallStackDirectCall" Bounds="428.683837890625,892.705017089844,92.486083984375,29.25" />
+    <Link Source="@47" Target="(Name=cSimBodyJoint::SetPose @1 @6 OverloadingParameters=[(Type=&quot;const Eigen::Matrix&lt;double,-1,1,0,-1,1&gt; &amp;&quot; Name=pose)] @3)" Category="CallStackDirectCall" Bounds="395.92626953125,949.632507324219,30.435546875,25.8599853515625" />
+    <Link Source="@47" Target="(Name=cSimCharacter::UpdateLinkPos @1 @6 @3)" Category="CallStackDirectCall" Bounds="421.19970703125,948.491394042969,106.105285644531,30.353271484375" />
+    <Link Source="@47" Target="@31" Category="CallStackDirectCall" Bounds="337.985870361328,949.632507324219,28.8995971679688,25.7059326171875" />
+    <Link Source="@48" Target="(Name=cSimCharacter::ApplyControlForces @1 @6 OverloadingParameters=[(Type=&quot;const Eigen::Matrix&lt;double,-1,1,0,-1,1&gt; &amp;&quot; Name=tau)] @3)" Category="CallStackDirectCall" Bounds="1158.96918923882,892.704999999998,1.9957102713829,22.7220273320435" />
+    <Link Source="@5" Target="@38" Category="CallStackDirectCall" Bounds="195.275695800781,721.922485351563,15.6906433105469,24.141357421875" />
+    <Link Source="@5" Target="@67" Category="CallStackDirectCall" Bounds="128.073333740234,721.922485351563,32.8411102294922,136.542541503906" />
+    <Link Source="@50" Target="@51" Category="CallStackDirectCall" Bounds="775.841979980469,494.212493896484,6.887451171875,23.0638122558594" />
+    <Link Source="@51" Target="@52" Category="CallStackDirectCall" Bounds="833.632141113281,551.140014648438,109.002685546875,30.8718872070313" />
+    <Link Source="@52" Target="@53" Category="CallStackDirectCall" Bounds="1029.18003092448,601.938018761197,234.147089769127,38.8612459708527" />
+    <Link Source="@52" Target="@57" Category="CallStackDirectCall" Bounds="990.073303222656,608.067504882813,0,22.6875" />
+    <Link Source="@52" Target="@62" Category="CallStackDirectCall" Bounds="1028.12670270637,607.350154935947,95.0102596302554,29.718112891669" />
+    <Link Source="@53" Target="(Name=cSceneSimChar::GetViewBound @1 @6 OverloadingParameters=[(Type=&quot;Eigen::Matrix&lt;double,4,1,0,4,1&gt; &amp;&quot; Name=out_min),(Type=&quot;Eigen::Matrix&lt;double,4,1,0,4,1&gt; &amp;&quot; Name=out_max)] @3)" Category="CallStackDirectCall" Bounds="1368.76469460076,664.994999999998,81.1320555067944,28.6872370270195" />
+    <Link Source="@54" Target="@61" Category="CallStackDirectCall" Bounds="691.906921386719,380.357513427734,49.4558715820313,27.3339233398438" />
+    <Link Source="@54" Target="@9" Category="CallStackDirectCall" Bounds="669.073303222656,380.357513427734,0,22.6875" />
+    <Link Source="@56" Target="@48" Category="CallStackDirectCall" Bounds="1162.07334507787,835.777470703125,1.23244417409296E-05,22.6875292968741" />
+    <Link Source="@57" Target="@59" Category="CallStackDirectCall" Bounds="990.073303222656,664.994995117188,0,22.6875" />
+    <Link Source="@58" Target="@64" Category="CallStackDirectCall" Bounds="1333.07333333333,721.922499999998,0,22.6874999999998" />
+    <Link Source="@59" Target="@41" Category="CallStackDirectCall" Bounds="934.393188476563,721.922485351563,37.7236328125,26.5125122070313" />
+    <Link Source="@59" Target="@43" Category="CallStackDirectCall" Bounds="998.275695800781,721.922485351563,15.690673828125,24.141357421875" />
+    <Link Source="@61" Target="@50" Category="CallStackDirectCall" Bounds="772.073303222656,437.285003662109,0,22.6875" />
+    <Link Source="@62" Target="@58" Category="CallStackDirectCall" Bounds="1207.76469515319,664.994999999998,81.1320844980196,28.6872468339195" />
+    <Link Source="@62" Target="@63" Category="CallStackDirectCall" Bounds="1172.07333333333,664.994999999998,2.27373675443232E-13,22.6875" />
+    <Link Source="@63" Target="(Name=cSceneImitate::SyncKinCharNewCycle @1 @6 OverloadingParameters=[(Type=&quot;const cSimCharacter &amp; {cSimCharGeneral}&quot; Name=sim_char),(Type=&quot;cKinCharacter &amp;&quot; Name=out_kin_char)] @3)" Category="CallStackDirectCall" Bounds="1174.06850262761,721.922499999998,3.60425417948773,22.7979088669747" />
+    <Link Source="@64" Target="@30" Category="CallStackDirectCall" Bounds="1333.07333333333,778.849999999998,0,22.6875" />
+    <Link Source="@64" Target="@56" Category="CallStackDirectCall" Bounds="1207.85280025776,778.627607062583,87.9803325515038,29.2894661376529" />
+    <Link Source="@65" Target="(Name=cSimBodyJoint::SetVel @1 @6 OverloadingParameters=[(Type=&quot;const Eigen::Matrix&lt;double,-1,1,0,-1,1&gt; &amp;&quot; Name=vel)] @3)" Category="CallStackDirectCall" Bounds="191.107025146484,949.632507324219,0.522933959960938,22.6875610351563" />
+    <Link Source="@65" Target="@31" Category="CallStackDirectCall" Bounds="219.78401184082,949.632507324219,61.3880462646484,27.9573364257813" />
+    <Link Source="@66" Target="@32" Category="CallStackDirectCall" Bounds="669.073303222656,82.1675033569336,0,136.542503356934" />
+    <Link Source="@66" Target="@33" Category="CallStackDirectCall" Bounds="589.925170898438,82.1675033569336,54.3193969726563,27.6095123291016" />
+    <Link Source="@67" Target="@44" Category="CallStackDirectCall" Bounds="87.9033966064453,892.705017089844,26.8688049316406,25.4928588867188" />
+    <Link Source="@67" Target="@47" Category="CallStackDirectCall" Bounds="155.365005493164,886.904174804688,176.142715454102,39.3156127929688" />
+    <Link Source="@67" Target="@65" Category="CallStackDirectCall" Bounds="142.261199951172,892.705017089844,28.8995971679688,25.7059326171875" />
+    <Link Source="@68" Target="@47" Category="CallStackDirectCall" Bounds="283.784027099609,892.705017089844,61.3880310058594,27.9573364257813" />
+    <Link Source="@68" Target="@65" Category="CallStackDirectCall" Bounds="212.722564697266,892.705017089844,28.9412078857422,25.6594848632813" />
+    <Link Source="@7" Target="@47" Category="CallStackDirectCall" Bounds="401.991058349609,892.705017089844,29.4510192871094,25.7117919921875" />
+    <Link Source="@8" Target="@10" Category="CallStackDirectCall" Bounds="536.577331542969,196.022506713867,13.4020385742188,23.842041015625" />
+    <Link Source="@9" Target="@11" Category="CallStackDirectCall" Bounds="669.073303222656,437.285003662109,0,22.6875" />
+    <Link Source="ExternalCodeRootNode" Target="@66" Category="CallStackIndirectCall" Bounds="669.073303222656,25.2399997711182,0,22.6875019073486" />
+  </Links>
+  <Categories>
+    <Category Id="CallStackDirectCall" Label="Call Stack direct call" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Call Stack direct call" OutgoingActionLabel="Call Stack direct call" />
+    <Category Id="CallStackEntry" Label="Call Stack Entry" CanBeDataDriven="True" IsProviderRoot="False" NavigationActionLabel="Call Stack Entry" />
+    <Category Id="CallStackIndirectCall" Label="Call Stack indirect call" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Call Stack indirect call" OutgoingActionLabel="Call Stack indirect call" />
+    <Category Id="CodeSchema_CallStackUnresolvedMethod" Label="Unresolved Method" CanBeDataDriven="True" DefaultAction="Microsoft.AllOutBoundLinks" IsProviderRoot="False" NavigationActionLabel="Unresolved Method" />
+    <Category Id="CodeSchema_SourceLocation" Label="Source Location" Icon="File" />
+    <Category Id="ExternalCallStackEntry" Label="External Call Stack Entry" CanBeDataDriven="True" IsProviderRoot="False" NavigationActionLabel="External Call Stack Entry" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="DataVirtualized" Label="Data Virtualized" Description="If true, the graph can contain nodes and links that represent data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsProviderRoot" Label="IsProviderRoot" Description="IsProviderRoot" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="LabelBounds" DataType="System.Windows.Rect" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="IsUnresolved" Label="Is Unresolved" ValueType="System.String" />
+    <Name Id="Name" Label="Name" ValueType="System.String" />
+    <Name Id="OverloadingParameters" Label="Parameter" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" Formatter="NameValueNoEscape" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=_DeepMimicCore.exe" />
+    <Alias n="2" Id="Type=bool" />
+    <Alias n="3" Id="IsUnresolved=True" />
+    <Alias n="4" Id="(Name=cSceneImitate::BuildCharacters @1 @2 @3)" />
+    <Alias n="5" Id="(Name=cSceneSimChar::BuildCharacters @1 @2 @3)" />
+    <Alias n="6" Id="Type=void" />
+    <Alias n="7" Id="(Name=cCharacter::Reset @1 @6 @3)" />
+    <Alias n="8" Id="(Name=cDeepMimicCore::Init @1 @6 @3)" />
+    <Alias n="9" Id="(Name=cDeepMimicCore::Reset @1 @6 @3)" />
+    <Alias n="10" Id="(Name=cDeepMimicCore::SetupScene @1 @6 @3)" />
+    <Alias n="11" Id="(Name=cDrawScene::Reset @1 @6 @3)" />
+    <Alias n="12" Id="(Name=cDrawSceneImitate::Init @1 @6 @3)" />
+    <Alias n="13" Id="(Name=cDrawSceneSimChar::Init @1 @6 @3)" />
+    <Alias n="14" Id="(Name=cDrawSceneSimChar::ResetScene @1 @6 @3)" />
+    <Alias n="15" Id="(Name=cRLSceneSimChar::Init @1 @6 @3)" />
+    <Alias n="16" Id="(Name=cRLSceneSimChar::ResetScene @1 @6 @3)" />
+    <Alias n="17" Id="(Name=cScene::Reset @1 @6 @3)" />
+    <Alias n="18" Id="(Name=cSceneImitate::Init @1 @6 @3)" />
+    <Alias n="19" Id="(Name=cSceneImitate::ResetCharacters @1 @6 @3)" />
+    <Alias n="20" Id="(Name=cSceneImitate::ResolveCharGroundIntersect @1 @6 @3)" />
+    <Alias n="21" Id="(Name=cSceneImitate::SyncCharacters @1 @6 @3)" />
+    <Alias n="22" Id="(Name=cSceneSimChar::Init @1 @6 @3)" />
+    <Alias n="23" Id="(Name=cSceneSimChar::InitCharacterPos @1 @6 @3)" />
+    <Alias n="24" Id="(Name=cSceneSimChar::ResetCharacters @1 @6 @3)" />
+    <Alias n="25" Id="(Name=cSceneSimChar::ResetScene @1 @6 @3)" />
+    <Alias n="26" Id="(Name=cSceneSimChar::ResolveCharGroundIntersect @1 @6 @3)" />
+    <Alias n="27" Id="(Name=cSimBodyJoint::ApplyTau @1 @6 @3)" />
+    <Alias n="28" Id="(Name=cSimBodyJoint::ApplyTauSpherical @1 @6 @3)" />
+    <Alias n="29" Id="(Name=cSimCharacter::Reset @1 @6 @3)" />
+    <Alias n="30" Id="(Name=cSimCharacter::UpdateJoints @1 @6 @3)" />
+    <Alias n="31" Id="(Name=cSimCharacter::UpdateLinkVel @1 @6 @3)" />
+    <Alias n="32" Id="(Name=DrawMainLoop @1 @6 @3)" />
+    <Alias n="33" Id="(Name=SetupDeepMimicCore @1 @6 @3)" />
+    <Alias n="34" Id="Type=int" />
+    <Alias n="35" Id="(Name=Animate @1 @6 OverloadingParameters=[(@34 Name=callback_val)] @3)" />
+    <Alias n="36" Id="OverloadingParameters=[(Type=&quot;const std::shared_ptr&lt;cSimCharacter&gt; &amp;&quot; Name=out_char)]" />
+    <Alias n="37" Id="(Name=cSceneImitate::ResolveCharGroundIntersect @1 @6 @36 @3)" />
+    <Alias n="38" Id="(Name=cSceneSimChar::InitCharacterPos @1 @6 @36 @3)" />
+    <Alias n="39" Id="(Name=cSceneSimChar::ResolveCharGroundIntersect @1 @6 @36 @3)" />
+    <Alias n="40" Id="(Name=cSceneSimChar::SetCharRandPlacement @1 @6 @36 @3)" />
+    <Alias n="41" Id="(Name=cSimCharacter::BuildPose @1 @6 OverloadingParameters=[(Type=&quot;Eigen::Matrix&lt;double,-1,1,0,-1,1&gt; &amp;&quot; Name=out_pose)] @3)" />
+    <Alias n="42" Id="(Name=cDrawSceneSimChar::SetupScene @1 @6 OverloadingParameters=[(Type=&quot;std::shared_ptr&lt;cSceneSimChar&gt; &amp;&quot; Name=out_scene)] @3)" />
+    <Alias n="43" Id="(Name=cSimCharacter::BuildVel @1 @6 OverloadingParameters=[(Type=&quot;Eigen::Matrix&lt;double,-1,1,0,-1,1&gt; &amp;&quot; Name=out_vel)] @3)" />
+    <Alias n="44" Id="(Name=cSimCharacter::BuildSimBody @1 @2 OverloadingParameters=[(Type=&quot;const cSimCharacter::tParams &amp;&quot; Name=params)] @3)" />
+    <Alias n="45" Id="Type=&quot;const Eigen::Matrix&lt;double,4,1,0,4,1&gt; &amp;&quot;" />
+    <Alias n="46" Id="(Name=cSimCharacter::SetRootPos @1 @6 OverloadingParameters=[(@45 Name=pos)] @3)" />
+    <Alias n="47" Id="(Name=cSimCharacter::SetPose @1 @6 OverloadingParameters=[(Type=&quot;const Eigen::Matrix&lt;double,-1,1,0,-1,1&gt; &amp;&quot; Name=pose)] @3)" />
+    <Alias n="48" Id="(Name=cDeepMimicCharController::UpdateApplyTau @1 @6 OverloadingParameters=[(Type=&quot;const Eigen::Matrix&lt;double,-1,1,0,-1,1&gt; &amp;&quot; Name=tau)] @3)" />
+    <Alias n="49" Id="OverloadingParameters=[(Type=double Name=time_elapsed)]" />
+    <Alias n="50" Id="(Name=cDrawSceneSimChar::Update @1 @6 @49 @3)" />
+    <Alias n="51" Id="(Name=cDrawSceneSimChar::UpdateScene @1 @6 @49 @3)" />
+    <Alias n="52" Id="(Name=cSceneSimChar::Update @1 @6 @49 @3)" />
+    <Alias n="53" Id="(Name=cSceneSimChar::UpdateGround @1 @6 @49 @3)" />
+    <Alias n="54" Id="(Name=Update @1 @6 @49 @3)" />
+    <Alias n="55" Id="OverloadingParameters=[(Type=double Name=time_step)]" />
+    <Alias n="56" Id="(Name=cDeepMimicCharController::Update @1 @6 @55 @3)" />
+    <Alias n="57" Id="(Name=cSceneSimChar::PostUpdateCharacters @1 @6 @55 @3)" />
+    <Alias n="58" Id="(Name=cSceneSimChar::UpdateCharacters @1 @6 @55 @3)" />
+    <Alias n="59" Id="(Name=cSimCharacter::PostUpdate @1 @6 @55 @3)" />
+    <Alias n="60" Id="OverloadingParameters=[(Type=double Name=timestep)]" />
+    <Alias n="61" Id="(Name=cDeepMimicCore::Update @1 @6 @60 @3)" />
+    <Alias n="62" Id="(Name=cSceneImitate::UpdateCharacters @1 @6 @60 @3)" />
+    <Alias n="63" Id="(Name=cSceneImitate::UpdateKinChar @1 @6 @60 @3)" />
+    <Alias n="64" Id="(Name=cSimCharacter::Update @1 @6 @60 @3)" />
+    <Alias n="65" Id="(Name=cSimCharacter::SetVel @1 @6 OverloadingParameters=[(Type=&quot;const Eigen::Matrix&lt;double,-1,1,0,-1,1&gt; &amp;&quot; Name=vel)] @3)" />
+    <Alias n="66" Id="(Name=main @1 @34 OverloadingParameters=[(@34 Name=argc),(Type=&quot;char * *&quot; Name=argv)] @3)" />
+    <Alias n="67" Id="(Name=cSimCharacter::Init @1 @2 OverloadingParameters=[(Type=&quot;const std::shared_ptr&lt;cWorld&gt; &amp;&quot; Name=world),(Type=&quot;const cSimCharacter::tParams &amp;&quot; Name=params)] @3)" />
+    <Alias n="68" Id="(Name=cSimCharacter::SetRootTransform @1 @6 OverloadingParameters=[(@45 Name=pos),(Type=&quot;const Eigen::Quaternion&lt;double,0&gt; &amp;&quot; Name=rot)] @3)" />
+  </IdentifierAliases>
+  <Styles>
+    <Style TargetType="Link" GroupLabel="Current Call Stack Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CurrentCallStackCall')" />
+      <Setter Property="Stroke" Value="#FFD93701" />
+      <Setter Property="Weight" Value="1" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Call Stack Indirect Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CallStackIndirectCall')" />
+      <Setter Property="Stroke" Value="#FFB8B8B8" />
+      <Setter Property="StrokeDashArray" Value="4 1" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Call Stack Direct Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CallStackDirectCall')" />
+      <Setter Property="Stroke" Value="#FFB8B8B8" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Call Stack (no source)" ValueLabel="True">
+      <Condition Expression="HasCategory('CurrentCallStackEntry') And !HasCategory('CodeSchema_SourceLocation')" />
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="#FFA5A5A5" />
+      <Setter Property="Stroke" Value="#FF0072C6" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="External And Current" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('ExternalCallStackEntry') And HasCategory('CurrentCallStackEntry')" />
+      <Setter Property="Background" Value="#FFFFF8F0" />
+      <Setter Property="Stroke" Value="#FFCE5100" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Call Stack (source)" ValueLabel="True">
+      <Condition Expression="HasCategory('CurrentCallStackEntry') And !HasCategory('QueryResult')" />
+      <Setter Property="Background" Value="#FFFFE3C6" />
+      <Setter Property="Stroke" Value="#FFD93701" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="External Call Stack" ValueLabel="True">
+      <Condition Expression="HasCategory('ExternalCallStackEntry')" />
+      <Setter Property="Background" Value="#FFF7F7F7" />
+      <Setter Property="StrokeDashArray" Value="1 3" />
+      <Setter Property="Foreground" Value="#FF717171" />
+      <Setter Property="Stroke" Value="#FFA5A5A5" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Results" ValueLabel="True">
+      <Condition Expression="HasCategory('QueryResult')" />
+      <Setter Property="Background" Value="#FFBCFFBE" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Test Project" ValueLabel="Test Project">
+      <Condition Expression="HasCategory('CodeMap_TestProject')" />
+      <Setter Property="Icon" Value="CodeMap_TestProject" />
+      <Setter Property="Background" Value="#FF307A69" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Web Project" ValueLabel="Web Project">
+      <Condition Expression="HasCategory('CodeMap_WebProject')" />
+      <Setter Property="Icon" Value="CodeMap_WebProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Windows Store Project" ValueLabel="Windows Store Project">
+      <Condition Expression="HasCategory('CodeMap_WindowsStoreProject')" />
+      <Setter Property="Icon" Value="CodeMap_WindowsStoreProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Phone Project" ValueLabel="Phone Project">
+      <Condition Expression="HasCategory('CodeMap_PhoneProject')" />
+      <Setter Property="Icon" Value="CodeMap_PhoneProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Portable Library" ValueLabel="Portable Library">
+      <Condition Expression="HasCategory('CodeMap_PortableLibraryProject')" />
+      <Setter Property="Icon" Value="CodeMap_PortableLibraryProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="WPF Project" ValueLabel="WPF Project">
+      <Condition Expression="HasCategory('CodeMap_WpfProject')" />
+      <Setter Property="Icon" Value="CodeMap_WpfProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="VSIX Project" ValueLabel="VSIX Project">
+      <Condition Expression="HasCategory('CodeMap_VsixProject')" />
+      <Setter Property="Icon" Value="CodeMap_VsixProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Modeling Project" ValueLabel="Modeling Project">
+      <Condition Expression="HasCategory('CodeMap_ModelingProject')" />
+      <Setter Property="Icon" Value="CodeMap_ModelingProject" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Assembly" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Assembly')" />
+      <Setter Property="Background" Value="#FF094167" />
+      <Setter Property="Stroke" Value="#FF094167" />
+      <Setter Property="Icon" Value="CodeSchema_Assembly" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Namespace" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Namespace')" />
+      <Setter Property="Background" Value="#FF0E619A" />
+      <Setter Property="Stroke" Value="#FF0E619A" />
+      <Setter Property="Icon" Value="CodeSchema_Namespace" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Interface" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Interface')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Interface" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Struct" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Struct')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Struct" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enumeration" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Enum')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Enum" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Delegate" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Delegate')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Delegate" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Class" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Type')" />
+      <Setter Property="Background" Value="#FF0E70C0" />
+      <Setter Property="Stroke" Value="#FF0E70C0" />
+      <Setter Property="Icon" Value="CodeSchema_Class" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Property')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Property" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Method" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Method') Or HasCategory('CodeSchema_CallStackUnresolvedMethod')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Method" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Event" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Event')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Event" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Field')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Field" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Out Parameter" ValueLabel="Has category">
+      <Condition Expression="CodeSchemaProperty_IsOut = 'True'" />
+      <Setter Property="Icon" Value="CodeSchema_OutParameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Parameter" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Parameter')" />
+      <Setter Property="Icon" Value="CodeSchema_Parameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Local Variable" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_LocalExpression')" />
+      <Setter Property="Icon" Value="CodeSchema_LocalExpression" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Externals" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Externals')" />
+      <Setter Property="Background" Value="#FF424242" />
+      <Setter Property="Stroke" Value="#FF424242" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="True">
+      <Condition Expression="HasCategory('InheritsFrom')" />
+      <Setter Property="Stroke" Value="#FF00A600" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="True">
+      <Condition Expression="HasCategory('Implements')" />
+      <Setter Property="Stroke" Value="#8000A600" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Calls" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_Calls')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Function Pointer" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_FunctionPointer')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Read" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_FieldRead')" />
+      <Setter Property="Stroke" Value="#FF00AEEF" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Write" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_FieldWrite')" />
+      <Setter Property="Stroke" Value="#FF00AEEF" />
+      <Setter Property="DrawArrow" Value="true" />
+      <Setter Property="IsHidden" Value="false" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('InheritsFrom') And Target.HasCategory('CodeSchema_Class')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('Implements') And Target.HasCategory('CodeSchema_Interface')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Comment Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Source.HasCategory('Comment')" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Cursor Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCursorLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Disabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="DisabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="EnabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Instruction Pointer Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsInstructionPointerLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Callstack Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCurrentCallstackFrame" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Return" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CodeSchema_ReturnTypeLink')" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="References" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('References')" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Uses Attribute" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CodeSchema_AttributeUse')" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Solution Folder" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('CodeMap_SolutionFolder')" />
+      <Setter Property="Background" Value="#FFDEBA83" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Project Reference" ValueLabel="Project Reference">
+      <Condition Expression="HasCategory('CodeMap_ProjectReference')" />
+      <Setter Property="Stroke" Value="#9A9A9A" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="External Reference" ValueLabel="External Reference">
+      <Condition Expression="HasCategory('CodeMap_ExternalReference')" />
+      <Setter Property="Stroke" Value="#9A9A9A" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Comment" ValueLabel="Has comment">
+      <Condition Expression="HasCategory('Comment')" />
+      <Setter Property="Background" Value="#FFFFFACD" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+      <Setter Property="StrokeThickness" Value="1" />
+      <Setter Property="NodeRadius" Value="2" />
+      <Setter Property="MaxWidth" Value="250" />
+    </Style>
+  </Styles>
+</DirectedGraph>

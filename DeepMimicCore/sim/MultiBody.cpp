@@ -26,7 +26,7 @@ void cMultiBody::compTreeLinkVelocities(btVector3 *omega, btVector3 *vel) const
 	omega[0] = quatRotate(base_rot, getBaseOmega());
 	vel[0] = quatRotate(base_rot, getBaseVel());
 
-	for (int i = 0; i < num_links; ++i)
+	for (int i = 0; i < num_links; ++i)//15
 	{
 		const btMultibodyLink& link = getLink(i);
 		const int parent = link.m_parent;
@@ -39,7 +39,7 @@ void cMultiBody::compTreeLinkVelocities(btVector3 *omega, btVector3 *vel) const
 		// now add qidot * shat_i
 		//only supported for revolute/prismatic joints, todo: spherical and planar joints
 		const btScalar* jointVel = getJointVelMultiDof(i);
-		for (int dof = 0; dof < link.m_dofCount; ++dof)
+		for (int dof = 0; dof < link.m_dofCount; ++dof)//3
 		{
 			omega[i + 1] += jointVel[dof] * link.getAxisTop(dof);
 			vel[i + 1] += jointVel[dof] * link.getAxisBottom(dof);

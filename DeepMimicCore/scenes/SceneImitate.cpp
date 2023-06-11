@@ -277,10 +277,10 @@ bool cSceneImitate::BuildKinCharacter(int id, std::shared_ptr<cKinCharacter>& ou
 	cKinCharacter::tParams kin_char_params;
 
 	kin_char_params.mID = id;
-	kin_char_params.mCharFile = sim_char_params.mCharFile;
+	kin_char_params.mCharFile = sim_char_params.mCharFile;//../data/characters/humanoid3d.txt
 	kin_char_params.mOrigin = sim_char_params.mInitPos;
 	kin_char_params.mLoadDrawShapes = false;
-	kin_char_params.mMotionFile = mMotionFile;
+	kin_char_params.mMotionFile = mMotionFile;//../data/motions/humanoid3d_spinkick.txt
 
 	bool succ = kin_char->Init(kin_char_params);
 	if (succ)
@@ -344,13 +344,18 @@ void cSceneImitate::ResetKinChar()
 void cSceneImitate::SyncCharacters()
 {
 	const auto& kin_char = GetKinChar();
-	const Eigen::VectorXd& pose = kin_char->GetPose();
-	const Eigen::VectorXd& vel = kin_char->GetVel();
+	const Eigen::VectorXd& pose = kin_char->GetPose();//Eigen::Matrix<double,-1,1,0,-1,1> 
+	const Eigen::VectorXd& vel = kin_char->GetVel();//const Eigen::Matrix<double,-1,1,0,-1,1> 
 	
 	const auto& sim_char = GetCharacter();
 	sim_char->SetPose(pose);
 	sim_char->SetVel(vel);
 
+	/*[cCtPDController]
+	cCtController
+		cDeepMimicCharCon
+		cCharController
+		cController*/
 	const auto& ctrl = sim_char->GetController();
 	auto ct_ctrl = dynamic_cast<cCtController*>(ctrl.get());
 	if (ct_ctrl != nullptr)
@@ -394,7 +399,7 @@ void cSceneImitate::ResolveCharGroundIntersect(const std::shared_ptr<cSimCharact
 void cSceneImitate::SyncKinCharRoot()
 {
 	const auto& sim_char = GetCharacter();
-	tVector sim_root_pos = sim_char->GetRootPos();
+	tVector sim_root_pos = sim_char->GetRootPos();//Eigen::MatrixBase<Eigen::Matrix<double,4,1,0,4,1> >	
 	double sim_heading = sim_char->CalcHeading();
 
 	const auto& kin_char = GetKinChar();
@@ -422,15 +427,29 @@ void cSceneImitate::SyncKinCharNewCycle(const cSimCharacter& sim_char, cKinChara
 
 	if (mSyncCharRootPos)
 	{
+		/*[0] 0.23778474673628808	double
+			[1]	0.86422647178173062	double
+			[2]	0.14734950564801694	double
+			[3]	0.0000000000000000	double*/
+
 		tVector sim_root_pos = sim_char.GetRootPos();
-		tVector kin_root_pos = out_kin_char.GetRootPos();
-		kin_root_pos[0] = sim_root_pos[0];
+		/*[0] 0.23778474673628808	double
+			[1]	0.82502784922647043	double
+			[2]	0.14734950564801694	double
+			[3]	0.0000000000000000	double*/
+
+		tVector kin_root_pos = out_kin_char.GetRootPos();//kin_root_pos	{...}	Eigen::Matrix<double,4,1,0,4,1>
+		kin_root_pos[0] = sim_root_pos[0];//sim_root_pos	{...}	Eigen::Matrix<double,4,1,0,4,1>
 		kin_root_pos[2] = sim_root_pos[2];
+		/*[0] - 0.22189667409262037	double
+			[1] - 6.4584421588520513e-08	double
+			[2] - 0.044404052970989059	double
+			[3]	0.0000000000000000	double*/
 
 		tVector origin = out_kin_char.GetOriginPos();
-		double dh = kin_root_pos[1] - origin[1];
+		double dh = kin_root_pos[1] - origin[1];//0.825
 		double ground_h = mGround->SampleHeight(kin_root_pos);
-		kin_root_pos[1] = ground_h + dh;
+		kin_root_pos[1] = ground_h + dh;//0+0.825
 
 		out_kin_char.SetRootPos(kin_root_pos);
 	}

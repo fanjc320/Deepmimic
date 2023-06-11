@@ -303,19 +303,19 @@ std::string cCtController::GetName() const
 
 int cCtController::GetStatePoseSize() const
 {
-	int pos_dim = GetPosFeatureDim();
-	int rot_dim = GetRotFeatureDim();
-	int size = mChar->GetNumBodyParts() * (pos_dim + rot_dim) + 1; // +1 for root y
+	int pos_dim = GetPosFeatureDim();//3
+	int rot_dim = GetRotFeatureDim();//4
+	int size = mChar->GetNumBodyParts() * (pos_dim + rot_dim) + 1; // +1 for root y //106 15*7+1
 
-	return size;
+	return size;//106
 }
 
 int cCtController::GetStateVelSize() const
 {
-	int pos_dim = GetPosFeatureDim();
-	int rot_dim = GetRotFeatureDim();
-	int size = mChar->GetNumBodyParts() * (pos_dim + rot_dim - 1);
-	return size;
+	int pos_dim = GetPosFeatureDim();//3
+	int rot_dim = GetRotFeatureDim();//4
+	int size = mChar->GetNumBodyParts() * (pos_dim + rot_dim - 1);//90 15*(3+4-1)
+	return size;//90
 }
 
 int cCtController::GetStatePoseOffset() const
@@ -350,10 +350,10 @@ int cCtController::GetActionCtrlOffset() const
 
 int cCtController::GetActionCtrlSize() const
 {
-	int ctrl_size = mChar->GetNumDof();
-	int root_size = mChar->GetParamSize(mChar->GetRootID());
+	int ctrl_size = mChar->GetNumDof();//43
+	int root_size = mChar->GetParamSize(mChar->GetRootID());//7
 	ctrl_size -= root_size;
-	return ctrl_size;
+	return ctrl_size;//36
 }
 
 void cCtController::BuildStatePhaseOffsetScale(Eigen::VectorXd& phase_offset, Eigen::VectorXd& phase_scale) const

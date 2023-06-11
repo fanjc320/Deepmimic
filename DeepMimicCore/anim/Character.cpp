@@ -40,7 +40,7 @@ bool cCharacter::Init(const std::string& char_file, bool load_draw_shapes)
 	bool succ = true;
 	if (char_file != "")
 	{
-		std::ifstream f_stream(char_file);
+		std::ifstream f_stream(char_file);//../data/characters/humanoid3d.txt
 		Json::Reader reader;
 		Json::Value root;
 		succ = reader.parse(f_stream, root);
@@ -54,7 +54,7 @@ bool cCharacter::Init(const std::string& char_file, bool load_draw_shapes)
 			}
 			else
 			{
-				succ = LoadSkeleton(root[gSkeletonKey]);
+				succ = LoadSkeleton(root[gSkeletonKey]);//Skeleton
 			}
 		}
 	}

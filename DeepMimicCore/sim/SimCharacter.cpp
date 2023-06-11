@@ -704,10 +704,10 @@ void cSimCharacter::ApplyControlForces(const Eigen::VectorXd& tau)
 		if (joint.IsValid())
 		{
 			int param_offset = GetParamOffset(j);
-			int param_size = GetParamSize(j);
+			int param_size = GetParamSize(j);//2
 			if (param_size > 0)
 			{
-				Eigen::VectorXd curr_tau = tau.segment(param_offset, param_size);
+				Eigen::VectorXd curr_tau = tau.segment(param_offset, param_size);//11,4
 				joint.AddTau(curr_tau);
 			}
 		}
@@ -748,8 +748,8 @@ void cSimCharacter::SetPose(const Eigen::VectorXd& pose)
 	{
 		cSimBodyJoint& curr_joint = GetJoint(j);
 		int param_offset = GetParamOffset(j);
-		int param_size = GetParamSize(j);
-		Eigen::VectorXd curr_params = pose.segment(param_offset, param_size);
+		int param_size = GetParamSize(j);//j,2
+		Eigen::VectorXd curr_params = pose.segment(param_offset, param_size);//11,4
 		curr_joint.SetPose(curr_params);
 	}
 
@@ -801,7 +801,7 @@ bool cSimCharacter::BuildMultiBody(std::shared_ptr<cMultiBody>& out_body)
 	base_trans.setIdentity();
 	mMultBody->setBaseWorldTransform(base_trans);
 
-	for (int j = 0; j < num_joints; ++j)
+	for (int j = 0; j < num_joints; ++j)//15
 	{
 		cShape::eShape body_shape = cKinTree::GetBodyShape(mBodyDefs, j);
 		tVector body_size = cKinTree::GetBodySize(mBodyDefs, j);
@@ -932,7 +932,7 @@ bool cSimCharacter::BuildMultiBody(std::shared_ptr<cMultiBody>& out_body)
 		btTransform col_obj_trans;
 		col_obj_trans.setIdentity();
 		col_obj->setWorldTransform(col_obj_trans);
-		col_obj->setFriction(mFriction);
+		col_obj->setFriction(mFriction);//0.9
 
 		int collisionFilterGroup = GetPartColGroup(j);
 		int collisionFilterMask = GetPartColMask(j);
@@ -1437,7 +1437,7 @@ void cSimCharacter::BuildJointPose(int joint_id, Eigen::VectorXd& out_pose) cons
 		tVector root_pos = GetRootPos();
 		tQuaternion root_rot = GetRootRotation();
 
-		out_pose.segment(0, cKinTree::gPosDim) = root_pos.segment(0, cKinTree::gPosDim);
+		out_pose.segment(0, cKinTree::gPosDim) = root_pos.segment(0, cKinTree::gPosDim);//3
 		out_pose(cKinTree::gPosDim) = root_rot.w();
 		out_pose(cKinTree::gPosDim + 1) = root_rot.x();
 		out_pose(cKinTree::gPosDim + 2) = root_rot.y();
@@ -1461,7 +1461,7 @@ void cSimCharacter::BuildJointVel(int joint_id, Eigen::VectorXd& out_vel) const
 
 		tVector root_vel = GetRootVel();
 		tVector ang_vel = GetRootAngVel();
-		out_vel.segment(0, cKinTree::gPosDim) = root_vel.segment(0, cKinTree::gPosDim);
+		out_vel.segment(0, cKinTree::gPosDim) = root_vel.segment(0, cKinTree::gPosDim);//4,3
 		out_vel.segment(cKinTree::gPosDim, cKinTree::gRotDim) = ang_vel.segment(0, cKinTree::gRotDim);
 	}
 	else

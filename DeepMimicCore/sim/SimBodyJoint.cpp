@@ -354,7 +354,7 @@ void cSimBodyJoint::BuildPose(Eigen::VectorXd& out_pose) const
 	case cKinTree::eJointTypePlanar:
 	{
 		const auto& link = mMultBody->getLink(mParams.mID);
-		btVector3 bt_axis1 = link.getAxisBottom(1);
+		btVector3 bt_axis1 = link.getAxisBottom(1);//????
 		btVector3 bt_axis2 = link.getAxisBottom(2);
 		tVector axis1 = tVector(bt_axis1[0], bt_axis1[1], bt_axis1[2], 0);
 		tVector axis2 = tVector(bt_axis2[0], bt_axis2[1], bt_axis2[2], 0);
@@ -447,7 +447,7 @@ void cSimBodyJoint::BuildVel(Eigen::VectorXd& out_vel) const
 void cSimBodyJoint::SetPose(const Eigen::VectorXd& pose)
 {
 	btScalar data[7];
-	double world_scale = mWorld->GetScale();
+	double world_scale = mWorld->GetScale();//4
 
 	switch (GetType())
 	{
@@ -485,8 +485,17 @@ void cSimBodyJoint::SetPose(const Eigen::VectorXd& pose)
 		assert(false); // unsupported joint type
 		break;
 	}
+	/*
+	* data
+	[0] 0.00000000	float
+		[1]	0.00000000	float
+		[2]	0.00000000	float
+		[3]	1.00000000	float
+		[4] - 2.38151882e-22	float
+		[5]	3.293e-43#DEN	float
+		[6] - 2.38154911e-22	float*/
 
-	mMultBody->setJointPosMultiDof(mParams.mID, data);
+	mMultBody->setJointPosMultiDof(mParams.mID, data);//1,float[7]
 }
 
 void cSimBodyJoint::SetVel(const Eigen::VectorXd& vel)

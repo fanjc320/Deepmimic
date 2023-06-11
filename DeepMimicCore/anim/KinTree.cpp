@@ -439,17 +439,17 @@ bool cKinTree::Load(const Json::Value& root, Eigen::MatrixXd& out_joint_mat)
 
 	if (!root[gJointsKey].isNull())
 	{
-		Json::Value joints = root[gJointsKey];
+		Json::Value joints = root[gJointsKey];//"Joints"
 		int num_joints = joints.size();
 
 		out_joint_mat.resize(num_joints, eJointDescMax);
 		
-		for (int j = 0; j < num_joints; ++j)
+		for (int j = 0; j < num_joints; ++j)//15
 		{
 			tJointDesc curr_joint_desc = tJointDesc::Zero();
 
 			Json::Value joint_json = joints.get(j, 0);
-			succ = ParseJoint(joint_json, curr_joint_desc);
+			succ = ParseJoint(joint_json, curr_joint_desc);//Eigen::Matrix<double,1,19,1,1,19>
 			if (succ)
 			{
 				out_joint_mat.row(j) = curr_joint_desc;
