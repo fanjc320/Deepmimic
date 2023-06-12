@@ -6,6 +6,7 @@
 #include "util/JsonUtil.h"
 #include "render/MeshUtil.h"
 #include "render/DrawUtil.h"
+#include "util/easylogging++.h"
 #include <iostream>
 
 // Json keys
@@ -129,11 +130,11 @@ const Eigen::VectorXd& cCharacter::GetPose() const
 
 void cCharacter::SetPose(const Eigen::VectorXd& pose)
 {
-	printf("cCharacter::SetPose %d: dof:%d", pose.size(), GetNumDof());//43, 43
+	LOG(INFO) << "cCharacter::SetPose pose.size:" << pose.size() << " numDof:" << GetNumDof();//43, 43
 	assert(pose.size() == GetNumDof());
 	//printf("cCharacter::SetPose pose:%s", pose);//43, 43
-	std::cout << typeid(this).name() << " name:"  << std::endl;
-	std::cout <<  "SetPose pose:" << pose << std::endl;
+	LOG(INFO) << typeid(this).name() << " name:"  << std::endl;
+	LOG(INFO) << "SetPose pose:" << pose << std::endl;
 	mPose = pose;
 }
 

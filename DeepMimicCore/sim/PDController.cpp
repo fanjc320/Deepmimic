@@ -3,6 +3,7 @@
 
 #include "sim/SimCharacter.h"
 #include "util/FileUtil.h"
+#include "util/easylogging++.h"
 
 const std::string gPDParamKeys[cPDController::eParamMax] =
 {
@@ -267,9 +268,9 @@ void cPDController::GetTargetTheta(Eigen::VectorXd& out_theta) const
 		printf("Only revolute joints support world space targets\n");
 		assert(false);
 	}
-	std::cout << "cPDController::GetTargetTheta mparams:" << mParams << std::endl;
-	std::cout << "cPDController::GetTargetTheta startIdx:" << startIdx << " JointDim:" << numb << std::endl;
-	std::cout << "cPDController::GetTargetTheta out_theta:" << out_theta << std::endl;
+	LOG(INFO) << "cPDController::GetTargetTheta mparams:" << mParams << std::endl;
+	LOG(INFO) << "cPDController::GetTargetTheta startIdx:" << startIdx << " JointDim:" << numb << std::endl;
+	LOG(INFO) << "cPDController::GetTargetTheta out_theta:" << out_theta << std::endl;
 }
 
 void cPDController::GetTargetVel(Eigen::VectorXd& out_vel) const

@@ -7,6 +7,12 @@
 #include "render/DrawUtil.h"
 #include "render/TextureDesc.h"
 
+#include "util/easylogging++.h"
+
+INITIALIZE_EASYLOGGINGPP
+
+//TIMED_SCOPE(appTimer, "myapplication");
+
 // Dimensions of the window we are drawing into.
 int gWinWidth = 800;
 int gWinHeight = static_cast<int>(gWinWidth * 9.0 / 16.0);
@@ -379,7 +385,7 @@ int main(int argc, char** argv)
 		testBlock();
 		return 0;
 	}
-
+	LOG(INFO) << "Starting...";
 	FormatArgs(argc, argv, gArgs);
 	std::cout << "c++ gArgs0:" << gArgs[0] << std::endl;
 	InitDraw(argc, argv);
