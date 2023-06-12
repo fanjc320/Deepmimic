@@ -226,7 +226,10 @@ void cPDController::GetTargetTheta(Eigen::VectorXd& out_theta) const
 {
 	const cSimBodyJoint& joint = GetJoint();
 	cKinTree::eJointType joint_type = joint.GetType();
-	out_theta = mParams.segment(eParamTargetTheta0, GetJointDim());
+	//out_theta = mParams.segment(eParamTargetTheta0, GetJointDim());
+	Eigen::Index startIdx = eParamTargetTheta0;
+	Eigen::Index numb = GetJointDim();
+	out_theta = mParams.segment(startIdx, numb);
 
 	if (UseWorldCoord() && joint_type == cKinTree::eJointTypeRevolute)
 	{
@@ -264,6 +267,8 @@ void cPDController::GetTargetTheta(Eigen::VectorXd& out_theta) const
 		printf("Only revolute joints support world space targets\n");
 		assert(false);
 	}
+	std::cout << "cPDController::GetTargetTheta mparams:" << mParams << std::endl;
+	std::cout << "cPDController::GetTargetTheta startIdx:" << startIdx << " JointDim:" << numb << std::endl;
 	std::cout << "cPDController::GetTargetTheta out_theta:" << out_theta << std::endl;
 }
 

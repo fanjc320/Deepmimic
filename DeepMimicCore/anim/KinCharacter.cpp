@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <functional>
 #include "util/FileUtil.h"
+#include <iostream>
 
 const double gDiffTimeStep = 1 / 600.0;
 
@@ -181,6 +182,7 @@ double cKinCharacter::GetPhase() const
 void cKinCharacter::Pose(double time)
 {
 	CalcPose(time, mPose);//-0.00098164142623899625 
+	std::cout << typeid(this).name() << " cKinCharacter::SetPose:" << std::endl;
 	SetPose(mPose);
 
 	CalcVel(time, mVel);

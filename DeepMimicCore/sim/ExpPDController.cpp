@@ -24,8 +24,8 @@ void cExpPDController::Init(cSimCharacter* character, const Eigen::MatrixXd& pd_
 		cSimBodyJoint& joint = mChar->GetJoint(j);
 		if (joint.IsValid() && j != root_id)
 		{
-			const cPDController::tParams& curr_params = pd_params.row(j);
-			cPDController& ctrl = mPDCtrls[j];
+			const cPDController::tParams& curr_params = pd_params.row(j);//pd_params 15*18
+			cPDController& ctrl = mPDCtrls[j];//mPDCtrls 15*   mPDCtrls.mParams 18*
 			ctrl.Init(mChar, curr_params);
 		}
 	}

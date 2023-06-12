@@ -30,7 +30,7 @@ cDeepMimicCharController::~cDeepMimicCharController()
 void cDeepMimicCharController::Init(cSimCharacter* character, const std::string& param_file)
 {
 	cCharController::Init(character);
-	LoadParams(param_file);
+	LoadParams(param_file);//../data/controllers/humanoid3d_ctrl.txt
 	ResetParams();
 
 	mPosDim = GetPosDim();

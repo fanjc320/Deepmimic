@@ -724,6 +724,7 @@ void cSimCharacter::PlayPossum()
 
 void cSimCharacter::SetPose(const Eigen::VectorXd& pose)
 {
+	std::cout << typeid(this).name() << " cSimCharacter::SetPose:" << std::endl;
 	cCharacter::SetPose(pose);
 
 	double world_scale = mWorld->GetScale();

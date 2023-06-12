@@ -90,7 +90,7 @@ bool cCtrlBuilder::BuildCtPDController(const tCtrlParams& params, std::shared_pt
 	bool succ = true;
 	std::shared_ptr<cCtPDController> ctrl = std::shared_ptr<cCtPDController>(new cCtPDController());
 	ctrl->SetGravity(params.mGravity);
-	ctrl->Init(params.mChar.get(), params.mCtrlFile);
+	ctrl->Init(params.mChar.get(), params.mCtrlFile);//../data/controllers/humanoid3d_ctrl.txt
 
 	out_ctrl = ctrl;
 	return succ;

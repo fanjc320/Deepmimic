@@ -131,8 +131,9 @@ void cCharacter::SetPose(const Eigen::VectorXd& pose)
 {
 	printf("cCharacter::SetPose %d: dof:%d", pose.size(), GetNumDof());//43, 43
 	assert(pose.size() == GetNumDof());
-	printf("cCharacter::SetPose pose:%s", pose);//43, 43
-	std::cout << "pose:" << pose << std::endl;
+	//printf("cCharacter::SetPose pose:%s", pose);//43, 43
+	std::cout << typeid(this).name() << " name:"  << std::endl;
+	std::cout <<  "SetPose pose:" << pose << std::endl;
 	mPose = pose;
 }
 
