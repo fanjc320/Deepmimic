@@ -130,11 +130,12 @@ const Eigen::VectorXd& cCharacter::GetPose() const
 
 void cCharacter::SetPose(const Eigen::VectorXd& pose)
 {
-	LOG(INFO) << "cCharacter::SetPose pose.size:" << pose.size() << " numDof:" << GetNumDof();//43, 43
+	//LOG(INFO) << "cCharacter::SetPose pose.size:" << pose.size() << " numDof:" << GetNumDof();//43, 43
 	assert(pose.size() == GetNumDof());
 	//printf("cCharacter::SetPose pose:%s", pose);//43, 43
 	LOG(INFO) << typeid(this).name() << " name:"  << std::endl;
-	LOG(INFO) << "SetPose pose:" << pose << std::endl;
+	//2023 - 06 - 24 10:38 : 00, 680 INFO[default] SetPose pose : 0.196573    0.823141   0.155184 - 0.996209   0.041341 - 0.0174936  0.0745145   0.998254 - 0.0228024 - 0.0467271 - 0.0280122   0.973917  0.0597877  0.0670425 - 0.208364   0.962294 - 0.0616433  0.0471025   0.260713 - 0.853444   0.980188  0.0630586 - 0.0506006   0.180819   0.658726 - 0.681539 - 0.318458 - 0.0130367    1.14311   0.975012  0.0811481   0.172429   0.114174 - 0.63886   0.922632 - 0.266222  0.0204052   0.278318   0.696025   0.611018 - 0.29985   0.228683    1.47538
+	//LOG(INFO) << "SetPose pose:" << pose << std::endl;
 	mPose = pose;
 }
 

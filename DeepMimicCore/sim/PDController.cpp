@@ -39,7 +39,7 @@ bool cPDController::LoadParams(const std::string& file, Eigen::MatrixXd& out_buf
 	{
 		succ &= LoadParams(root, out_buffer);
 	}
-	
+
 	if (!succ)
 	{
 		printf("Failed to load PD controller parameters from %s\n", file.c_str());
@@ -134,6 +134,7 @@ void cPDController::Update(double time_step)
 	}
 }
 
+//not used
 void cPDController::UpdateControlForce(double time_step, Eigen::VectorXd& out_tau)
 {
 	cController::Update(time_step);
@@ -193,13 +194,14 @@ double cPDController::GetKd() const
 
 void cPDController::SetTargetTheta(const Eigen::VectorXd& theta)
 {
-	int theta_size = static_cast<int>(theta.size());
+	/*int theta_size = static_cast<int>(theta.size());
 	int joint_dim = GetJointDim();
 	assert(theta_size == joint_dim);
 	assert(theta_size < 7);
 	Eigen::VectorXd theta_proc = theta;
 	PostProcessTargetPose(theta_proc);
 	mParams.segment(eParamTargetTheta0, theta_size) = theta_proc;
+	LOG(INFO) << "cPDController::SetTargetTheta mparams:" << mParams << std::endl;*/
 }
 
 void cPDController::SetTargetVel(const Eigen::VectorXd& vel)
@@ -245,7 +247,7 @@ void cPDController::GetTargetTheta(Eigen::VectorXd& out_theta) const
 
 		tVector axis_ref = joint.CalcAxisWorld();
 		double theta_offset = axis_world.dot(axis_ref) * theta_world
-							- axis_rel.dot(axis_ref) * theta_rel;
+			- axis_rel.dot(axis_ref) * theta_rel;
 		out_theta(0) -= theta_offset;
 	}
 
@@ -268,9 +270,28 @@ void cPDController::GetTargetTheta(Eigen::VectorXd& out_theta) const
 		printf("Only revolute joints support world space targets\n");
 		assert(false);
 	}
-	LOG(INFO) << "cPDController::GetTargetTheta mparams:" << mParams << std::endl;
-	LOG(INFO) << "cPDController::GetTargetTheta startIdx:" << startIdx << " JointDim:" << numb << std::endl;
-	LOG(INFO) << "cPDController::GetTargetTheta out_theta:" << out_theta << std::endl;
+
+
+	/*2023 - 06 - 24 10:30 : 55, 298 INFO[default] cPDController::GetTargetTheta startIdx : 3 JointDim : 4
+		2023 - 06 - 24 10 : 30 : 55, 298 INFO[default] cPDController::GetTargetTheta out_theta : 1        0        0        0
+		2023 - 06 - 24 10 : 30 : 55, 298 INFO[default] cPDController::GetTargetTheta mparams : 3        500       50        1        0        0        0        0        0        0        0        0        0        0        0        0        0        0
+		2023 - 06 - 24 10 : 30 : 55, 299 INFO[default] cPDController::GetTargetTheta startIdx : 3 JointDim : 4
+		2023 - 06 - 24 10 : 30 : 55, 299 INFO[default] cPDController::GetTargetTheta out_theta : 1        0        0        0
+		2023 - 06 - 24 10 : 30 : 55, 299 INFO[default] cPDController::GetTargetTheta mparams : 4        500       50        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0
+		2023 - 06 - 24 10 : 30 : 55, 300 INFO[default] cPDController::GetTargetTheta startIdx : 3 JointDim : 1
+		2023 - 06 - 24 10 : 30 : 55, 300 INFO[default] cPDController::GetTargetTheta out_theta : 0
+		2023 - 06 - 24 10 : 30 : 55, 300 INFO[default] cPDController::GetTargetTheta mparams : 5        400       40        1        0        0        0        0        0        0        0        0        0        0        0        0        0        0
+		2023 - 06 - 24 10 : 30 : 55, 300 INFO[default] cPDController::GetTargetTheta startIdx : 3 JointDim : 4
+		2023 - 06 - 24 10 : 30 : 55, 300 INFO[default] cPDController::GetTargetTheta out_theta : 1        0        0        0
+		2023 - 06 - 24 10 : 30 : 55, 301 INFO[default] cPDController::GetTargetTheta mparams : 6        400       40        1        0        0        0        0        0        0        0        0        0        0        0        0        0        0
+		2023 - 06 - 24 10 : 30 : 55, 301 INFO[default] cPDController::GetTargetTheta startIdx : 3 JointDim : 4
+		2023 - 06 - 24 10 : 30 : 55, 301 INFO[default] cPDController::GetTargetTheta out_theta : 1        0        0        0
+		2023 - 06 - 24 10 : 30 : 55, 302 INFO[default] cPDController::GetTargetTheta mparams : 7        300       30        0        0        0        0        0        0        0        0        0        0        0        0        0        0        0*/
+
+
+		/*LOG(INFO) << "cPDController::GetTargetTheta mparams:" << mParams << std::endl;
+		LOG(INFO) << "cPDController::GetTargetTheta startIdx:" << startIdx << " JointDim:" << numb << std::endl;
+		LOG(INFO) << "cPDController::GetTargetTheta out_theta:" << out_theta << std::endl;*/
 }
 
 void cPDController::GetTargetVel(Eigen::VectorXd& out_vel) const

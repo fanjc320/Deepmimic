@@ -302,6 +302,9 @@
     <ClCompile Include="sim\DeepMimicCharController.cpp">
       <Filter>Source Files\sim</Filter>
     </ClCompile>
+    <ClCompile Include="util\easylogging++.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util\CircularBuffer.h">

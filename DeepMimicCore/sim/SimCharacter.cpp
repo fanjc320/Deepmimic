@@ -112,12 +112,12 @@ void cSimCharacter::Update(double timestep)
 void cSimCharacter::PostUpdate(double time_step)
 {
 	UpdateLinkVel();
-	BuildPose(mPose);
+	BuildPose(mPose);//这个mpose从setPose中设置
 	BuildVel(mVel);
 
 	if (HasController())
 	{
-		mController->PostUpdate(time_step);
+		mController->PostUpdate(time_step);// not important
 	}
 }
 
@@ -725,7 +725,7 @@ void cSimCharacter::PlayPossum()
 void cSimCharacter::SetPose(const Eigen::VectorXd& pose)
 {
 	std::cout << typeid(this).name() << " cSimCharacter::SetPose:" << std::endl;
-	cCharacter::SetPose(pose);
+	cCharacter::SetPose(pose);//设置目标pose? mPose
 
 	double world_scale = mWorld->GetScale();
 	int root_id = cKinTree::GetRoot(mJointMat);
@@ -1498,7 +1498,7 @@ void cSimCharacter::BuildVel(Eigen::VectorXd& out_vel) const
 	for (int j = 0; j < num_joints; ++j)
 	{
 		Eigen::VectorXd joint_vel;
-		BuildJointVel(j, joint_vel);
+	BuildJointVel(j, joint_vel);
 
 		int param_offset = GetParamOffset(j);
 		int param_size = GetParamSize(j);

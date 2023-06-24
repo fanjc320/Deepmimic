@@ -56,7 +56,8 @@ void cDeepMimicCharController::Update(double time_step)
 {
 	cCharController::Update(time_step);
 	UpdateCalcTau(time_step, mTau);
-	std::cout << "cDeepMimicCharController::Update mTau:" << mTau << std::endl;
+	//cDeepMimicCharController::Update mTau : 0   0        0        0        0        0        0 - 30.0735  63.0966 - 38.102        0  7.76936 - 0.161617 - 2.96099        0  7.31828  1.56478   50.806        0 - 25.1711  0.564266  1.50876  3.79242        0  42.3027  8.54618  107.495        0  30.3483  55.7257 - 23.9445  97.1431        0  111.793 - 7.02089  11.1509 - 9.86783        0 - 5.48032 - 1.07675 - 53.4865        0  6.14147
+	//std::cout << "cDeepMimicCharController::Update mTau:" << mTau << std::endl;
 	UpdateApplyTau(mTau);
 }
 

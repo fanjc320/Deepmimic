@@ -330,6 +330,7 @@
     <ClCompile Include="DeepMimicCore.cpp" />
     <ClCompile Include="util\Annealer.cpp" />
     <ClCompile Include="util\ArgParser.cpp" />
+    <ClCompile Include="util\easylogging++.cpp" />
     <ClCompile Include="util\FileUtil.cpp" />
     <ClCompile Include="util\IndexManager.cpp" />
     <ClCompile Include="util\JsonUtil.cpp" />
