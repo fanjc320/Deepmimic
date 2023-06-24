@@ -52,6 +52,7 @@ void cDeepMimicCharController::Clear()
 	ResetParams();
 }
 
+//注释掉之后，除了刚跳起来那一下，其余就像是面条了。
 void cDeepMimicCharController::Update(double time_step)
 {
 	cCharController::Update(time_step);

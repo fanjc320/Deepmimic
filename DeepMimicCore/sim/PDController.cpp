@@ -233,6 +233,7 @@ void cPDController::GetTargetTheta(Eigen::VectorXd& out_theta) const
 	Eigen::Index startIdx = eParamTargetTheta0;
 	Eigen::Index numb = GetJointDim();
 	out_theta = mParams.segment(startIdx, numb);
+	//LOG(INFO) << "cPDController::GetTargetTheta out_theta:" << out_theta;//0,0,0,0
 
 	if (UseWorldCoord() && joint_type == cKinTree::eJointTypeRevolute)
 	{
