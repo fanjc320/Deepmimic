@@ -101,7 +101,7 @@ class ReplayBuffer(object):
 
     def store(self, path):
         start_idx = MathUtil.INVALID_IDX
-        n = path.pathlength()
+        n = path.pathlength()#13
         
         if (n > 0):
             assert path.is_valid()
@@ -109,8 +109,15 @@ class ReplayBuffer(object):
             if path.check_vals():
                 if self.buffers is None:
                     self._init_buffers(path)
+                # path = {Path} < learni
+                # actions = {list: 12}
+                # flags = {list: 12}[
+                #     goals = {list: 13}[
+                #     logps = {list: 12}[
+                #     rewards = {list: 12}
+                # states = {list: 13}
 
-                idx = self._request_idx(n + 1)
+                idx = self._request_idx(n + 1) # idx:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
                 self._store_path(path, idx)
                 self._add_sample_buffers(idx)
 
@@ -202,7 +209,15 @@ class ReplayBuffer(object):
                         shape = [self.buffer_size]
                         dtype = val_type
                     
-                    self.buffers[key] = np.zeros(shape, dtype=dtype)
+                    self.buffers[key] = np.zeros(shape, dtype=dtype)# key:actions shape[500000,36] key:flags:500000 key:goals:[500000,0]
+                    # key:
+                    # actions = {list: 13
+                    # flags = {list: 13}
+                    # goals = {list: 14}
+                    # logps = {list: 13}
+                    # rewards = {list: 13}
+                    # states = {list: 14}
+
         return
 
     def _request_idx(self, n):
@@ -258,18 +273,31 @@ class ReplayBuffer(object):
             self.buffer_tail = idx[0]
         return
 
-    def _store_path(self, path, idx):
-        n = path.pathlength()
-        for key, data in self.buffers.items():
+    def _store_path(self, path, idx): # idx:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]/ [13...23]
+        n = path.pathlength() # 12
+        for key, data in self.buffers.items(): # 'path_end' , data: (500000,)[12 12 12 12 12 12 12 12 12 12 12 12 12 -1 -1 -1 -1
             if key != self.PATH_START_KEY and key != self.PATH_END_KEY and key != self.TERMINATE_KEY:
-                val = getattr(path, key)
-                val_len = len(val)
+                val = getattr(path, key)# val = {list: 12} [59.59307, 52.279263,
+                val_len = len(val) #12
                 assert val_len == n or val_len == n + 1
-                data[idx[:val_len]] = val
+                data[idx[:val_len]] = val #改变了buffers 的内容
 
-        self.buffers[self.TERMINATE_KEY][idx] = path.terminate.value
-        self.buffers[self.PATH_START_KEY][idx] = idx[0]
-        self.buffers[self.PATH_END_KEY][idx] = idx[-1]
+        self.buffers[self.TERMINATE_KEY][idx] = path.terminate.value # 1
+        self.buffers[self.PATH_START_KEY][idx] = idx[0] # [13...23]
+        self.buffers[self.PATH_END_KEY][idx] = idx[-1] #
+
+        # self.buffers
+        # 'goals' = {ndarray: (500000, 0)}
+        # 'actions' = {ndarray: (500000, 36)}
+        # 'rewards' = {ndarray: (500000,)}
+        # 'states' = {ndarray: (500000, 197)}
+        # 'path_start' = {ndarray: (500000,)}
+        # 'path_end' = {ndarray: (500000,)}
+        # 'terminate' = {ndarray: (500000,)}
+        # 'flags' = {ndarray: (500000,)}
+        # 'logps' = {ndarray: (500000,)}
+        # __len__ = {int}
+        # 9
         return
 
 class SampleBuffer(object):

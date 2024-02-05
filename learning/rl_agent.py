@@ -142,6 +142,15 @@ class RLAgent(ABC):
             if (self._mode == self.Mode.TRAIN or self._mode == self.Mode.TRAIN_END):
                 if (self.enable_training and self.path.pathlength() > 0):
                     self._store_path(self.path)
+            # self
+            # {
+            #     "ID": 0,
+            #     "Type": "PPO",
+            #     "ActionSpace": "Continuous",
+            #     "StateDim": 197,
+            #     "GoalDim": 0,
+            #     "ActionDim": 36
+            # }
             elif (self._mode == self.Mode.TEST):
                 self._update_test_return(self.path)
             else:
@@ -314,7 +323,7 @@ class RLAgent(ABC):
         return len(self.path.states) == 0
 
     def _end_path(self):
-        s = self._record_state()
+        s = self._record_state() # ndarray (197,)
         g = self._record_goal()
         r = self._record_reward()
 
@@ -338,7 +347,7 @@ class RLAgent(ABC):
         assert len(np.shape(logp)) <= 1
 
         flags = self._record_flags()
-        self._apply_action(a)
+        self._apply_action(a) # a:ndarray:(36,1)
 
         self.path.states.append(s)
         self.path.goals.append(g)
@@ -358,9 +367,9 @@ class RLAgent(ABC):
         return
 
     def _update_test_return(self, path):
-        path_reward = path.calc_return()
-        self.test_return += path_reward
-        self.test_episode_count += 1
+        path_reward = path.calc_return() # 2.37
+        self.test_return += path_reward # 2.37
+        self.test_episode_count += 1 # 1
         return
 
     def _update_mode(self):
@@ -462,6 +471,21 @@ class RLAgent(ABC):
                 os.makedirs(output_dir)
             self.save_model(output_path)
 
+        # iter = {int}
+        # 1
+        # output_dir = {str}
+        # 'output'
+        # output_path = {str}
+        # 'output/agent0_model.ckpt'
+        # self = {PPOAgent}
+        # {\n
+        # "ID": 0, \n
+        # "Type": "PPO", \n
+        # "ActionSpace": "Continuous", \n
+        # "StateDim": 197, \n
+        # "GoalDim": 0, \n
+        # "ActionDim": 36\n}
+
         if (self._enable_int_output() and self.iter % self.int_output_iters == 0):
             int_output_path = self._get_int_output_path()
             int_output_dir = os.path.dirname(int_output_path)
@@ -486,11 +510,11 @@ class RLAgent(ABC):
         return
     
     def _store_path(self, path):
-        path_id = self.replay_buffer.store(path)
+        path_id = self.replay_buffer.store(path) # 14
         valid_path = path_id != MathUtil.INVALID_IDX
 
         if valid_path:
-            self.train_return = path.calc_return()
+            self.train_return = path.calc_return() # train_return 3.6
 
             if self._need_normalizer_update:
                 self._record_normalizers(path)
@@ -499,7 +523,7 @@ class RLAgent(ABC):
 
     def _record_normalizers(self, path):
         states = np.array(path.states)
-        self.s_norm.record(states)
+        self.s_norm.record(states)# states: ndarray:(14,197) / (11,197)
 
         if self.has_goal():
             goals = np.array(path.goals)
@@ -515,8 +539,8 @@ class RLAgent(ABC):
         return
 
     def _train(self):
-        samples = self.replay_buffer.total_count
-        self._total_sample_count = int(MPIUtil.reduce_sum(samples))
+        samples = self.replay_buffer.total_count # 928
+        self._total_sample_count = int(MPIUtil.reduce_sum(samples)) # 928
         end_training = False
         
         if (self.replay_buffer_initialized):  
@@ -525,16 +549,16 @@ class RLAgent(ABC):
                 iters = self._get_iters_per_update()
                 avg_train_return = MPIUtil.reduce_avg(self.train_return)
             
-                for i in range(iters):
+                for i in range(iters):# 1
                     curr_iter = self.iter
                     wall_time = time.time() - self.start_time
                     wall_time /= 60 * 60 # store time in hours
 
-                    has_goal = self.has_goal()
-                    s_mean = np.mean(self.s_norm.mean)
-                    s_std = np.mean(self.s_norm.std)
-                    g_mean = np.mean(self.g_norm.mean) if has_goal else 0
-                    g_std = np.mean(self.g_norm.std) if has_goal else 0
+                    has_goal = self.has_goal()# false
+                    s_mean = np.mean(self.s_norm.mean) # 0.32
+                    s_std = np.mean(self.s_norm.std) #1.42
+                    g_mean = np.mean(self.g_norm.mean) if has_goal else 0 #0
+                    g_std = np.mean(self.g_norm.std) if has_goal else 0 #0
 
                     self.logger.log_tabular("Iteration", self.iter)
                     self.logger.log_tabular("Wall_Time", wall_time)

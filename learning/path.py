@@ -11,7 +11,7 @@ class Path(object):
 
     def is_valid(self):
         valid = True
-        l = self.pathlength()
+        l = self.pathlength() # l:10 / l:8 / l:15
         valid &= len(self.states) == l + 1
         valid &= len(self.goals) == l + 1
         valid &= len(self.actions) == l

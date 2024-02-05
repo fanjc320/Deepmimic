@@ -17,7 +17,7 @@
     <CommandLineArguments>--arg_file args/run_humanoid3d_spinkick_args.txt</CommandLineArguments>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
     <IsWindowsApplication>False</IsWindowsApplication>
-    <InterpreterId>CondaEnv|CondaEnv|tf_v1</InterpreterId>
+    <InterpreterId>Global|VisualStudio|deepmimc_py35</InterpreterId>
     <SuppressPackageInstallationPrompt>True</SuppressPackageInstallationPrompt>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -66,9 +66,13 @@
     <Folder Include="util\" />
   </ItemGroup>
   <ItemGroup>
+    <InterpreterReference Include="CondaEnv|CondaEnv|tensor_v1" />
     <InterpreterReference Include="CondaEnv|CondaEnv|tf_v1" />
     <InterpreterReference Include="Global|PythonCore|3.5" />
     <InterpreterReference Include="Global|PythonCore|3.9" />
+    <InterpreterReference Include="Global|VisualStudio|deepmimc_py35" />
+    <InterpreterReference Include="Global|VisualStudio|deepmimic_new" />
+    <InterpreterReference Include="Global|VisualStudio|tensorflow1.3.0" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

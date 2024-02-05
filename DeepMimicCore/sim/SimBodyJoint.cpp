@@ -1,6 +1,7 @@
 #include <iostream>
 #include "SimBodyJoint.h"
 #include "BulletDynamics/Featherstone/btMultiBodyLink.h"
+#include "util/easylogging++.h"
 
 cSimBodyJoint::tParams::tParams()
 {
@@ -651,6 +652,7 @@ void cSimBodyJoint::ApplyTauRevolute()
 	double world_scale = mWorld->GetScale();
 	btScalar bt_data[] = { static_cast<btScalar>(world_scale * world_scale * torque[2]) };
 	mMultBody->addJointTorqueMultiDof(mParams.mID, bt_data);
+	LOG(INFO) << "cSimBodyJoint::ApplyTauRevolute bt_data:" << bt_data << " torque:" << torque;
 }
 
 void cSimBodyJoint::ApplyTauPlanar()

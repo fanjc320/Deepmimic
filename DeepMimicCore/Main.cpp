@@ -126,8 +126,8 @@ void Update(double time_elapsed)
 				double r = gCore->CalcReward(id);//0.99890062977706384
 				++gSampleCount;
 
-				std::vector<double> action = std::vector<double>(gCore->GetActionSize(id), 0);
-				gCore->SetAction(id, action);//0, size:36 只是initialize?
+				//std::vector<double> action = std::vector<double>(gCore->GetActionSize(id), 0);
+				//gCore->SetAction(id, action);//0, size:36 只是initialize?
 			}
 		}
 

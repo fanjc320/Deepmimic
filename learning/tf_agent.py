@@ -66,7 +66,7 @@ class TFAgent(RLAgent):
     def _init_normalizers(self):
         with self.sess.as_default(), self.graph.as_default():
             # update normalizers to sync the tensorflow tensors
-            self.s_norm.update()
+            self.s_norm.update()#????where it define?
             self.g_norm.update()
             self.a_norm.update()
         return

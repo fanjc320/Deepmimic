@@ -61,10 +61,10 @@ def update_intermediate_buffer():
 
 def update_world(world, time_elapsed):
     num_substeps = world.env.get_num_update_substeps()
-    timestep = time_elapsed / num_substeps
-    num_substeps = 1 if (time_elapsed == 0) else num_substeps
+    timestep = time_elapsed / num_substeps # 0.001666...
+    num_substeps = 1 if (time_elapsed == 0) else num_substeps #10
 
-    for i in range(num_substeps):
+    for i in range(num_substeps): #10
         world.update(timestep)
 
         valid_episode = world.env.check_valid_episode()
@@ -282,9 +282,9 @@ def setup_draw():
     glutMouseFunc(mouse_click)
     glutMotionFunc(mouse_move)
     glutTimerFunc(display_anim_time, animate, 0)
-
-    reshape(win_width, win_height)
-    world.env.reshape(win_width, win_height)
+    #
+    # reshape(win_width, win_height)
+    # world.env.reshape(win_width, win_height) # Process finished with exit code -1073741819 (0xC0000005)
     
     return
 

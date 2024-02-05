@@ -224,6 +224,14 @@ class PPOAgent(PGAgent):
                 critic_g = self.replay_buffer.get('goals', critic_batch) if self.has_goal() else None
                 curr_critic_loss = self._update_critic(critic_s, critic_g, critic_batch_vals)
 
+                # critic_batch = {ndarray: (256,)}[860
+                # 25
+                # 1699
+                # critic_batch_vals = {ndarray: (256,)}[6.300978
+                # critic_loss = {int}
+                # 0
+                # critic_s = {ndarray: (256, 197)}[[0.36488634
+
                 actor_s = self.replay_buffer.get("states", actor_batch[:,0])
                 actor_g = self.replay_buffer.get("goals", actor_batch[:,0]) if self.has_goal() else None
                 actor_a = self.replay_buffer.get("actions", actor_batch[:,0])
@@ -234,20 +242,34 @@ class PPOAgent(PGAgent):
                 actor_loss += np.abs(curr_actor_loss)
                 actor_clip_frac += curr_actor_clip_frac
 
+                # actor_a = {ndarray: (256, 36)}[[-5.8099262e-02 - 2.
+                #                                 actor_batch = {ndarray: (256, 2)}[[1824 1676], [31
+                #                                                                                 actor_batch_adv =
+                # {ndarray: (256,)}[-0.96549183 - 0
+                # actor_clip_frac = {float64}
+                # 0.4276041666666667
+                # actor_g = {NoneType}
+                # None
+                # actor_logp = {ndarray: (256,)}[63.07611
+                # 58.037422
+                # actor_loss = {float64}
+                # 0.3463166356086731
+                # actor_s = {ndarray: (256, 197)}[[4.33014959e-01
+
                 if (shuffle_actor):
-                    np.random.shuffle(exp_idx)
+                    np.random.shuffle(exp_idx) # (3804,2)
 
         total_batches = mini_batches * self.epochs
         critic_loss /= total_batches
         actor_loss /= total_batches
         actor_clip_frac /= total_batches
 
-        critic_loss = MPIUtil.reduce_avg(critic_loss)
-        actor_loss = MPIUtil.reduce_avg(actor_loss)
-        actor_clip_frac = MPIUtil.reduce_avg(actor_clip_frac)
+        critic_loss = MPIUtil.reduce_avg(critic_loss)#0.04
+        actor_loss = MPIUtil.reduce_avg(actor_loss)#0.29
+        actor_clip_frac = MPIUtil.reduce_avg(actor_clip_frac)# 0.337
 
-        critic_stepsize = self.critic_solver.get_stepsize()
-        actor_stepsize = self.update_actor_stepsize(actor_clip_frac)
+        critic_stepsize = self.critic_solver.get_stepsize()#0.01
+        actor_stepsize = self.update_actor_stepsize(actor_clip_frac)#little
 
         self.logger.log_tabular('Critic_Loss', critic_loss)
         self.logger.log_tabular('Critic_Stepsize', critic_stepsize)
@@ -269,7 +291,7 @@ class PPOAgent(PGAgent):
         exp_samples = self.replay_buffer.count_filtered(self.EXP_ACTION_FLAG)
         global_sample_count = int(MPIUtil.reduce_sum(samples))
         global_exp_min = int(MPIUtil.reduce_min(exp_samples))
-        return (global_sample_count > self.batch_size) and (global_exp_min > 0)
+        return (global_sample_count > self.batch_size) and (global_exp_min > 0) #1198 4096 1099
 
     def _compute_batch_vals(self, start_idx, end_idx):
         states = self.replay_buffer.get_all("states")[start_idx:end_idx]

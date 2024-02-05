@@ -31,6 +31,24 @@ class Normalizer(object):
         return
 
     def record(self, x):
+        # x = {ndarray: (14, 197)}[
+        #     [9.94935710e-01  8.84977356e-01  6.22163681e-03...  6.35215340e-01, 4.67774059e+00 - 7.94864161e+00], [
+        #         2.48281949e-03  8.72950969e-01 - 1.81474826e-03...  7.23735399e-01, 4.48241944e-01 - 2.27346621e+00], [
+        #         1.00299289e-02  8.44439816e-01 - 4.04141510e
+        #         array = {
+        #                     NdArrayItemsContainer} < pydevd_plugins.extensions.types.pydevd_plugin_numpy_types.NdArrayItemsContainer
+        # object
+        # at
+        # 0x000001799B48E438 >
+        # dtype = {dtype: 0}
+        # float64
+        # max = {float64}
+        # 19.670763372495387
+        # min = {float64} - 17.719782374323994
+        # shape = {tuple: 2}(14, 197)
+        # size = {int}
+        # 2758
+
         size = self.get_size()
         is_array = isinstance(x, np.ndarray)
         if not is_array:
@@ -41,15 +59,23 @@ class Normalizer(object):
             Logger.print('Normalizer shape mismatch, expecting size {:d}, but got {:d}'.format(size, x.shape[-1]))
         x = np.reshape(x, [-1, size])
 
-        self.new_count += x.shape[0]
-        self.new_sum += np.sum(x, axis=0)
-        self.new_sum_sq += np.sum(np.square(x), axis=0)
+        self.new_count += x.shape[0] # 27（14,197）
+        self.new_sum += np.sum(x, axis=0) # （197，）
+        # max = {float64}
+        # 105.13273137832756
+        # min = {float64} - 112.60357648939559
+        # shape = {tuple: 1}
+        # 197
+        # size = {int}
+        # 197
+
+        self.new_sum_sq += np.sum(np.square(x), axis=0) #(197,)
         return
 
     def update(self):
         new_count = MPIUtil.reduce_sum(self.new_count)
-        new_sum = MPIUtil.reduce_sum(self.new_sum)
-        new_sum_sq = MPIUtil.reduce_sum(self.new_sum_sq)
+        new_sum = MPIUtil.reduce_sum(self.new_sum) #(197,)
+        new_sum_sq = MPIUtil.reduce_sum(self.new_sum_sq) #(197,)
 
         new_total = self.count + new_count
         if (self.count // self.CHECK_SYNC_COUNT != new_total // self.CHECK_SYNC_COUNT):
@@ -61,10 +87,10 @@ class Normalizer(object):
             w_old = float(self.count) / new_total
             w_new = float(new_count) / new_total
 
-            self.mean = w_old * self.mean + w_new * new_mean
+            self.mean = w_old * self.mean + w_new * new_mean #(197,)
             self.mean_sq = w_old * self.mean_sq + w_new * new_mean_sq
             self.count = new_total
-            self.std = self.calc_std(self.mean, self.mean_sq)
+            self.std = self.calc_std(self.mean, self.mean_sq) #(197)
 
             self.new_count = 0
             self.new_sum.fill(0)

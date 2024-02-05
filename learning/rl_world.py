@@ -39,7 +39,7 @@ class RLWorld(object):
     enable_training = property(get_enable_training, set_enable_training)
     
     def parse_args(self, arg_parser):
-        self.train_agents = self.arg_parser.parse_bools('train_agents')
+        self.train_agents = self.arg_parser.parse_bools('train_agents')# run....txt才有 且都是--train_agents = false
         num_agents = self.env.get_num_agents()
         assert(len(self.train_agents) == num_agents or len(self.train_agents) == 0)
 
@@ -56,14 +56,14 @@ class RLWorld(object):
         Logger.print('')
         Logger.print('Num Agents: {:d}'.format(num_agents))
 
-        agent_files = self.arg_parser.parse_strings('agent_files')
+        agent_files = self.arg_parser.parse_strings('agent_files')# run和train 都有
         assert(len(agent_files) == num_agents or len(agent_files) == 0)
 
-        model_files = self.arg_parser.parse_strings('model_files')
+        model_files = self.arg_parser.parse_strings('model_files')# run 才有
         assert(len(model_files) == num_agents or len(model_files) == 0)
 
-        output_path = self.arg_parser.parse_string('output_path')
-        int_output_path = self.arg_parser.parse_string('int_output_path')
+        output_path = self.arg_parser.parse_string('output_path')# train
+        int_output_path = self.arg_parser.parse_string('int_output_path') # train 才有
 
         for i in range(num_agents):
             curr_file = agent_files[i]
